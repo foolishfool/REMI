@@ -22,7 +22,7 @@
     "Expression": "Surprise",
     "NextDialogueID": 0,
     "NextOperation": 3,
-    "Option1": " ",
+    "Option1": "WhiteScreenBehavior",
     "Option1NextDialogue": 0,
     "Option2": " ",
     "Option2NextDialogue": 0,

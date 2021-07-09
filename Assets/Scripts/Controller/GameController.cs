@@ -16,14 +16,12 @@ public class GameController : MonoBehaviour
     public bool OptionClicked;
     [HideInInspector]
     public int CurrentQuestionID;
-    [HideInInspector]
-    public int CurrentEffectID;
-
+    public string CurrentEffectName;
     [HideInInspector]
     public GameObject CurrentEffect;
     public int NewDialogueID;
     static GameController instance;
-
+    private UIController uiController;
     public List<GameObject> Questions;
     public List<GameObject> Effects;
     public static GameController Instance
@@ -52,7 +50,11 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        if (GameObject.Find("UIController"))
+        {
+            uiController = GameObject.Find("UIController").GetComponent<UIController>();
+        }
+        
     }
 
     // Update is called once per frame
@@ -63,6 +65,7 @@ public class GameController : MonoBehaviour
 
     public void ShowNextDialogue(int ID)
     {
+        uiController = GameObject.Find("UIController").GetComponent<UIController>();
         //reset
         ShowDialogueFrameAnimation = false;
         ShowOptions = false;
@@ -70,24 +73,30 @@ public class GameController : MonoBehaviour
         ShowEffect = false;
         CurrentDialogueID = ID;
 
-        GameObject newDialogue = Instantiate(DialoguePrefab, GameObject.Find("UIController").GetComponent<UIController>().DialoguePos.position, Quaternion.identity);
-        newDialogue.transform.parent = GameObject.Find("UIController").transform;
+        GameObject newDialogue = Instantiate(DialoguePrefab, uiController.DialoguePos.position, Quaternion.identity);
+        newDialogue.transform.parent = uiController.transform;
         if (DataHandler.Instance.CurrentPersonID != DataHandler.Instance.AllDialogueDatas[ID].PersonID && DataHandler.Instance.CurrentPersonID != 0)
         {
-            GameObject.Find("UIController").GetComponent<UIController>().DialogueFrame.SetActive(true);
-            GameObject.Find("UIController").GetComponent<UIController>().DialogueFrame.transform.DOMoveY(GameObject.Find("UIController").GetComponent<UIController>().DialogueFrameInitialPos.position.y,0f);
+            uiController.HidePersonUI();
+            uiController.DialogueFrame.SetActive(true);
+            uiController.DialogueFrame.transform.DOMoveY(uiController.DialogueFrameInitialPos.position.y,0f);
             LeftSizeShow = !LeftSizeShow;
             DataHandler.Instance.CurrentPersonID = DataHandler.Instance.AllDialogueDatas[ID].PersonID;
             ShowDialogueFrameAnimation = true;
-            GameObject.Find("UIController").GetComponent<UIController>().DialogueFrame.transform.DOMoveY(GameObject.Find("UIController").GetComponent<UIController>().DialogueFramePos.position.y, 1f);
+            uiController.DialogueFrame.transform.DOMoveY(uiController.DialogueFramePos.position.y, 0.5f).OnComplete(() => uiController.NewDialoguePersonUIUpdate(ID));
         }
         else if (DataHandler.Instance.CurrentPersonID == 0)
         {
             DataHandler.Instance.CurrentPersonID = DataHandler.Instance.AllDialogueDatas[ID].PersonID;
             ShowDialogueFrameAnimation = true;
-            GameObject.Find("UIController").GetComponent<UIController>().DialogueFrame.transform.DOMoveY(GameObject.Find("UIController").GetComponent<UIController>().DialogueFramePos.position.y, 1f);
+            uiController.DialogueFrame.transform.DOMoveY(uiController.DialogueFramePos.position.y, 0.5f).OnComplete(() => uiController.NewDialoguePersonUIUpdate(ID));
         }
-        GameObject.Find("UIController").GetComponent<UIController>().NewDialoguePersonUIUpdate(ID);
+        else if (DataHandler.Instance.CurrentPersonID == DataHandler.Instance.AllDialogueDatas[ID].PersonID)
+        {
+            //only update expression
+            uiController.NewDialoguePersonUIUpdate(ID);
+        }
+
         newDialogue.GetComponent<Dialogue>().ReadDialogueData(ID);
         newDialogue.GetComponent<Dialogue>().InitializeUI();
     }
@@ -95,7 +104,9 @@ public class GameController : MonoBehaviour
 
     public void ShowNextQuestion()
     {
-        Questions[CurrentQuestionID].SetActive(true);
+        GameObject newQuestion = Instantiate(Questions[CurrentQuestionID], GameObject.Find(Questions[CurrentQuestionID].name + "Pos").transform.position,Quaternion.identity);
+        newQuestion.transform.SetParent(uiController.transform);
+        uiController.HidePersonUI();
 
     }
 

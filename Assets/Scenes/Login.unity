@@ -585,8 +585,10 @@ MonoBehaviour:
   OptionClicked: 0
   CurrentQuestionID: 0
   CurrentEffectID: 0
+  CurrentEffect: {fileID: 0}
   NewDialogueID: 0
-  Questions: []
+  Questions:
+  - {fileID: 7668036900225514676, guid: eabb50205ec15304c9679baa322886f4, type: 3}
   Effects:
   - {fileID: 6094624291069662354, guid: 48c2459065e9fcb4b817da47b0914bd0, type: 3}
   - {fileID: 6094624291069662354, guid: 48c2459065e9fcb4b817da47b0914bd0, type: 3}
