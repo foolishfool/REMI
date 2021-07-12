@@ -1076,7 +1076,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 133.7, y: 46.5}
+  m_AnchoredPosition: {x: 115.795, y: 67.5}
   m_SizeDelta: {x: 233, y: 233}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3145186856905744202
@@ -1809,6 +1809,7 @@ MonoBehaviour:
   SubmitButton: {fileID: 6209930861741998278}
   MaxChoiceNum: 3
   scrollBar: {fileID: 7668036901293660302}
+  IsLogIn: 0
 --- !u!1 &7668036900272626782
 GameObject:
   m_ObjectHideFlags: 0

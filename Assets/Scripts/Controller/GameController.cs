@@ -8,7 +8,10 @@ public class GameController : MonoBehaviour
 {
     [HideInInspector]
     public int CurrentDialogueID;
+    [HideInInspector]
+    public Dialogue CurrentDialogue;
     public GameObject DialoguePrefab;
+    public GameObject DialoguePrefabBig;
     public bool LeftSizeShow = true;
     public bool ShowDialogueFrameAnimation;
     public bool ShowOptions;
@@ -16,7 +19,6 @@ public class GameController : MonoBehaviour
     public bool OptionClicked;
     [HideInInspector]
     public int CurrentQuestionID;
-    public string CurrentEffectName;
     [HideInInspector]
     public GameObject CurrentEffect;
     public int NewDialogueID;
@@ -24,6 +26,11 @@ public class GameController : MonoBehaviour
     private UIController uiController;
     public List<GameObject> Questions;
     public List<GameObject> Effects;
+    [HideInInspector]
+    public int CurrentSceneID;
+    [HideInInspector]
+    public bool IsBigUI;
+
     public static GameController Instance
     {
         get
@@ -65,6 +72,11 @@ public class GameController : MonoBehaviour
 
     public void ShowNextDialogue(int ID)
     {
+        if (!DataHandler.Instance.AllDialogueDatas.ContainsKey(ID))
+        {
+            return;
+        }
+
         uiController = GameObject.Find("UIController").GetComponent<UIController>();
         //reset
         ShowDialogueFrameAnimation = false;
@@ -72,28 +84,66 @@ public class GameController : MonoBehaviour
         OptionClicked = false;
         ShowEffect = false;
         CurrentDialogueID = ID;
+        IsBigUI = false;
 
-        GameObject newDialogue = Instantiate(DialoguePrefab, uiController.DialoguePos.position, Quaternion.identity);
+        GameObject newDialogue;
+
+        if (DataHandler.Instance.AllDialogueDatas[ID].IsBigUI == 1)
+        {
+             IsBigUI = true;
+             newDialogue = Instantiate(DialoguePrefabBig, uiController.DialoguePos.position, Quaternion.identity);
+        }
+        else 
+         newDialogue = Instantiate(DialoguePrefab, uiController.DialoguePos.position, Quaternion.identity);
         newDialogue.transform.parent = uiController.transform;
+        newDialogue.transform.localScale = Vector3.one;
+        CurrentDialogue = newDialogue.GetComponent<Dialogue>();
         if (DataHandler.Instance.CurrentPersonID != DataHandler.Instance.AllDialogueDatas[ID].PersonID && DataHandler.Instance.CurrentPersonID != 0)
         {
             uiController.HidePersonUI();
-            uiController.DialogueFrame.SetActive(true);
-            uiController.DialogueFrame.transform.DOMoveY(uiController.DialogueFrameInitialPos.position.y,0f);
+            if (IsBigUI)
+            {
+                uiController.DialogueFrame.SetActive(false);
+                uiController.DialogueFrameBig.SetActive(true);
+                uiController.DialogueFrameBig.transform.DOMoveY(uiController.DialogueFrameInitialPos.position.y, 0f);
+            }
+            else {
+                uiController.DialogueFrame.SetActive(false);
+                uiController.DialogueFrame.SetActive(true);
+                uiController.DialogueFrame.transform.DOMoveY(uiController.DialogueFrameInitialPos.position.y, 0f);
+            }
+          
+        
             LeftSizeShow = !LeftSizeShow;
             DataHandler.Instance.CurrentPersonID = DataHandler.Instance.AllDialogueDatas[ID].PersonID;
             ShowDialogueFrameAnimation = true;
+            if (IsBigUI)
+            {
+                uiController.DialogueFrameBig.transform.DOMoveY(uiController.DialogueFramePosBig.position.y, 0.5f).OnComplete(() => uiController.NewDialoguePersonUIUpdate(ID));
+            }
+            else
             uiController.DialogueFrame.transform.DOMoveY(uiController.DialogueFramePos.position.y, 0.5f).OnComplete(() => uiController.NewDialoguePersonUIUpdate(ID));
         }
         else if (DataHandler.Instance.CurrentPersonID == 0)
         {
             DataHandler.Instance.CurrentPersonID = DataHandler.Instance.AllDialogueDatas[ID].PersonID;
             ShowDialogueFrameAnimation = true;
+            if (IsBigUI)
+            {
+                uiController.DialogueFrameBig.transform.DOMoveY(uiController.DialogueFramePosBig.position.y, 0.5f).OnComplete(() => uiController.NewDialoguePersonUIUpdate(ID));
+            }
+            else
             uiController.DialogueFrame.transform.DOMoveY(uiController.DialogueFramePos.position.y, 0.5f).OnComplete(() => uiController.NewDialoguePersonUIUpdate(ID));
         }
         else if (DataHandler.Instance.CurrentPersonID == DataHandler.Instance.AllDialogueDatas[ID].PersonID)
         {
             //only update expression
+            if (IsBigUI)
+            {
+                uiController.DialogueFrameBig.SetActive(true);
+            }
+            else
+            uiController.DialogueFrame.SetActive(true);
             uiController.NewDialoguePersonUIUpdate(ID);
         }
 
@@ -106,16 +156,12 @@ public class GameController : MonoBehaviour
     {
         GameObject newQuestion = Instantiate(Questions[CurrentQuestionID], GameObject.Find(Questions[CurrentQuestionID].name + "Pos").transform.position,Quaternion.identity);
         newQuestion.transform.SetParent(uiController.transform);
+        newQuestion.transform.localScale = Vector3.one;
         uiController.HidePersonUI();
 
     }
 
-    public void QuestionFinished()
-    {
-        //save QuestionResult
-        Questions[CurrentQuestionID].SetActive(false);
-        CurrentQuestionID++;
-    }
+
 
 
     public void LoadScene()

@@ -13,9 +13,9 @@ public class DataHandler : MonoBehaviour
     public Dictionary<int, DialogueData> AllDialogueDatas = new Dictionary<int, DialogueData>();
     [HideInInspector]
     public Dictionary<int, Question> AllQuestionData = new Dictionary<int, Question>();
+ 
+    public string CurrentUserID;
 
-
-    public int CurrentDialogueID;
     public int CurrentPersonID;
 
     public string UserID;

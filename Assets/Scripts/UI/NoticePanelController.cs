@@ -10,7 +10,7 @@ public class NoticePanelController : MonoBehaviour
     Text noticePosition;
     [SerializeField]
     GameObject noticeText;
-
+    public Transform FinialPos;
     static NoticePanelController instance;
     //whether all team member are dead
 

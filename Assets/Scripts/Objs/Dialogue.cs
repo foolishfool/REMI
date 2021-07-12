@@ -14,16 +14,21 @@ public class Dialogue : MonoBehaviour
     [HideInInspector] public string Expression;
     [HideInInspector] public int NextDialogueID;
     [HideInInspector] public int NextOperation;
+    [HideInInspector] public int NextEffectID;
+
     [HideInInspector] public string Option1;
     [HideInInspector] public int Option1NextDialogue;
     [HideInInspector] public string Option2;
     [HideInInspector] public int Option2NextDialogue;
     [HideInInspector] public string Option3;
     [HideInInspector] public int Option3NextDialogue;
+    [HideInInspector]
+    public int IsBigUI;
 
     public GameObject NextButton;
 
     public TextMeshProUGUI DialogueDetails;
+
 
     public Option OptionObj1;
     public Option OptionObj2;
@@ -33,10 +38,12 @@ public class Dialogue : MonoBehaviour
     public TextMeshProUGUI Option2Text;
     public TextMeshProUGUI Option3Text;
 
+    private UIController uicontroller;
 
     // Start is called before the first frame update
     void Start()
     {
+        uicontroller = GameObject.Find("UIController").GetComponent<UIController>();
     }
 
     // Update is called once per frame
@@ -53,8 +60,10 @@ public class Dialogue : MonoBehaviour
         PersonID = DataHandler.Instance.AllDialogueDatas[id].PersonID;
         DialogueText = DataHandler.Instance.AllDialogueDatas[id].DialogueText;
         Expression = DataHandler.Instance.AllDialogueDatas[id].Expression;
+        IsBigUI = DataHandler.Instance.AllDialogueDatas[id].IsBigUI;
         NextDialogueID = DataHandler.Instance.AllDialogueDatas[id].NextDialogueID;
         NextOperation = DataHandler.Instance.AllDialogueDatas[id].NextOperation;
+        NextEffectID = DataHandler.Instance.AllDialogueDatas[id].NextEffectID;
         Option1 = DataHandler.Instance.AllDialogueDatas[id].Option1;
         Option1NextDialogue = DataHandler.Instance.AllDialogueDatas[id].Option1NextDialogue;
         Option2 = DataHandler.Instance.AllDialogueDatas[id].Option2;
@@ -84,6 +93,7 @@ public class Dialogue : MonoBehaviour
                     {
                         GameController.Instance.OptionClicked = false;
                         GameController.Instance.ShowNextDialogue(GameController.Instance.NewDialogueID);
+                        uicontroller.HideCrystals();
                         Destroy(gameObject);
                     }
 
@@ -105,9 +115,14 @@ public class Dialogue : MonoBehaviour
                     else
                     {
                         GameController.Instance.ShowEffect = false;
-                        Invoke("StopEffect" + Option1,0f);
-                        GameObject.Find("UIController").GetComponent<UIController>().HidePersonUI();                 
-                        GameController.Instance.ShowNextDialogue(GameController.Instance.CurrentDialogueID+1);
+                        //NextEffectID start from 1
+                        StopEffectWhiteScreenBehavior(NextEffectID-1);
+                        uicontroller.HidePersonUI();
+                        if (NextEffectID!=3)
+                        {
+                            GameController.Instance.ShowNextDialogue(GameController.Instance.CurrentDialogueID + 1);
+                        }
+                     
                         Destroy(gameObject);
 
                     }
@@ -131,10 +146,10 @@ public class Dialogue : MonoBehaviour
     {
 
         DialogueDetails.text = DialogueText;
-        if (DialogueDetails.text == " ")
-        {
-            GameObject.Find("UIController").GetComponent<UIController>().DialogueFrame.SetActive(false);
-        }
+      // if (DialogueDetails.text == " ")
+      // {
+      //     GameObject.Find("UIController").GetComponent<UIController>().DialogueFrame.SetActive(false);
+      // }
 
         Option1Text.text = Option1;
         Option2Text.text = Option2;
@@ -142,6 +157,7 @@ public class Dialogue : MonoBehaviour
         OptionObj1.NextDialogueID = Option1NextDialogue;
         OptionObj2.NextDialogueID = Option2NextDialogue;
         OptionObj3.NextDialogueID = Option3NextDialogue;
+
 
         StartCoroutine(UIShowBehavior(GameController.Instance.ShowDialogueFrameAnimation));
     }
@@ -160,28 +176,55 @@ public class Dialogue : MonoBehaviour
 
     public void ShowEffect()
     {
-        StartCoroutine(Option1);
-        GameController.Instance.CurrentEffectName = Option1;
+        NextButton.SetActive(false);
+        //as
+        WhiteScreenShow(NextEffectID-1);
+
         DialogueDetails.gameObject.SetActive(false);
         GameController.Instance.ShowEffect = true;
     }
 
-    public void StopEffectWhiteScreenBehavior()
+
+    public void WhiteScreenShow(int whitescreenid)
     {
-        GameObject.Find("UIController").GetComponent<UIController>().WhiteScreen.DOColor(new Color(Color.white.a, Color.white.g, Color.white.b, 0), 1f);
-        GameObject.Find("UIController").GetComponent<UIController>().WhiteScreen.transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOColor(new Color(Color.white.a, Color.white.g, Color.white.b, 0), 1f);
+        StartCoroutine(WhiteScreenBehavior(whitescreenid));
     }
 
-    public IEnumerator WhiteScreenBehavior()
+    public void StopEffectWhiteScreenBehavior(int whitescreenID)
     {
-        GameObject.Find("UIController").GetComponent<UIController>().WhiteScreen.DOColor(Color.white,2f);
+        uicontroller.WhiteScreens[whitescreenID].DOColor(new Color(Color.white.a, Color.white.g, Color.white.b, 0), 1f).OnComplete(()=> {
+            //effectID = 3 but whitescreenID =2
+            if (whitescreenID == 2)
+            {
+                uicontroller.LoadNewScene();
+            }
+        });
+        uicontroller.WhiteScreens[whitescreenID].transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOColor(new Color(Color.white.a, Color.white.g, Color.white.b, 0), 1f);
+
+    }
+
+    public IEnumerator WhiteScreenBehavior(int whitescreenid)
+    {
+        uicontroller.WhiteScreens[whitescreenid].DOColor(Color.white,2f);
         yield return new WaitForSeconds(1f);
-        GameObject.Find("UIController").GetComponent<UIController>().WhiteScreen.transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOColor(Color.black,1f);
+        uicontroller.WhiteScreens[whitescreenid].transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOColor(Color.black,1f);
+        NextButton.SetActive(true);
         yield break;
     }
 
+
+
     public void ShowOptions()
     {
+
+        NextButton.SetActive(false);
+
+        if ( GameController.Instance. CurrentDialogueID == 13)
+        {
+            uicontroller.ShowCrystals();
+        }
+
+
         if (Option1Text.text != "")
         {
             OptionObj1.gameObject.SetActive(true);

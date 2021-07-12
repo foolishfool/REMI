@@ -427,6 +427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NextDialogueID: 0
+  pressedSprite: {fileID: 21300000, guid: 5b5a7e7d3dbc45241bbb385193553fec, type: 3}
 --- !u!1 &2977807135865807687
 GameObject:
   m_ObjectHideFlags: 0
@@ -572,6 +573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NextDialogueID: 0
+  pressedSprite: {fileID: 21300000, guid: 5b5a7e7d3dbc45241bbb385193553fec, type: 3}
 --- !u!1 &2977807135989964873
 GameObject:
   m_ObjectHideFlags: 0
@@ -851,6 +853,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NextDialogueID: 0
+  pressedSprite: {fileID: 21300000, guid: 5b5a7e7d3dbc45241bbb385193553fec, type: 3}
 --- !u!1 &2977807136550940363
 GameObject:
   m_ObjectHideFlags: 0
@@ -915,7 +918,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "AWESOME!!! What\u2019s a Biobot? "
+  m_text: 'Wait a minute, your voice is kind of familiar. Have we played a game online
+    or something? Wait.. PRINCESSPEACH217!!? '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0ba54514b4e0d34488ff24025046e1cf, type: 2}
   m_sharedMaterial: {fileID: -2639824024745345029, guid: 0ba54514b4e0d34488ff24025046e1cf,
@@ -1053,12 +1057,14 @@ MonoBehaviour:
   Expression: 
   NextDialogueID: 0
   NextOperation: 0
+  NextEffectID: 0
   Option1: 
   Option1NextDialogue: 0
   Option2: 
   Option2NextDialogue: 0
   Option3: 
   Option3NextDialogue: 0
+  IsBigUI: 0
   NextButton: {fileID: 2977807137198089408}
   DialogueDetails: {fileID: 2977807135989964872}
   OptionObj1: {fileID: 2977807136136097064}

@@ -529,7 +529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 465fed7d02c9ac443b3293a7948913f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentDialogueID: 0
+  CurrentUserID: 
   CurrentPersonID: 0
   UserID: 
 --- !u!4 &1166979675
@@ -576,7 +576,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentDialogueID: 0
+  CurrentDialogue: {fileID: 0}
   DialoguePrefab: {fileID: 2977807137071853856, guid: 08918663e2077c54a9130021bc9722ac,
+    type: 3}
+  DialoguePrefabBig: {fileID: 2537888262148827475, guid: ce672b10be1aac746be6d562cea42bd2,
     type: 3}
   LeftSizeShow: 1
   ShowDialogueFrameAnimation: 0
@@ -584,14 +587,17 @@ MonoBehaviour:
   ShowEffect: 0
   OptionClicked: 0
   CurrentQuestionID: 0
-  CurrentEffectID: 0
   CurrentEffect: {fileID: 0}
   NewDialogueID: 0
   Questions:
   - {fileID: 7668036900225514676, guid: eabb50205ec15304c9679baa322886f4, type: 3}
+  - {fileID: 6144761993753510372, guid: e8b25c900c0ac1744bc0bcd3a08b284a, type: 3}
+  - {fileID: 9039479233377915692, guid: 8a14180680197a54aa9df6afdaf72085, type: 3}
   Effects:
   - {fileID: 6094624291069662354, guid: 48c2459065e9fcb4b817da47b0914bd0, type: 3}
   - {fileID: 6094624291069662354, guid: 48c2459065e9fcb4b817da47b0914bd0, type: 3}
+  CurrentSceneID: 0
+  IsBigUI: 0
 --- !u!4 &1203222172
 Transform:
   m_ObjectHideFlags: 0

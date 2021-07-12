@@ -18,7 +18,7 @@ public class NoticeText : MonoBehaviour
         GetComponent<RectTransform>().DOMoveY(790, 1f).OnComplete(() => 
         {
             notice.DOColor(new Color(0, 0, 0, 0), 1f).OnComplete(() => Destroy(gameObject));
-            GetComponent<RectTransform>().DOMoveY(NoticePanelController.Instance.gameObject.transform.GetChild(0).transform.position.y, 3f);
+            GetComponent<RectTransform>().DOMoveY(NoticePanelController.Instance.FinialPos.position.y, 3f);
         });
 
     }
