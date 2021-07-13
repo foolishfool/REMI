@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
+using System;
+using System.Linq;
 
 public class Dialogue : MonoBehaviour
 {
@@ -16,14 +18,17 @@ public class Dialogue : MonoBehaviour
     [HideInInspector] public int NextOperation;
     [HideInInspector] public int NextEffectID;
 
+
+    [HideInInspector] public string PreviousChosen;
+    [HideInInspector] public string NextMultipleDialogue;
+
     [HideInInspector] public string Option1;
     [HideInInspector] public int Option1NextDialogue;
     [HideInInspector] public string Option2;
     [HideInInspector] public int Option2NextDialogue;
     [HideInInspector] public string Option3;
     [HideInInspector] public int Option3NextDialogue;
-    [HideInInspector]
-    public int IsBigUI;
+    [HideInInspector] public int IsBigUI;
 
     public GameObject NextButton;
 
@@ -39,7 +44,9 @@ public class Dialogue : MonoBehaviour
     public TextMeshProUGUI Option3Text;
 
     private UIController uicontroller;
-
+    private List<string> priviousChosenStr = new List<string>();
+    private List<int> nextMultipleDialogueID = new List<int>();
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -64,83 +71,164 @@ public class Dialogue : MonoBehaviour
         NextDialogueID = DataHandler.Instance.AllDialogueDatas[id].NextDialogueID;
         NextOperation = DataHandler.Instance.AllDialogueDatas[id].NextOperation;
         NextEffectID = DataHandler.Instance.AllDialogueDatas[id].NextEffectID;
+
+        PreviousChosen  = DataHandler.Instance.AllDialogueDatas[id].PreviousChosen;
+        NextMultipleDialogue = DataHandler.Instance.AllDialogueDatas[id].NextMultipleDialogue;
+
         Option1 = DataHandler.Instance.AllDialogueDatas[id].Option1;
         Option1NextDialogue = DataHandler.Instance.AllDialogueDatas[id].Option1NextDialogue;
         Option2 = DataHandler.Instance.AllDialogueDatas[id].Option2;
         Option2NextDialogue = DataHandler.Instance.AllDialogueDatas[id].Option2NextDialogue;
         Option3 = DataHandler.Instance.AllDialogueDatas[id].Option3;
         Option3NextDialogue = DataHandler.Instance.AllDialogueDatas[id].Option3NextDialogue;
+
+        GetCurrentPreviousChosen();
+        GetNextMultipleDialogueID();
     }
 
+
+
+    public void GetCurrentPreviousChosen()
+    {
+        if (PreviousChosen == "")
+        {
+            return;
+        }
+        string[] preiviouschooseIDs = PreviousChosen.Split('|');
+
+        for (int i = 0; i < preiviouschooseIDs.Length; i++)
+        {
+            if (preiviouschooseIDs[i] != "")
+            {
+                if (!priviousChosenStr.Contains(preiviouschooseIDs[i]))
+                priviousChosenStr.Add(preiviouschooseIDs[i]);
+            }
+
+
+        }
+    }
+
+    public void GetNextMultipleDialogueID()
+    {
+        if (NextMultipleDialogue == " ")
+        {
+            return;
+        }
+        string[] nextMultipleID = NextMultipleDialogue.Split('|');
+
+        for (int i = 0; i < nextMultipleID.Length; i++)
+        {
+            int number;
+            int.TryParse(nextMultipleID[i], out number);
+            if (number != 0)
+            {
+                if (!nextMultipleDialogueID.Contains(number))
+                    nextMultipleDialogueID.Add(number);
+            }
+
+        }
+    }
 
     public void NextButtonClick()
     {
-        if (NextDialogueID == 0)
-        {
-            switch (NextOperation)
-            {
-                case 1:
-
-                    if (GameController.Instance.ShowOptions == false)
-                    {
-                        GameController.Instance.ShowOptions = true;
-                        DialogueDetails.gameObject.SetActive(false);
-                        ShowOptions();
-                    }
 
 
-                    if (GameController.Instance.OptionClicked == true)
-                    {
-                        GameController.Instance.OptionClicked = false;
-                        GameController.Instance.ShowNextDialogue(GameController.Instance.NewDialogueID);
-                        uicontroller.HideCrystals();
-                        Destroy(gameObject);
-                    }
+   
+         switch (NextOperation)
+                {
+                    case 1:
 
-                    break;
-                case 2:
+                        if (GameController.Instance.ShowOptions == false)
+                        {
+                            GameController.Instance.ShowOptions = true;
+                            DialogueDetails.gameObject.SetActive(false);
+                            NextButton.SetActive(false);
+                            ShowOptions();
+                        }
+
+
+                        if (GameController.Instance.OptionClicked == true)
+                        {
+                            GameController.Instance.OptionClicked = false;
+                            GameController.Instance.ShowNextDialogue(GameController.Instance.NewDialogueID);
+                            uicontroller.HideCrystals();
+                            Destroy(gameObject);
+                        }
+
+                        break;
+                    case 2:
 
                         GameController.Instance.ShowNextQuestion();
-                        Destroy(gameObject);
-   
-                    break;
-                case 3:
-                
-                    if (GameController.Instance.ShowEffect == false)
-                    {
-                        ShowEffect();
+                //do not destroy as question will use its data
+                uicontroller.DialogueFrame.transform.DOMoveY(uicontroller.DialogueFrameInitialPos.position.y, 0f);
+                uicontroller.DialogueFrameBig.SetActive(false);
+                uicontroller.DialogueFrame.SetActive(false);
+                gameObject.transform.localScale = Vector3.zero;
 
-                    }
+                break;
+                    case 3:
 
-                    else
-                    {
-                        GameController.Instance.ShowEffect = false;
-                        //NextEffectID start from 1
-                        StopEffectWhiteScreenBehavior(NextEffectID-1);
-                        uicontroller.HidePersonUI();
-                        if (NextEffectID!=3)
+                        if (GameController.Instance.ShowEffect == false)
                         {
-                            GameController.Instance.ShowNextDialogue(GameController.Instance.CurrentDialogueID + 1);
+                            ShowEffect();
                         }
-                     
+
+                        else
+                        {
+                            GameController.Instance.ShowEffect = false;
+                            //NextEffectID start from 1
+                            StopEffectWhiteScreenBehavior(NextEffectID - 1);
+                            uicontroller.HidePersonUI();
+                            if (NextEffectID != 3)
+                            {
+                                GameController.Instance.ShowNextDialogue(GameController.Instance.CurrentDialogueID + 1);
+                            }
+
+                            Destroy(gameObject);
+
+                        }
+                        break;
+
+                    case 4:
+                        uicontroller.LoadNewScene();
+                        uicontroller.DialogueFrame.transform.DOMoveY(uicontroller.DialogueFrameInitialPos.position.y, 0f);
+                        uicontroller.HidePersonUI();
                         Destroy(gameObject);
-
+                        break;
+                    default:
+                    if (NextMultipleDialogue != " ")
+                    {
+                        ChooseNextDialogueBasedOnPreChoosen();
                     }
-                    break;
 
-                default:
+                else if ( NextDialogueID !=0)
+                {
+                    GameController.Instance.ShowNextDialogue(NextDialogueID);
+                    Destroy(gameObject);
+                }
                     break;
-            }
-        }
+                }
 
-        else
-        {
-          GameController.Instance.ShowNextDialogue(NextDialogueID);
-            Destroy(gameObject);
-        }
+
+
+
     }
 
 
+
+    public void ChooseNextDialogueBasedOnPreChoosen()
+    {
+
+        for (int i = 0; i < priviousChosenStr.Count; i++)
+        {
+            if (DataHandler.Instance.AllQuestionData.Values.Last().Answers[0].OptionNum == priviousChosenStr[i])
+            {
+                GameController.Instance.ShowNextDialogue(nextMultipleDialogueID[i]);
+                Destroy(gameObject);
+                return;
+            }
+        }
+    }
 
     public void InitializeUI()
     {
@@ -158,16 +246,14 @@ public class Dialogue : MonoBehaviour
         OptionObj2.NextDialogueID = Option2NextDialogue;
         OptionObj3.NextDialogueID = Option3NextDialogue;
 
-
-        StartCoroutine(UIShowBehavior(GameController.Instance.ShowDialogueFrameAnimation));
+        
+        StartCoroutine(UIShowBehavior());
     }
 
-    public IEnumerator UIShowBehavior(bool showAnmation)
+    public IEnumerator UIShowBehavior()
     {
-        if (showAnmation)
-        {
-            yield return new WaitForSeconds(0.5f);
-        }
+
+        yield return new WaitUntil(() => GameController.Instance.ShowDialogueText);
         DialogueDetails.gameObject.SetActive(true);
         NextButton.gameObject.SetActive(true);
 
@@ -208,6 +294,7 @@ public class Dialogue : MonoBehaviour
         uicontroller.WhiteScreens[whitescreenid].DOColor(Color.white,2f);
         yield return new WaitForSeconds(1f);
         uicontroller.WhiteScreens[whitescreenid].transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOColor(Color.black,1f);
+        yield return new WaitForSeconds(1f);
         NextButton.SetActive(true);
         yield break;
     }

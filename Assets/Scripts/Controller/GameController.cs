@@ -13,7 +13,6 @@ public class GameController : MonoBehaviour
     public GameObject DialoguePrefab;
     public GameObject DialoguePrefabBig;
     public bool LeftSizeShow = true;
-    public bool ShowDialogueFrameAnimation;
     public bool ShowOptions;
     public bool ShowEffect;
     public bool OptionClicked;
@@ -30,6 +29,8 @@ public class GameController : MonoBehaviour
     public int CurrentSceneID;
     [HideInInspector]
     public bool IsBigUI;
+    [HideInInspector]
+    public bool ShowDialogueText;
 
     public static GameController Instance
     {
@@ -79,13 +80,12 @@ public class GameController : MonoBehaviour
 
         uiController = GameObject.Find("UIController").GetComponent<UIController>();
         //reset
-        ShowDialogueFrameAnimation = false;
         ShowOptions = false;
         OptionClicked = false;
         ShowEffect = false;
         CurrentDialogueID = ID;
         IsBigUI = false;
-
+        ShowDialogueText = false;
         GameObject newDialogue;
 
         if (DataHandler.Instance.AllDialogueDatas[ID].IsBigUI == 1)
@@ -103,20 +103,22 @@ public class GameController : MonoBehaviour
             uiController.HidePersonUI();
             if (IsBigUI)
             {
+                uiController.DialogueFrameBig.transform.DOMoveY(uiController.DialogueFrameInitialPos.position.y, 0f);
                 uiController.DialogueFrame.SetActive(false);
                 uiController.DialogueFrameBig.SetActive(true);
-                uiController.DialogueFrameBig.transform.DOMoveY(uiController.DialogueFrameInitialPos.position.y, 0f);
+              
             }
             else {
+                uiController.DialogueFrame.transform.DOMoveY(uiController.DialogueFrameInitialPos.position.y, 0f);
                 uiController.DialogueFrame.SetActive(false);
                 uiController.DialogueFrame.SetActive(true);
-                uiController.DialogueFrame.transform.DOMoveY(uiController.DialogueFrameInitialPos.position.y, 0f);
+
             }
           
         
             LeftSizeShow = !LeftSizeShow;
             DataHandler.Instance.CurrentPersonID = DataHandler.Instance.AllDialogueDatas[ID].PersonID;
-            ShowDialogueFrameAnimation = true;
+
             if (IsBigUI)
             {
                 uiController.DialogueFrameBig.transform.DOMoveY(uiController.DialogueFramePosBig.position.y, 0.5f).OnComplete(() => uiController.NewDialoguePersonUIUpdate(ID));
@@ -127,7 +129,7 @@ public class GameController : MonoBehaviour
         else if (DataHandler.Instance.CurrentPersonID == 0)
         {
             DataHandler.Instance.CurrentPersonID = DataHandler.Instance.AllDialogueDatas[ID].PersonID;
-            ShowDialogueFrameAnimation = true;
+
             if (IsBigUI)
             {
                 uiController.DialogueFrameBig.transform.DOMoveY(uiController.DialogueFramePosBig.position.y, 0.5f).OnComplete(() => uiController.NewDialoguePersonUIUpdate(ID));
@@ -140,10 +142,17 @@ public class GameController : MonoBehaviour
             //only update expression
             if (IsBigUI)
             {
+                uiController.DialogueFrameBig.transform.DOMoveY(uiController.DialogueFramePosBig.position.y, 0f);
                 uiController.DialogueFrameBig.SetActive(true);
+                uiController.DialogueFrame.SetActive(false);
             }
             else
-            uiController.DialogueFrame.SetActive(true);
+            {
+                uiController.DialogueFrame.transform.DOMoveY(uiController.DialogueFramePos.position.y, 0f);
+                uiController.DialogueFrame.SetActive(true);
+                uiController.DialogueFrameBig.SetActive(false);
+            }
+        
             uiController.NewDialoguePersonUIUpdate(ID);
         }
 

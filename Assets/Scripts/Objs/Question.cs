@@ -15,12 +15,15 @@ public class Question : MonoBehaviour
     public int MaxChoiceNum;
     public Scrollbar scrollBar;
     public bool IsLogIn;
-
-
+    public bool LoadNewScene;
+    public bool BlackScreen;
+    public int BlackScreenID;
     void Start()
     {
         if (scrollBar)
         scrollBar.onValueChanged.Invoke(0.999f);
+
+
     }
 
     // Update is called once per frame
@@ -81,12 +84,37 @@ public class Question : MonoBehaviour
     {
         if (Answers.Count < MaxChoiceNum)
         {
-            Debug.Log(Answers.Count);
             NoticePanelController.Instance.ShowNotice("You need to choose " + MaxChoiceNum + "items !",Color.red);
             return;
         }
-        DataHandler.Instance.AllQuestionData.Add(ID,this);
-        GameController.Instance.ShowNextDialogue(GameController.Instance.CurrentDialogueID+1);
+        if (!DataHandler.Instance.AllQuestionData.ContainsKey(ID))
+        {
+            DataHandler.Instance.AllQuestionData.Add(ID, this);
+        }
+     
+
+        if (!LoadNewScene)
+        {
+            Destroy(GameController.Instance.CurrentDialogue.gameObject);
+            if (!BlackScreen)
+            {
+                GameController.Instance.ShowNextDialogue(GameController.Instance.CurrentDialogueID + 1);
+            }
+
+            else
+            {
+                GameObject.Find("UIController").GetComponent<UIController>().BlackScreenScreenShow(BlackScreenID);
+            }
+          
+      
+        }
+        else
+        {
+            GameObject.Find("UIController").GetComponent<UIController>().LoadNewScene();
+        }
+
+    
+       
         GameController.Instance.CurrentQuestionID++;
         Destroy(gameObject);
     }
@@ -107,16 +135,13 @@ public class Question : MonoBehaviour
         currentuserID = currentuserID.Replace(":", "");
         currentuserID = currentuserID.Replace(" ", "");
         DataHandler.Instance.CurrentUserID = currentuserID;
+        Destroy(GameController.Instance.CurrentDialogue.gameObject);
         GameController.Instance.ShowNextDialogue(GameController.Instance.CurrentDialogueID + 1);
         GameController.Instance.CurrentQuestionID++;
         Destroy(gameObject);
     }
 
 
-    public void ShowNextScene()
-    {
-        DataHandler.Instance.AllQuestionData.Add(ID, this);
-        GameController.Instance.CurrentQuestionID++;
-        GameObject.Find("UIController").GetComponent<UIController>().LoadNewScene();
-    }
+
+
 }
