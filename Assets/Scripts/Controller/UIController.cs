@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 using TMPro;
 using UnityEngine.SceneManagement;
+using FirebaseWebGL.Examples.Database;
 
 public class UIController : MonoBehaviour
 {
@@ -25,7 +26,10 @@ public class UIController : MonoBehaviour
     public Transform DialogueFramePosBig;
     public Transform DialogueFrameInitialPos;
     public Image BlackScreen;
+    public GameObject FinishGameUI;
+    public TextMeshProUGUI Score;
     public Image BG;
+    public TextMeshProUGUI UserCode;
 
     public List<GameObject> Crystals;
 
@@ -185,14 +189,17 @@ public class UIController : MonoBehaviour
         StartCoroutine(StartLoadNewSceneBehavior());
     }
 
+
     public IEnumerator StartLoadNewSceneBehavior()
     {
         BlackScreen.DOColor(Color.black, 2f);
         yield return new WaitForSeconds(2f);
+        Debug.Log(GameController.Instance.CurrentDialogueID);
         BG.sprite = BGImgaes[GameController.Instance.CurrentSceneID + 1];
+        Debug.Log(GameController.Instance.CurrentSceneID + 1);
+        GameController.Instance.CurrentSceneID++;
         BlackScreen.DOColor(new Color(Color.black.a, Color.black.g, Color.black.b, 0), 2f);
         yield return new WaitForSeconds(2f);
-
 
 
         if (DataHandler.Instance.AllDialogueDatas[GameController.Instance.CurrentDialogueID].NextDialogueID != 0)
@@ -238,15 +245,15 @@ public class UIController : MonoBehaviour
             case 6:
                 return "PROFESSORL";
             case 7:
-                return "VITA";
-            case 8:
-                return "KODA";
-            case 9:
-                return "KEN";
-            case 10:
                 return "LUNA";
-            case 11:
+            case 8:
+                return "KEN";
+            case 9:
                 return "REMI";
+            case 10:
+                return "VITA";
+            case 11:
+                return "KODA";
             default:
                 return "";
         }
@@ -260,7 +267,7 @@ public class UIController : MonoBehaviour
     {
         BlackScreens[id].DOColor(Color.black, 2f);
         yield return new WaitForSeconds(1f);
-        BlackScreens[id].transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOColor(Color.white, 1f);
+        BlackScreens[id].transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOColor(Color.white, 1f);     
         BlackScreens[id].transform.GetChild(1).gameObject.SetActive(true);
         yield break;
     }
@@ -279,7 +286,7 @@ public class UIController : MonoBehaviour
             else 
             GameController.Instance.ShowNextDialogue(GameController.Instance.CurrentDialogueID + 1);
         });
-        BlackScreens[id].transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOColor(new Color(Color.white.a, Color.white.g, Color.white.b, 0), 1f);
+            BlackScreens[id].transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOColor(new Color(Color.white.a, Color.white.g, Color.white.b, 0), 1f);
     }
 
 }

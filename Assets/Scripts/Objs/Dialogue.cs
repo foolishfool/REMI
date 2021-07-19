@@ -122,7 +122,8 @@ public class Dialogue : MonoBehaviour
             int.TryParse(nextMultipleID[i], out number);
             if (number != 0)
             {
-                if (!nextMultipleDialogueID.Contains(number))
+                //could be the same number
+               // if (!nextMultipleDialogueID.Contains(number))
                     nextMultipleDialogueID.Add(number);
             }
 
@@ -193,9 +194,28 @@ public class Dialogue : MonoBehaviour
                         uicontroller.LoadNewScene();
                         uicontroller.DialogueFrame.transform.DOMoveY(uicontroller.DialogueFrameInitialPos.position.y, 0f);
                         uicontroller.HidePersonUI();
-                        Destroy(gameObject);
-                        break;
-                    default:
+                        gameObject.transform.localScale = Vector3.zero;
+                      break;
+                  case 5:
+
+                     uicontroller.BlackScreenScreenShow(0);
+                     uicontroller.DialogueFrame.transform.DOMoveY(uicontroller.DialogueFrameInitialPos.position.y, 0f);
+                     uicontroller.HidePersonUI();
+                     Destroy(gameObject);
+                     break;
+            case 6:
+
+                //finish game
+                uicontroller.HidePersonUI();
+                uicontroller.FinishGameUI.SetActive(true);
+                uicontroller.Score.text = "Your Score: " + DataHandler.Instance.Score.ToString();
+                DataHandler.Instance.SaveData();
+                //save data
+                Destroy(gameObject);
+                break;
+
+
+            default:
                     if (NextMultipleDialogue != " ")
                     {
                         ChooseNextDialogueBasedOnPreChoosen();
@@ -306,7 +326,7 @@ public class Dialogue : MonoBehaviour
 
         NextButton.SetActive(false);
 
-        if ( GameController.Instance. CurrentDialogueID == 13)
+        if ( GameController.Instance. CurrentDialogueID == 14)
         {
             uicontroller.ShowCrystals();
         }

@@ -358,13 +358,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 3
   Answers: []
+  CharacterInput: []
   SubmitButton: {fileID: 2104917290154578778}
   MaxChoiceNum: 1
   scrollBar: {fileID: 0}
   IsLogIn: 0
   LoadNewScene: 0
   BlackScreen: 1
-  BlackScreenID: 0
+  BlackScreenID: 1
 --- !u!1 &6141284147289520854
 GameObject:
   m_ObjectHideFlags: 0
@@ -662,6 +663,11 @@ PrefabInstance:
       propertyPath: OptionNum
       value: B
       objectReference: {fileID: 0}
+    - target: {fileID: 6371489907695221427, guid: 8e4e487b467b5244991c3901da2b9444,
+        type: 3}
+      propertyPath: Score
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e4e487b467b5244991c3901da2b9444, type: 3}
 --- !u!224 &6779392183342077188 stripped
@@ -848,6 +854,11 @@ PrefabInstance:
       propertyPath: OptionNum
       value: C
       objectReference: {fileID: 0}
+    - target: {fileID: 6371489907695221427, guid: 8e4e487b467b5244991c3901da2b9444,
+        type: 3}
+      propertyPath: Score
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e4e487b467b5244991c3901da2b9444, type: 3}
 --- !u!224 &8290389991256991995 stripped
@@ -893,9 +904,8 @@ PrefabInstance:
     - target: {fileID: 6371489906666494091, guid: 8e4e487b467b5244991c3901da2b9444,
         type: 3}
       propertyPath: m_text
-      value: "A. I would stay quiet and act as if I didn\u2019t overhear them. It\u2019s
-        better to avoid a fight. After the bell rings, I would tell Zac all about
-        it."
+      value: "A.  I would stay quiet and act as if I didn\u2019t overhear them. It\u2019s
+        better to avoid it. After the bell rings, I would tell Zac all about it."
       objectReference: {fileID: 0}
     - target: {fileID: 6371489906666494091, guid: 8e4e487b467b5244991c3901da2b9444,
         type: 3}
@@ -1031,6 +1041,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Transition
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371489907695221427, guid: 8e4e487b467b5244991c3901da2b9444,
+        type: 3}
+      propertyPath: Score
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e4e487b467b5244991c3901da2b9444, type: 3}

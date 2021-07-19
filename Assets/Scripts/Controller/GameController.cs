@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using System.IO;
+using UnityEngine.Video;
 
 public class GameController : MonoBehaviour
 {
-    [HideInInspector]
     public int CurrentDialogueID;
     [HideInInspector]
     public Dialogue CurrentDialogue;
@@ -31,6 +32,8 @@ public class GameController : MonoBehaviour
     public bool IsBigUI;
     [HideInInspector]
     public bool ShowDialogueText;
+    public VideoPlayer StartVideoPlayer;
+    public GameObject FrontImage;
 
     public static GameController Instance
     {
@@ -53,11 +56,17 @@ public class GameController : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(this);
+
+        StartVideoPlayer.url = Path.Combine(Application.streamingAssetsPath, "Start Screen.mp4");
+        StartVideoPlayer.playOnAwake = true;
+        StartVideoPlayer.isLooping = true;
+        StartVideoPlayer.Play();
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        StartVideoPlayer.Play();
         if (GameObject.Find("UIController"))
         {
             uiController = GameObject.Find("UIController").GetComponent<UIController>();
@@ -71,6 +80,12 @@ public class GameController : MonoBehaviour
 
     }
 
+
+    public void PlayVideo()
+    {
+        StartVideoPlayer.Play();
+        FrontImage.SetActive(false);
+    }
     public void ShowNextDialogue(int ID)
     {
         if (!DataHandler.Instance.AllDialogueDatas.ContainsKey(ID))

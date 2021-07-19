@@ -10,6 +10,7 @@ public class ChoiceOption : MonoBehaviour
     public TMP_InputField Input;
     public bool HasInput;
     public int CharacterLimited;
+    public int Score;
     // Start is called before the first frame update
     void Start()
     {

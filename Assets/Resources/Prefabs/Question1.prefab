@@ -1810,6 +1810,9 @@ MonoBehaviour:
   MaxChoiceNum: 3
   scrollBar: {fileID: 7668036901293660302}
   IsLogIn: 0
+  LoadNewScene: 0
+  BlackScreen: 0
+  BlackScreenID: 0
 --- !u!1 &7668036900272626782
 GameObject:
   m_ObjectHideFlags: 0
@@ -5156,7 +5159,7 @@ PrefabInstance:
     - target: {fileID: 6371489906666494091, guid: 8e4e487b467b5244991c3901da2b9444,
         type: 3}
       propertyPath: m_text
-      value: E.   Being a good friend to others.(understanding relationships)
+      value: E.   Being a good friend to others.
       objectReference: {fileID: 0}
     - target: {fileID: 6371489907695221424, guid: 8e4e487b467b5244991c3901da2b9444,
         type: 3}

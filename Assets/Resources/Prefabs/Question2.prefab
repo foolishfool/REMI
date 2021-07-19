@@ -491,11 +491,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 2
   Answers: []
+  CharacterInput: []
   SubmitButton: {fileID: 5939415809503808631}
   MaxChoiceNum: 1
   scrollBar: {fileID: 0}
   IsLogIn: 0
-  LoadNewScene: 1
+  LoadNewScene: 0
+  BlackScreen: 0
+  BlackScreenID: 0
 --- !u!1001 &3941451158783965096
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -521,9 +524,9 @@ PrefabInstance:
     - target: {fileID: 6371489906666494091, guid: 8e4e487b467b5244991c3901da2b9444,
         type: 3}
       propertyPath: m_text
-      value: "A.  I would help Zac. He looks like he needs it. I would tell Atlas
-        that it was just an accident and to calm down. He said he was sorry. It\u2019s
-        just the first day at the academy!"
+      value: "A.  I would support Atlas' strong reaction. Zac needs to learn to pay
+        attention to his surroundings, and being easy on him won\u2019t teach him.
+        Protect the hair gel at all costs!"
       objectReference: {fileID: 0}
     - target: {fileID: 6371489906666494091, guid: 8e4e487b467b5244991c3901da2b9444,
         type: 3}
@@ -660,6 +663,11 @@ PrefabInstance:
       propertyPath: m_Transition
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6371489907695221427, guid: 8e4e487b467b5244991c3901da2b9444,
+        type: 3}
+      propertyPath: Score
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e4e487b467b5244991c3901da2b9444, type: 3}
 --- !u!224 &7989047785241857305 stripped
@@ -693,9 +701,9 @@ PrefabInstance:
     - target: {fileID: 6371489906666494091, guid: 8e4e487b467b5244991c3901da2b9444,
         type: 3}
       propertyPath: m_text
-      value: "B.  I would help Zac. He looks like he needs it. I would tell Atlas
-        that it was just an accident and to calm down. He said he was sorry. It\u2019s
-        just the first day at the academy!"
+      value: "B.  I would help Zac. He looks like he needs it. It was just an accident
+        and Atlas should calm down. He said he was sorry. It\u2019s just the first
+        day at the academy!"
       objectReference: {fileID: 0}
     - target: {fileID: 6371489906666494091, guid: 8e4e487b467b5244991c3901da2b9444,
         type: 3}
@@ -832,6 +840,11 @@ PrefabInstance:
       propertyPath: OptionNum
       value: B
       objectReference: {fileID: 0}
+    - target: {fileID: 6371489907695221427, guid: 8e4e487b467b5244991c3901da2b9444,
+        type: 3}
+      propertyPath: Score
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e4e487b467b5244991c3901da2b9444, type: 3}
 --- !u!224 &1246966513614162473 stripped
@@ -865,8 +878,8 @@ PrefabInstance:
     - target: {fileID: 6371489906666494091, guid: 8e4e487b467b5244991c3901da2b9444,
         type: 3}
       propertyPath: m_text
-      value: 'C.  Team Tyra, all the way. I would just let her calm things down.
-        Chill out, Atlas. '
+      value: C.  Team Tyra, all the way. I would just let her calm things down. Chill
+        out, Atlas.
       objectReference: {fileID: 0}
     - target: {fileID: 6371489906666494091, guid: 8e4e487b467b5244991c3901da2b9444,
         type: 3}
@@ -1017,6 +1030,11 @@ PrefabInstance:
         type: 3}
       propertyPath: OptionNum
       value: C
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371489907695221427, guid: 8e4e487b467b5244991c3901da2b9444,
+        type: 3}
+      propertyPath: Score
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e4e487b467b5244991c3901da2b9444, type: 3}
