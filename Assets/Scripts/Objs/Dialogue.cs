@@ -11,6 +11,7 @@ public class Dialogue : MonoBehaviour
 {
 
     public int ID;
+
     [HideInInspector] public int PersonID;
     [HideInInspector] public string DialogueText;
     [HideInInspector] public string Expression;
@@ -203,16 +204,16 @@ public class Dialogue : MonoBehaviour
                      uicontroller.HidePersonUI();
                      Destroy(gameObject);
                      break;
-            case 6:
-
-                //finish game
-                uicontroller.HidePersonUI();
-                uicontroller.FinishGameUI.SetActive(true);
-                uicontroller.Score.text = "Your Score: " + DataHandler.Instance.Score.ToString();
-                DataHandler.Instance.SaveData();
-                //save data
-                Destroy(gameObject);
-                break;
+          // case 6:
+          //
+          //     //finish game
+          //     uicontroller.HidePersonUI();
+          //     uicontroller.FinishGameUI.SetActive(true);
+          //     uicontroller.Score.text = "Your Score: " + DataHandler.Instance.Score.ToString();
+          //     DataHandler.Instance.SaveData();
+          //     //save data
+          //     Destroy(gameObject);
+          //     break;
 
 
             default:
@@ -221,13 +222,13 @@ public class Dialogue : MonoBehaviour
                         ChooseNextDialogueBasedOnPreChoosen();
                     }
 
-                else if ( NextDialogueID !=0)
-                {
-                    GameController.Instance.ShowNextDialogue(NextDialogueID);
-                    Destroy(gameObject);
-                }
-                    break;
-                }
+                      else if ( NextDialogueID !=0)
+                      {
+                          GameController.Instance.ShowNextDialogue(NextDialogueID);
+                          Destroy(gameObject);
+                      }
+                          break;
+                      }
 
 
 
@@ -248,6 +249,24 @@ public class Dialogue : MonoBehaviour
                 return;
             }
         }
+
+
+        //if there is no privousChosenStr means need to go from score
+        //Strong score
+        if (DataHandler.Instance.Score>=14)
+        {
+            GameController.Instance.ShowNextDialogue(nextMultipleDialogueID[0]);
+        }  //Medium score
+        else if (DataHandler.Instance.Score >= 9 && DataHandler.Instance.Score < 14)
+        {
+            GameController.Instance.ShowNextDialogue(nextMultipleDialogueID[1]);
+        }//low score
+        else if (DataHandler.Instance.Score <=8)
+        {
+            GameController.Instance.ShowNextDialogue(nextMultipleDialogueID[2]);
+        }
+
+        Destroy(gameObject);
     }
 
     public void InitializeUI()
@@ -326,7 +345,7 @@ public class Dialogue : MonoBehaviour
 
         NextButton.SetActive(false);
 
-        if ( GameController.Instance. CurrentDialogueID == 14)
+        if ( GameController.Instance. CurrentDialogueID == 13)
         {
             uicontroller.ShowCrystals();
         }

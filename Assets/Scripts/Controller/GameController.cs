@@ -74,6 +74,23 @@ public class GameController : MonoBehaviour
         
     }
 
+    public void VideoTextureUpdate(string videoName)
+    {
+
+        if (videoName == "")
+        {
+            uiController.BG.transform.GetChild(0).gameObject.SetActive(false);
+            return;
+        }
+        else
+        {
+            StartVideoPlayer.url = Path.Combine(Application.streamingAssetsPath, videoName + ".mp4");
+            StartVideoPlayer.isLooping = true;
+            if (uiController)
+            uiController.BG.transform.GetChild(0).gameObject.SetActive(true);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -112,13 +129,20 @@ public class GameController : MonoBehaviour
          newDialogue = Instantiate(DialoguePrefab, uiController.DialoguePos.position, Quaternion.identity);
         newDialogue.transform.parent = uiController.transform;
         newDialogue.transform.localScale = Vector3.one;
+        if (CurrentDialogue)
+        {
+            Destroy(CurrentDialogue.gameObject);
+        }
+  
+
         CurrentDialogue = newDialogue.GetComponent<Dialogue>();
         if (DataHandler.Instance.CurrentPersonID != DataHandler.Instance.AllDialogueDatas[ID].PersonID && DataHandler.Instance.CurrentPersonID != 0)
         {
             uiController.HidePersonUI();
             if (IsBigUI)
             {
-                uiController.DialogueFrameBig.transform.DOMoveY(uiController.DialogueFrameInitialPos.position.y, 0f);
+                uiController.DialogueFrameBig.transform.position = uiController.DialogueFrameInitialPos.position;
+                uiController.DialogueFrame.transform.position = uiController.DialogueFrameInitialPos.position;
                 uiController.DialogueFrame.SetActive(false);
                 uiController.DialogueFrameBig.SetActive(true);
               
@@ -186,7 +210,7 @@ public class GameController : MonoBehaviour
     }
 
 
-
+    
 
     public void LoadScene()
     {
@@ -194,11 +218,32 @@ public class GameController : MonoBehaviour
     }
 
 
-    void OnLevelWasLoaded(int level)
+    public void BeginDialogue()
     {
-        if (level == 1)
-            ShowNextDialogue(1);
-
+        StartCoroutine(BeginDialogueBehavior());
     }
 
+    //called at intro info button
+
+    public IEnumerator BeginDialogueBehavior()
+    {
+        uiController = GameObject.Find("UIController").GetComponent<UIController>();
+        uiController.BlackScreen.DOColor(Color.black, 2f);
+
+        yield return new WaitForSeconds(2f);
+        uiController.IntroductionText.SetActive(false);
+        VideoTextureUpdate("Command Deck");
+        yield return new WaitForSeconds(1f);
+        uiController.BlackScreen.DOColor(new Color(Color.black.a, Color.black.g, Color.black.b, 0), 2f);
+        yield return new WaitForSeconds(2f);
+        ShowNextDialogue(1);
+    }
+
+
+
+   // void OnLevelWasLoaded(int level)
+   // { 
+   //     if (level == 1)
+   //       VideoTextureUpdate("Courtyard");
+   // }
 }

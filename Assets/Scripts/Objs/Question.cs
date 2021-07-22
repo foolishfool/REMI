@@ -20,6 +20,7 @@ public class Question : MonoBehaviour
     public bool LoadNewScene;
     public bool BlackScreen;
     public int BlackScreenID;
+    public bool IsSaveData;
     void Start()
     {
         if (scrollBar)
@@ -111,6 +112,8 @@ public class Question : MonoBehaviour
         }
      
 
+
+
         if (!LoadNewScene)
         {
             Destroy(GameController.Instance.CurrentDialogue.gameObject);
@@ -135,7 +138,11 @@ public class Question : MonoBehaviour
             GameObject.Find("UIController").GetComponent<UIController>().LoadNewScene();
         }
 
-    
+
+        if (IsSaveData)
+        {
+            DataHandler.Instance.SaveData();
+        }
        
         GameController.Instance.CurrentQuestionID++;
         Destroy(gameObject);

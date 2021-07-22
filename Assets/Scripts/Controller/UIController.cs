@@ -9,7 +9,7 @@ using FirebaseWebGL.Examples.Database;
 
 public class UIController : MonoBehaviour
 {
-
+    public GameObject IntroductionText;
     public Image PersonImageLeft;
     public TextMeshProUGUI PersonNameLeft;
     public Image PersonImageLeftBig;
@@ -38,15 +38,22 @@ public class UIController : MonoBehaviour
     public List<Image> BlackScreens = new List<Image>();
     public List<Sprite> BGImgaes = new List<Sprite>();
 
-
+    public List<string> BGVideoNames= new List<string>();
     // Start is called before the first frame update
     void Start()
     {
+       GameController.Instance.VideoTextureUpdate("Courtyard");
 
-
+        Invoke("ShowIntroductionText",10f);
+      
     }
 
-
+    void ShowIntroductionText()
+    {
+        IntroductionText.SetActive(true); 
+        IntroductionText.GetComponentInChildren<Button>().onClick.AddListener(() => GameController.Instance.BeginDialogue());
+        GameController.Instance.StartVideoPlayer.isLooping = false;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -194,10 +201,11 @@ public class UIController : MonoBehaviour
     {
         BlackScreen.DOColor(Color.black, 2f);
         yield return new WaitForSeconds(2f);
-        Debug.Log(GameController.Instance.CurrentDialogueID);
         BG.sprite = BGImgaes[GameController.Instance.CurrentSceneID + 1];
-        Debug.Log(GameController.Instance.CurrentSceneID + 1);
+        GameController.Instance.VideoTextureUpdate(BGVideoNames[GameController.Instance.CurrentSceneID + 1]);
+
         GameController.Instance.CurrentSceneID++;
+        yield return new WaitForSeconds(1f);
         BlackScreen.DOColor(new Color(Color.black.a, Color.black.g, Color.black.b, 0), 2f);
         yield return new WaitForSeconds(2f);
 
@@ -212,7 +220,10 @@ public class UIController : MonoBehaviour
             GameController.Instance.CurrentDialogue.ChooseNextDialogueBasedOnPreChoosen();
         }
         else
+        {
             GameController.Instance.ShowNextDialogue(GameController.Instance.CurrentDialogueID + 1);
+        }
+           
         yield break;
 
 
@@ -289,4 +300,9 @@ public class UIController : MonoBehaviour
             BlackScreens[id].transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOColor(new Color(Color.white.a, Color.white.g, Color.white.b, 0), 1f);
     }
 
+
+    public void GameReplay()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
