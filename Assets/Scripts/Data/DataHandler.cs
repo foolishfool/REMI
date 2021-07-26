@@ -263,13 +263,14 @@ public class DataHandler : MonoBehaviour
                 DatabaseHandler.CheckJSON("Statistics/" + Key.ToString() + "A");
                 if (DatabaseHandler.HasChild == "true")
                 {
-                    Debug.Log(111111111111);
+                    Debug.Log(11111111111 + Key.ToString() + "A");
                     DatabaseHandler.GetJSON("Statistics/" + Key.ToString() + "A");
                     yield return new WaitForSeconds(0.5f);
                     currentNum = int.Parse(DatabaseHandler.OutResult);
                 }
                 else
-                {                 
+                {
+                    Debug.Log(2222 + Key.ToString() + "A");
                     currentNum = 0;
                 }
                 currentNum++;
@@ -281,6 +282,7 @@ public class DataHandler : MonoBehaviour
                 DatabaseHandler.CheckJSON("Statistics/"+ Key.ToString() + "B");
                 if (DatabaseHandler.HasChild == "true")
                 {
+                    Debug.Log(11111111111 + Key.ToString() + "B");
                     DatabaseHandler.GetJSON("Statistics/" + Key.ToString() + "B");
                     yield return new WaitForSeconds(0.5f);
                     currentNum2 = int.Parse(DatabaseHandler.OutResult);
@@ -288,6 +290,7 @@ public class DataHandler : MonoBehaviour
                 }
                 else
                 {
+                    Debug.Log(2222 + Key.ToString() + "B");
                     currentNum2 = 0;
                 }
                 currentNum2++;
@@ -300,6 +303,7 @@ public class DataHandler : MonoBehaviour
                 DatabaseHandler.CheckJSON("Statistics/"+ Key.ToString() + "C");
                 if (DatabaseHandler.HasChild == "true")
                 {
+                    Debug.Log(11111111111 + Key.ToString() + "C");
                     DatabaseHandler.GetJSON("Statistics/" + Key.ToString() + "C");
                     yield return new WaitForSeconds(0.5f);
                     currentNum3 = int.Parse(DatabaseHandler.OutResult);
@@ -307,6 +311,7 @@ public class DataHandler : MonoBehaviour
                 }
                 else
                 {
+                    Debug.Log(2222 + Key.ToString() + "C");
                     currentNum3 = 0;
                 }
                 currentNum3++;

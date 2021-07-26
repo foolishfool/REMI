@@ -10,10 +10,12 @@ using FirebaseWebGL.Examples.Database;
 public class UIController : MonoBehaviour
 {
     public GameObject IntroductionText;
+    public GameObject NocharacterInfo;
     public Image PersonImageLeft;
     public TextMeshProUGUI PersonNameLeft;
     public Image PersonImageLeftBig;
     public TextMeshProUGUI PersonNameLeftBig;
+    public GameObject VideoPlane;
 
     public Image PersonImageRight;
     public TextMeshProUGUI PersonNameRight;
@@ -42,7 +44,7 @@ public class UIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       GameController.Instance.VideoTextureUpdate("Courtyard");
+      // GameController.Instance.VideoTextureUpdate("Courtyard");
 
         Invoke("ShowIntroductionText",10f);
       
@@ -60,14 +62,25 @@ public class UIController : MonoBehaviour
 
     }
 
-    public void NewDialoguePersonUIUpdate(int DialogueID)
+    public void NewDialoguePersonUIUpdateBasedOnBigUI(int DialogueID )
+    {
+        UpdatePersonUI(DialogueID, GameController.Instance.IsBigUI);
+        GameController.Instance.ShowDialogueText = true;
+    }
+
+    public void NewDialoguePersonUIUpdateBasedOnOption(int DialogueID)
+    {
+        UpdatePersonUI(DialogueID, GameController.Instance.IsBigOption);
+    }
+
+    public void UpdatePersonUI(int DialogueID, bool BIGUIORBIGOPTION)
     {
 
         if (GameController.Instance.LeftSizeShow)
         {
             if (GetPersonnFileName(DialogueID) != "YOU")
             {
-                if (GameController.Instance.IsBigUI)
+                if (BIGUIORBIGOPTION)
                 {
                     PersonImageLeftBig.sprite = Resources.Load("Sprites/Person/" + GetPersonnFileName(DialogueID) + "_" + DataHandler.Instance.AllDialogueDatas[DialogueID].Expression, typeof(Sprite)) as Sprite;
                     PersonImageLeftBig.gameObject.SetActive(true);
@@ -83,39 +96,42 @@ public class UIController : MonoBehaviour
 
             }
 
-            if (GameController.Instance.IsBigUI)
-            {
-                PersonNameLeftBig.text = GetPersonnFileName(DialogueID);
-                PersonNameLeftBig.gameObject.transform.parent.gameObject.SetActive(true);
-                PersonNameRightBig.gameObject.transform.parent.gameObject.SetActive(false);
-                PersonImageRightBig.gameObject.SetActive(false);
 
 
-                PersonNameLeft.gameObject.transform.parent.gameObject.SetActive(false);
-                PersonNameRight.gameObject.transform.parent.gameObject.SetActive(false);
-                PersonImageRight.gameObject.SetActive(false);
+                if (BIGUIORBIGOPTION)
+                {
+                    PersonNameLeftBig.text = GetPersonnFileName(DialogueID);
+                    PersonNameLeftBig.gameObject.transform.parent.gameObject.SetActive(true);
+                    PersonNameRightBig.gameObject.transform.parent.gameObject.SetActive(false);
+                    PersonImageRightBig.gameObject.SetActive(false);
 
-            }
 
-            else
-            {
+                    PersonNameLeft.gameObject.transform.parent.gameObject.SetActive(false);
+                    PersonNameRight.gameObject.transform.parent.gameObject.SetActive(false);
+                    PersonImageRight.gameObject.SetActive(false);
 
-                PersonNameLeft.text = GetPersonnFileName(DialogueID);
-                PersonNameLeft.gameObject.transform.parent.gameObject.SetActive(true);
-                PersonNameRight.gameObject.transform.parent.gameObject.SetActive(false);
-                PersonImageRight.gameObject.SetActive(false);
+                }
 
-                PersonNameLeftBig.gameObject.transform.parent.gameObject.SetActive(false);
-                PersonNameRightBig.gameObject.transform.parent.gameObject.SetActive(false);
-                PersonImageRightBig.gameObject.SetActive(false);
-            }
+                else
+                {
+
+                    PersonNameLeft.text = GetPersonnFileName(DialogueID);
+                    PersonNameLeft.gameObject.transform.parent.gameObject.SetActive(true);
+                    PersonNameRight.gameObject.transform.parent.gameObject.SetActive(false);
+                    PersonImageRight.gameObject.SetActive(false);
+
+                    PersonNameLeftBig.gameObject.transform.parent.gameObject.SetActive(false);
+                    PersonNameRightBig.gameObject.transform.parent.gameObject.SetActive(false);
+                    PersonImageRightBig.gameObject.SetActive(false);
+                }
+
 
         }
         else
         {
             if (GetPersonnFileName(DialogueID) != "YOU")
             {
-                if (GameController.Instance.IsBigUI)
+                if (BIGUIORBIGOPTION)
                 {
 
                     PersonImageRightBig.sprite = Resources.Load("Sprites/Person/" + GetPersonnFileName(DialogueID) + "_" + DataHandler.Instance.AllDialogueDatas[DialogueID].Expression, typeof(Sprite)) as Sprite;
@@ -132,36 +148,50 @@ public class UIController : MonoBehaviour
 
             }
 
-            if (GameController.Instance.IsBigUI)
-            {
-                PersonNameRightBig.text = GetPersonnFileName(DialogueID);
-                PersonNameRightBig.gameObject.transform.parent.gameObject.SetActive(true);
-                PersonNameLeftBig.gameObject.transform.parent.gameObject.SetActive(false);
-                PersonImageLeftBig.gameObject.SetActive(false);
+            //show name
+    
+                if (BIGUIORBIGOPTION)
+                {
+                    PersonNameRightBig.text = GetPersonnFileName(DialogueID);
+                    PersonNameRightBig.gameObject.transform.parent.gameObject.SetActive(true);
+                    PersonNameLeftBig.gameObject.transform.parent.gameObject.SetActive(false);
+                    PersonImageLeftBig.gameObject.SetActive(false);
 
 
-                PersonNameRight.gameObject.transform.parent.gameObject.SetActive(false);
-                PersonNameLeft.gameObject.transform.parent.gameObject.SetActive(false);
-                PersonImageLeft.gameObject.SetActive(false);
-            }
-            else
-            {
-                PersonNameRight.text = GetPersonnFileName(DialogueID);
-                PersonNameRight.gameObject.transform.parent.gameObject.SetActive(true);
-                PersonNameLeft.gameObject.transform.parent.gameObject.SetActive(false);
-                PersonImageLeft.gameObject.SetActive(false);
+                    PersonNameRight.gameObject.transform.parent.gameObject.SetActive(false);
+                    PersonNameLeft.gameObject.transform.parent.gameObject.SetActive(false);
+                    PersonImageLeft.gameObject.SetActive(false);
+                }
+                else
+                {
+                    PersonNameRight.text = GetPersonnFileName(DialogueID);
+                    PersonNameRight.gameObject.transform.parent.gameObject.SetActive(true);
+                    PersonNameLeft.gameObject.transform.parent.gameObject.SetActive(false);
+                    PersonImageLeft.gameObject.SetActive(false);
 
 
-                PersonNameRightBig.gameObject.transform.parent.gameObject.SetActive(false);
-                PersonNameLeftBig.gameObject.transform.parent.gameObject.SetActive(false);
-                PersonImageLeftBig.gameObject.SetActive(false);
+                    PersonNameRightBig.gameObject.transform.parent.gameObject.SetActive(false);
+                    PersonNameLeftBig.gameObject.transform.parent.gameObject.SetActive(false);
+                    PersonImageLeftBig.gameObject.SetActive(false);
 
-            }
+                }
 
 
         }
 
-        GameController.Instance.ShowDialogueText = true;
+        if (GetPersonnFileName(DialogueID) == "NO CHARACTER")
+        {
+            PersonImageLeft.gameObject.SetActive(false);
+            PersonImageRight.gameObject.SetActive(false);
+            PersonImageLeftBig.gameObject.SetActive(false);
+            PersonImageRightBig.gameObject.SetActive(false);
+
+            PersonNameLeft.gameObject.transform.parent.gameObject.SetActive(false);
+            PersonNameRight.gameObject.transform.parent.gameObject.SetActive(false);
+            PersonNameLeftBig.gameObject.transform.parent.gameObject.SetActive(false);
+            PersonNameRightBig.gameObject.transform.parent.gameObject.SetActive(false);
+        }
+
     }
 
 
@@ -203,6 +233,7 @@ public class UIController : MonoBehaviour
         yield return new WaitForSeconds(2f);
         BG.sprite = BGImgaes[GameController.Instance.CurrentSceneID + 1];
         GameController.Instance.VideoTextureUpdate(BGVideoNames[GameController.Instance.CurrentSceneID + 1]);
+     //   Debug.Log(BGVideoNames[GameController.Instance.CurrentSceneID + 1]);
 
         GameController.Instance.CurrentSceneID++;
         yield return new WaitForSeconds(1f);
@@ -244,7 +275,7 @@ public class UIController : MonoBehaviour
             case 99:
                 return "YOU";
             case 1:
-                return "PROFESSORN";
+                return "PROFESSOR N";
             case 2:
                 return "TOGA";
             case 3:
@@ -254,17 +285,19 @@ public class UIController : MonoBehaviour
             case 5:
                 return "ZAC";
             case 6:
-                return "PROFESSORL";
+                return "PROFESSOR L";
             case 7:
-                return "LUNA";
+                return "L.U.N.A";
             case 8:
                 return "KEN";
             case 9:
-                return "REMI";
+                return "R.E.M.I";
             case 10:
                 return "VITA";
             case 11:
                 return "KODA";
+            case 100:
+                return "NO CHARACTER";
             default:
                 return "";
         }
@@ -278,9 +311,18 @@ public class UIController : MonoBehaviour
     {
         BlackScreens[id].DOColor(Color.black, 2f);
         yield return new WaitForSeconds(1f);
-        BlackScreens[id].transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOColor(Color.white, 1f);     
-        BlackScreens[id].transform.GetChild(1).gameObject.SetActive(true);
-        yield break;
+        BlackScreens[id].transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOColor(Color.white, 1f);
+        yield return new WaitForSeconds(1f);
+        if (id != 2)
+        {
+            StopBlackScreenBehavior(id);
+        }
+        else
+        {
+            BlackScreens[id].transform.GetChild(1).gameObject.SetActive(true);
+        }
+      
+         yield break;
     }
 
 
@@ -303,6 +345,20 @@ public class UIController : MonoBehaviour
 
     public void GameReplay()
     {
+        StartCoroutine(ReplayGameBehavior());
+    }
+
+    public IEnumerator ReplayGameBehavior()
+    {
+        BG.GetComponent<Image>().color = Color.black;
+        BlackScreens[2].transform.GetChild(1).gameObject.SetActive(false);
+        BlackScreens[0].DOColor(Color.black, 2f);
+        yield return new WaitForSeconds(2f);
+        GameController.Instance.VideoTextureUpdate("Start Screen");
+        yield return new WaitForSeconds(0.5f);
+        Destroy(GameController.Instance.gameObject);
+        Destroy(DataHandler.Instance.gameObject);
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(0);
     }
 }

@@ -11,7 +11,7 @@ public class DialogueData
     public string DialogueText { get; set; }
     public string Expression { get; set; }
     public int IsBigUI { get; set; }
-
+    public int IsBigOption { get; set; }
     public int NextDialogueID { get; set; }
     public int NextOperation { get; set; }
     public int NextEffectID { get; set; }

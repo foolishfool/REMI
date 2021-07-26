@@ -5,6 +5,7 @@ using DG.Tweening;
 using UnityEngine.SceneManagement;
 using System.IO;
 using UnityEngine.Video;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -30,6 +31,8 @@ public class GameController : MonoBehaviour
     public int CurrentSceneID;
     [HideInInspector]
     public bool IsBigUI;
+    [HideInInspector]
+    public bool IsBigOption;
     [HideInInspector]
     public bool ShowDialogueText;
     public VideoPlayer StartVideoPlayer;
@@ -79,18 +82,22 @@ public class GameController : MonoBehaviour
 
         if (videoName == "")
         {
+            //uiController.VideoPlane.SetActive(false);
             uiController.BG.transform.GetChild(0).gameObject.SetActive(false);
             return;
         }
         else
         {
+
+           // StartVideoPlayer.targetMaterialRenderer  = GameObject.Find("UIController").GetComponent<UIController>().VideoPlane.GetComponent<Renderer>();
             StartVideoPlayer.url = Path.Combine(Application.streamingAssetsPath, videoName + ".mp4");
             StartVideoPlayer.isLooping = true;
+   
             if (uiController)
-            uiController.BG.transform.GetChild(0).gameObject.SetActive(true);
+                uiController.BG.transform.GetChild(0).gameObject.SetActive(true);
+           // uiController.VideoPlane.SetActive(true);
         }
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -117,15 +124,19 @@ public class GameController : MonoBehaviour
         ShowEffect = false;
         CurrentDialogueID = ID;
         IsBigUI = false;
+        IsBigOption = false;
         ShowDialogueText = false;
         GameObject newDialogue;
 
+        if (DataHandler.Instance.AllDialogueDatas[ID].IsBigOption == 1)
+            IsBigOption = true;
+
+
         if (DataHandler.Instance.AllDialogueDatas[ID].IsBigUI == 1)
-        {
+
              IsBigUI = true;
-             newDialogue = Instantiate(DialoguePrefabBig, uiController.DialoguePos.position, Quaternion.identity);
-        }
-        else 
+             
+
          newDialogue = Instantiate(DialoguePrefab, uiController.DialoguePos.position, Quaternion.identity);
         newDialogue.transform.parent = uiController.transform;
         newDialogue.transform.localScale = Vector3.one;
@@ -160,10 +171,10 @@ public class GameController : MonoBehaviour
 
             if (IsBigUI)
             {
-                uiController.DialogueFrameBig.transform.DOMoveY(uiController.DialogueFramePosBig.position.y, 0.5f).OnComplete(() => uiController.NewDialoguePersonUIUpdate(ID));
+                uiController.DialogueFrameBig.transform.DOMoveY(uiController.DialogueFramePosBig.position.y, 0.5f).OnComplete(() => uiController.NewDialoguePersonUIUpdateBasedOnBigUI(ID));
             }
             else
-            uiController.DialogueFrame.transform.DOMoveY(uiController.DialogueFramePos.position.y, 0.5f).OnComplete(() => uiController.NewDialoguePersonUIUpdate(ID));
+            uiController.DialogueFrame.transform.DOMoveY(uiController.DialogueFramePos.position.y, 0.5f).OnComplete(() => uiController.NewDialoguePersonUIUpdateBasedOnBigUI(ID));
         }
         else if (DataHandler.Instance.CurrentPersonID == 0)
         {
@@ -171,10 +182,10 @@ public class GameController : MonoBehaviour
 
             if (IsBigUI)
             {
-                uiController.DialogueFrameBig.transform.DOMoveY(uiController.DialogueFramePosBig.position.y, 0.5f).OnComplete(() => uiController.NewDialoguePersonUIUpdate(ID));
+                uiController.DialogueFrameBig.transform.DOMoveY(uiController.DialogueFramePosBig.position.y, 0.5f).OnComplete(() => uiController.NewDialoguePersonUIUpdateBasedOnBigUI(ID));
             }
             else
-            uiController.DialogueFrame.transform.DOMoveY(uiController.DialogueFramePos.position.y, 0.5f).OnComplete(() => uiController.NewDialoguePersonUIUpdate(ID));
+            uiController.DialogueFrame.transform.DOMoveY(uiController.DialogueFramePos.position.y, 0.5f).OnComplete(() => uiController.NewDialoguePersonUIUpdateBasedOnBigUI(ID));
         }
         else if (DataHandler.Instance.CurrentPersonID == DataHandler.Instance.AllDialogueDatas[ID].PersonID)
         {
@@ -192,7 +203,7 @@ public class GameController : MonoBehaviour
                 uiController.DialogueFrameBig.SetActive(false);
             }
         
-            uiController.NewDialoguePersonUIUpdate(ID);
+            uiController.NewDialoguePersonUIUpdateBasedOnBigUI(ID);
         }
 
         newDialogue.GetComponent<Dialogue>().ReadDialogueData(ID);
@@ -223,6 +234,8 @@ public class GameController : MonoBehaviour
         StartCoroutine(BeginDialogueBehavior());
     }
 
+
+
     //called at intro info button
 
     public IEnumerator BeginDialogueBehavior()
@@ -236,14 +249,25 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(1f);
         uiController.BlackScreen.DOColor(new Color(Color.black.a, Color.black.g, Color.black.b, 0), 2f);
         yield return new WaitForSeconds(2f);
+        // ShowNoCharacterText();
+
         ShowNextDialogue(1);
     }
 
+    public void ShowNoCharacterText()
+    {
+        uiController.NocharacterInfo.SetActive(true);
+        uiController.NocharacterInfo.GetComponentInChildren<Button>().onClick.AddListener(() =>
 
+        {
+            ShowNextDialogue(1);
+            uiController.NocharacterInfo.SetActive(false);
+        } );
+    }
 
-   // void OnLevelWasLoaded(int level)
-   // { 
-   //     if (level == 1)
-   //       VideoTextureUpdate("Courtyard");
-   // }
+    void OnLevelWasLoaded(int level)
+    { 
+        if (level == 1)
+          VideoTextureUpdate("Courtyard");
+    }
 }

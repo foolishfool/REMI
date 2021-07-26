@@ -48,6 +48,23 @@ public class Option : MonoBehaviour
         {
             transform.parent.GetComponent<Dialogue>().OptionObj3.GetComponent<Image>().sprite = transform.parent.GetComponent<Dialogue>().OptionObj3.normalSprite;
         }
+
+
+
+        if (transform.parent.GetComponent<Dialogue>().OptionObj1Big != this)
+        {
+            transform.parent.GetComponent<Dialogue>().OptionObj1Big.GetComponent<Image>().sprite = transform.parent.GetComponent<Dialogue>().OptionObj1Big.normalSprite;
+        }
+
+        if (transform.parent.GetComponent<Dialogue>().OptionObj2Big != this)
+        {
+            transform.parent.GetComponent<Dialogue>().OptionObj2Big.GetComponent<Image>().sprite = transform.parent.GetComponent<Dialogue>().OptionObj2Big.normalSprite;
+        }
+
+        if (transform.parent.GetComponent<Dialogue>().OptionObj3Big != this)
+        {
+            transform.parent.GetComponent<Dialogue>().OptionObj3Big.GetComponent<Image>().sprite = transform.parent.GetComponent<Dialogue>().OptionObj3Big.normalSprite;
+        }
     }
 
 }

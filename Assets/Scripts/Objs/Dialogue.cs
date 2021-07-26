@@ -29,12 +29,15 @@ public class Dialogue : MonoBehaviour
     [HideInInspector] public int Option2NextDialogue;
     [HideInInspector] public string Option3;
     [HideInInspector] public int Option3NextDialogue;
+
+
     [HideInInspector] public int IsBigUI;
+    [HideInInspector] public int IsBigOption;
 
     public GameObject NextButton;
 
     public TextMeshProUGUI DialogueDetails;
-
+    public TextMeshProUGUI DialogueDetailsBig;
 
     public Option OptionObj1;
     public Option OptionObj2;
@@ -43,6 +46,17 @@ public class Dialogue : MonoBehaviour
     public TextMeshProUGUI Option1Text;
     public TextMeshProUGUI Option2Text;
     public TextMeshProUGUI Option3Text;
+
+
+
+    public Option OptionObj1Big;
+    public Option OptionObj2Big;
+    public Option OptionObj3Big;
+
+    public TextMeshProUGUI Option1TextBig;
+    public TextMeshProUGUI Option2TextBig;
+    public TextMeshProUGUI Option3TextBig;
+
 
     private UIController uicontroller;
     private List<string> priviousChosenStr = new List<string>();
@@ -69,6 +83,7 @@ public class Dialogue : MonoBehaviour
         DialogueText = DataHandler.Instance.AllDialogueDatas[id].DialogueText;
         Expression = DataHandler.Instance.AllDialogueDatas[id].Expression;
         IsBigUI = DataHandler.Instance.AllDialogueDatas[id].IsBigUI;
+        IsBigOption = DataHandler.Instance.AllDialogueDatas[id].IsBigOption;
         NextDialogueID = DataHandler.Instance.AllDialogueDatas[id].NextDialogueID;
         NextOperation = DataHandler.Instance.AllDialogueDatas[id].NextOperation;
         NextEffectID = DataHandler.Instance.AllDialogueDatas[id].NextEffectID;
@@ -144,6 +159,7 @@ public class Dialogue : MonoBehaviour
                         {
                             GameController.Instance.ShowOptions = true;
                             DialogueDetails.gameObject.SetActive(false);
+                             DialogueDetailsBig.gameObject.SetActive(false);
                             NextButton.SetActive(false);
                             ShowOptions();
                         }
@@ -181,11 +197,7 @@ public class Dialogue : MonoBehaviour
                             //NextEffectID start from 1
                             StopEffectWhiteScreenBehavior(NextEffectID - 1);
                             uicontroller.HidePersonUI();
-                            if (NextEffectID != 3)
-                            {
-                                GameController.Instance.ShowNextDialogue(GameController.Instance.CurrentDialogueID + 1);
-                            }
-
+                            GameController.Instance.ShowNextDialogue(GameController.Instance.CurrentDialogueID + 1);
                             Destroy(gameObject);
 
                         }
@@ -273,19 +285,25 @@ public class Dialogue : MonoBehaviour
     {
 
         DialogueDetails.text = DialogueText;
-      // if (DialogueDetails.text == " ")
-      // {
-      //     GameObject.Find("UIController").GetComponent<UIController>().DialogueFrame.SetActive(false);
-      // }
+        DialogueDetailsBig.text = DialogueText;
 
         Option1Text.text = Option1;
         Option2Text.text = Option2;
         Option3Text.text = Option3;
+
+        Option1TextBig.text = Option1;
+        Option2TextBig.text = Option2;
+        Option3TextBig.text = Option3;
+
         OptionObj1.NextDialogueID = Option1NextDialogue;
         OptionObj2.NextDialogueID = Option2NextDialogue;
         OptionObj3.NextDialogueID = Option3NextDialogue;
 
-        
+        OptionObj1Big.NextDialogueID = Option1NextDialogue;
+        OptionObj2Big.NextDialogueID = Option2NextDialogue;
+        OptionObj3Big.NextDialogueID = Option3NextDialogue;
+
+
         StartCoroutine(UIShowBehavior());
     }
 
@@ -293,7 +311,17 @@ public class Dialogue : MonoBehaviour
     {
 
         yield return new WaitUntil(() => GameController.Instance.ShowDialogueText);
-        DialogueDetails.gameObject.SetActive(true);
+      
+        if (GameController.Instance.IsBigUI)
+        {
+            DialogueDetails.gameObject.SetActive(false);
+            DialogueDetailsBig.gameObject.SetActive(true);
+        }
+        else
+        {
+            DialogueDetailsBig.gameObject.SetActive(false);
+            DialogueDetails.gameObject.SetActive(true);
+        }  
         NextButton.gameObject.SetActive(true);
 
         yield break;
@@ -306,6 +334,7 @@ public class Dialogue : MonoBehaviour
         WhiteScreenShow(NextEffectID-1);
 
         DialogueDetails.gameObject.SetActive(false);
+        DialogueDetailsBig.gameObject.SetActive(false);
         GameController.Instance.ShowEffect = true;
     }
 
@@ -318,11 +347,6 @@ public class Dialogue : MonoBehaviour
     public void StopEffectWhiteScreenBehavior(int whitescreenID)
     {
         uicontroller.WhiteScreens[whitescreenID].DOColor(new Color(Color.white.a, Color.white.g, Color.white.b, 0), 1f).OnComplete(()=> {
-            //effectID = 3 but whitescreenID =2
-            if (whitescreenID == 2)
-            {
-                uicontroller.LoadNewScene();
-            }
         });
         uicontroller.WhiteScreens[whitescreenID].transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOColor(new Color(Color.white.a, Color.white.g, Color.white.b, 0), 1f);
 
@@ -349,21 +373,52 @@ public class Dialogue : MonoBehaviour
         {
             uicontroller.ShowCrystals();
         }
+        uicontroller.NewDialoguePersonUIUpdateBasedOnOption(ID);
 
+    
 
-        if (Option1Text.text != "")
+        if (IsBigOption == 0)
         {
-            OptionObj1.gameObject.SetActive(true);
+            uicontroller.DialogueFrameBig.SetActive(false);
+            uicontroller.DialogueFrame.SetActive(true);
+            uicontroller.DialogueFrame.transform.DOMoveY(uicontroller.DialogueFramePos.position.y, 0f);
+
+            if (Option1Text.text != "")
+            {
+                OptionObj1.gameObject.SetActive(true);
+            }
+
+            if (Option2Text.text != "")
+            {
+                OptionObj2.gameObject.SetActive(true);
+            }
+            if (Option3Text.text != "")
+            {
+                OptionObj3.gameObject.SetActive(true);
+            }
         }
 
-        if (Option2Text.text != "")
+        else
         {
-            OptionObj2.gameObject.SetActive(true);
+            uicontroller.DialogueFrame.SetActive(false);
+            uicontroller.DialogueFrameBig.SetActive(true);
+            uicontroller.DialogueFrameBig.transform.DOMoveY(uicontroller.DialogueFramePosBig.position.y, 0f);
+
+            if (Option1Text.text != "")
+            {
+                OptionObj1Big.gameObject.SetActive(true);
+            }
+
+            if (Option2Text.text != "")
+            {
+                OptionObj2Big.gameObject.SetActive(true);
+            }
+            if (Option3Text.text != "")
+            {
+                OptionObj3Big.gameObject.SetActive(true);
+            }
         }
-        if (Option3Text.text != "")
-        {
-            OptionObj3.gameObject.SetActive(true);
-        }
+
     }
 
 }
