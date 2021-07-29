@@ -321,7 +321,14 @@ public class Dialogue : MonoBehaviour
         {
             DialogueDetailsBig.gameObject.SetActive(false);
             DialogueDetails.gameObject.SetActive(true);
-        }  
+        }
+
+        if (NextOperation == 1)
+        {
+            NextButton.gameObject.SetActive(false);
+            ShowOptions();
+        }
+        else 
         NextButton.gameObject.SetActive(true);
 
         yield break;
@@ -346,19 +353,80 @@ public class Dialogue : MonoBehaviour
 
     public void StopEffectWhiteScreenBehavior(int whitescreenID)
     {
-        uicontroller.WhiteScreens[whitescreenID].DOColor(new Color(Color.white.a, Color.white.g, Color.white.b, 0), 1f).OnComplete(()=> {
-        });
+        if (uicontroller.WhiteScreens[whitescreenID].GetComponent<Image>())
+        {
+            uicontroller.WhiteScreens[whitescreenID].GetComponent<Image>().DOColor(new Color(Color.white.a, Color.white.g, Color.white.b, 0), 1f);
+        }
+        if (uicontroller.WhiteScreens[whitescreenID].GetComponent<RawImage>())
+        {
+            uicontroller.WhiteScreens[whitescreenID].GetComponent<RawImage>().DOColor(new Color(Color.white.a, Color.white.g, Color.white.b, 0), 1f);
+        }
         uicontroller.WhiteScreens[whitescreenID].transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOColor(new Color(Color.white.a, Color.white.g, Color.white.b, 0), 1f);
 
     }
 
     public IEnumerator WhiteScreenBehavior(int whitescreenid)
     {
-        uicontroller.WhiteScreens[whitescreenid].DOColor(Color.white,2f);
-        yield return new WaitForSeconds(1f);
-        uicontroller.WhiteScreens[whitescreenid].transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOColor(Color.black,1f);
-        yield return new WaitForSeconds(1f);
-        NextButton.SetActive(true);
+
+        if (whitescreenid == 1 || whitescreenid == 4)
+        {
+            uicontroller.HidePersonUI();
+            if (uicontroller.WhiteScreens[whitescreenid].GetComponent<RawImage>())
+                uicontroller.WhiteScreens[whitescreenid].GetComponent<RawImage>().DOColor(Color.white, 2f);
+
+            gameObject.transform.localScale = Vector3.zero;
+            if (whitescreenid == 1)
+            {
+                GameController.Instance.EffectVideoTextureUpdate("Biobot Creation");
+            }
+            if (whitescreenid == 4)
+            {
+                if (DataHandler.Instance.Score >= 14)
+                {
+                    GameController.Instance.EffectVideoTextureUpdate("High Tier");
+                }  //Medium score
+                else if (DataHandler.Instance.Score >= 9 && DataHandler.Instance.Score < 14)
+                {
+                    GameController.Instance.EffectVideoTextureUpdate("Moderate Tier");
+                }//low score
+                else if (DataHandler.Instance.Score <= 8)
+                {
+                    GameController.Instance.EffectVideoTextureUpdate("Low Tier");
+                }
+
+            }
+
+            yield return new WaitForSeconds(10f);
+            StopEffectWhiteScreenBehavior(whitescreenid);
+            yield return new WaitForSeconds(2f);
+            if (whitescreenid == 4)
+            {
+                uicontroller.LoadNewScene();
+            }
+            else
+            {
+                GameController.Instance.ShowNextDialogue(GameController.Instance.CurrentDialogueID + 1);
+                Destroy(gameObject);
+            }
+
+            //NextButton.SetActive(true);
+            yield break;
+        }
+
+        else
+        {
+            if (uicontroller.WhiteScreens[whitescreenid].GetComponent<Image>())
+                uicontroller.WhiteScreens[whitescreenid].GetComponent<Image>().DOColor(Color.white, 2f);
+            if (uicontroller.WhiteScreens[whitescreenid].GetComponent<RawImage>())
+                uicontroller.WhiteScreens[whitescreenid].GetComponent<RawImage>().DOColor(Color.white, 2f);
+            yield return new WaitForSeconds(1f);
+            uicontroller.HidePersonUI();
+            uicontroller.WhiteScreens[whitescreenid].transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOColor(Color.black, 1f);
+            yield return new WaitForSeconds(1f);
+            NextButton.SetActive(true);
+        }
+     
+
         yield break;
     }
 
@@ -369,7 +437,7 @@ public class Dialogue : MonoBehaviour
 
         NextButton.SetActive(false);
 
-        if ( GameController.Instance. CurrentDialogueID == 13)
+        if ( GameController.Instance. CurrentDialogueID == 16)
         {
             uicontroller.ShowCrystals();
         }

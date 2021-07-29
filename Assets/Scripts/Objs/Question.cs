@@ -18,8 +18,8 @@ public class Question : MonoBehaviour
     public Scrollbar scrollBar;
     public bool IsLogIn;
     public bool LoadNewScene;
-    public bool BlackScreen;
-    public int BlackScreenID;
+    public bool FinishScreenShow;
+
     public bool IsSaveData;
     void Start()
     {
@@ -56,6 +56,25 @@ public class Question : MonoBehaviour
             }
 
             SubmitButton.SetActive(true);
+        }
+
+        else
+        {
+            if (Answers.Count == MaxChoiceNum)
+            {
+                for (int i = 0; i < Answers.Count; i++)
+                {
+                 
+                    if (Answers[i].HasInput && Answers[i].Input.text.Length == 0)
+                    {
+                        SubmitButton.SetActive(false);
+                        return;
+                    }
+
+                }
+                SubmitButton.SetActive(true);
+            }
+
         }
     }
 
@@ -117,7 +136,7 @@ public class Question : MonoBehaviour
         if (!LoadNewScene)
         {
             Destroy(GameController.Instance.CurrentDialogue.gameObject);
-            if (!BlackScreen)
+            if (!FinishScreenShow)
             {
                 if(DataHandler.Instance.AllDialogueDatas[GameController.Instance.CurrentDialogueID].NextMultipleDialogue != " ")
                     //show next dialogue based on previous choosen 
@@ -128,7 +147,7 @@ public class Question : MonoBehaviour
 
             else
             {
-                GameObject.Find("UIController").GetComponent<UIController>().BlackScreenScreenShow(BlackScreenID);
+                GameObject.Find("UIController").GetComponent<UIController>().FinishGameScreenShow();
             }
           
       

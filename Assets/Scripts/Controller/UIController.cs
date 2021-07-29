@@ -36,8 +36,9 @@ public class UIController : MonoBehaviour
     public List<GameObject> Crystals;
 
     public Transform DialoguePos;
-    public List<Image> WhiteScreens = new List<Image>();
+    public List<GameObject> WhiteScreens = new List<GameObject>();
     public List<Image> BlackScreens = new List<Image>();
+    public RawImage Finishscreen;
     public List<Sprite> BGImgaes = new List<Sprite>();
 
     public List<string> BGVideoNames= new List<string>();
@@ -277,7 +278,7 @@ public class UIController : MonoBehaviour
             case 1:
                 return "PROFESSOR N";
             case 2:
-                return "TOGA";
+                return "T.O.G.A";
             case 3:
                 return "TYRA";
             case 4:
@@ -325,6 +326,29 @@ public class UIController : MonoBehaviour
          yield break;
     }
 
+    public void FinishGameScreenShow()
+    {
+
+        if (DataHandler.Instance.Score >= 14)
+        {
+            GameController.Instance.EffectVideoTextureUpdate("Game Over - High Tier");
+        }  //Medium score
+        else if (DataHandler.Instance.Score >= 9 && DataHandler.Instance.Score < 14)
+        {
+            GameController.Instance.EffectVideoTextureUpdate("Game Over - Moderate Tier");
+        }//low score
+        else if (DataHandler.Instance.Score <= 8)
+        {
+            GameController.Instance.EffectVideoTextureUpdate("Game Over - Low Tier");
+        }
+
+       GameController.Instance.EffectVideoPlayer.isLooping = true;
+
+        Finishscreen.DOColor(Color.white, 2f).OnComplete(()=> Finishscreen.transform.GetChild(0).gameObject.SetActive(true));
+
+
+        
+    }
 
     public void StopBlackScreenBehavior(int id)
     {
@@ -336,8 +360,16 @@ public class UIController : MonoBehaviour
                 //show next dialogue based on previous choosen 
                 GameController.Instance.CurrentDialogue.ChooseNextDialogueBasedOnPreChoosen();
             }
-            else 
-            GameController.Instance.ShowNextDialogue(GameController.Instance.CurrentDialogueID + 1);
+
+            else if (DataHandler.Instance.AllDialogueDatas[GameController.Instance.CurrentDialogueID].NextDialogueID != 0)
+            {
+                GameController.Instance.ShowNextDialogue(DataHandler.Instance.AllDialogueDatas[GameController.Instance.CurrentDialogueID].NextDialogueID);
+            }
+            else
+            {
+                GameController.Instance.ShowNextDialogue(GameController.Instance.CurrentDialogueID + 1);
+            }
+           
         });
             BlackScreens[id].transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOColor(new Color(Color.white.a, Color.white.g, Color.white.b, 0), 1f);
     }

@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using System.IO;
 using UnityEngine.Video;
 using UnityEngine.UI;
+using OldMoatGames;
 
 public class GameController : MonoBehaviour
 {
@@ -36,7 +37,10 @@ public class GameController : MonoBehaviour
     [HideInInspector]
     public bool ShowDialogueText;
     public VideoPlayer StartVideoPlayer;
+    public VideoPlayer EffectVideoPlayer;
     public GameObject FrontImage;
+    public GameObject GifImage;
+    public RenderTexture videoRenderTexture;
 
     public static GameController Instance
     {
@@ -98,6 +102,15 @@ public class GameController : MonoBehaviour
            // uiController.VideoPlane.SetActive(true);
         }
     }
+
+
+    public void EffectVideoTextureUpdate(string videoName)
+    {
+        EffectVideoPlayer.url = Path.Combine(Application.streamingAssetsPath, videoName + ".mp4");
+        EffectVideoPlayer.isLooping = false;
+        EffectVideoPlayer.Play();
+
+    }
     // Update is called once per frame
     void Update()
     {
@@ -107,7 +120,7 @@ public class GameController : MonoBehaviour
 
     public void PlayVideo()
     {
-        StartVideoPlayer.Play();
+        ReArrangeBgResource();
         FrontImage.SetActive(false);
     }
     public void ShowNextDialogue(int ID)
@@ -220,8 +233,14 @@ public class GameController : MonoBehaviour
 
     }
 
+    public void ReArrangeBgResource()
+    {
+        GifImage.GetComponent<AnimatedGifPlayer>().enabled = false;
 
-    
+        GifImage.GetComponent<RawImage>().texture = videoRenderTexture;
+        StartVideoPlayer.Play();
+    }
+
 
     public void LoadScene()
     {
