@@ -19,7 +19,8 @@ public class Question : MonoBehaviour
     public bool IsLogIn;
     public bool LoadNewScene;
     public bool FinishScreenShow;
-
+    public bool BlackScreen;
+    public int BlackScreenID;
     public bool IsSaveData;
     void Start()
     {
@@ -129,20 +130,30 @@ public class Question : MonoBehaviour
         {
             DataHandler.Instance.AllQuestionData.Add(ID, this);
         }
-     
-
 
 
         if (!LoadNewScene)
         {
+
             Destroy(GameController.Instance.CurrentDialogue.gameObject);
             if (!FinishScreenShow)
             {
-                if(DataHandler.Instance.AllDialogueDatas[GameController.Instance.CurrentDialogueID].NextMultipleDialogue != " ")
-                    //show next dialogue based on previous choosen 
-                    GameController.Instance.CurrentDialogue.ChooseNextDialogueBasedOnPreChoosen();
+
+                if (BlackScreen)
+                {
+                    GameObject.Find("UIController").GetComponent<UIController>().BlackScreenScreenShow(BlackScreenID);
+                }
+
                 else
-                    GameController.Instance.ShowNextDialogue(GameController.Instance.CurrentDialogueID + 1);
+                {
+                    if (DataHandler.Instance.AllDialogueDatas[GameController.Instance.CurrentDialogueID].NextMultipleDialogue != " ")
+                        //show next dialogue based on previous choosen 
+                        GameController.Instance.CurrentDialogue.ChooseNextDialogueBasedOnPreChoosen();
+                    else
+                        GameController.Instance.ShowNextDialogue(GameController.Instance.CurrentDialogueID + 1);
+                }
+
+               
             }
 
             else
@@ -154,7 +165,7 @@ public class Question : MonoBehaviour
         }
         else
         {
-            GameObject.Find("UIController").GetComponent<UIController>().LoadNewScene();
+            GameObject.Find("UIController").GetComponent<UIController>().LoadNewScene(true);
         }
 
 

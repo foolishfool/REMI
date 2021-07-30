@@ -204,7 +204,7 @@ public class Dialogue : MonoBehaviour
                         break;
 
                     case 4:
-                        uicontroller.LoadNewScene();
+                        uicontroller.LoadNewScene(true);
                         uicontroller.DialogueFrame.transform.DOMoveY(uicontroller.DialogueFrameInitialPos.position.y, 0f);
                         uicontroller.HidePersonUI();
                         gameObject.transform.localScale = Vector3.zero;
@@ -362,7 +362,7 @@ public class Dialogue : MonoBehaviour
             uicontroller.WhiteScreens[whitescreenID].GetComponent<RawImage>().DOColor(new Color(Color.white.a, Color.white.g, Color.white.b, 0), 1f);
         }
         uicontroller.WhiteScreens[whitescreenID].transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOColor(new Color(Color.white.a, Color.white.g, Color.white.b, 0), 1f);
-
+        GameController.Instance.StartVideoPlayer.Play();
     }
 
     public IEnumerator WhiteScreenBehavior(int whitescreenid)
@@ -397,14 +397,21 @@ public class Dialogue : MonoBehaviour
             }
 
             yield return new WaitForSeconds(10f);
-            StopEffectWhiteScreenBehavior(whitescreenid);
-            yield return new WaitForSeconds(2f);
+
             if (whitescreenid == 4)
             {
-                uicontroller.LoadNewScene();
+                if (uicontroller.WhiteScreens[whitescreenid].GetComponent<RawImage>())
+                {
+                    uicontroller.WhiteScreens[whitescreenid].GetComponent<RawImage>().DOColor(new Color(Color.white.a, Color.white.g, Color.white.b, 0), 0f);
+                }
+
+                //lava scene transfer directly
+                uicontroller.LoadNewScene(false);
             }
             else
             {
+                StopEffectWhiteScreenBehavior(whitescreenid);
+                yield return new WaitForSeconds(2f);
                 GameController.Instance.ShowNextDialogue(GameController.Instance.CurrentDialogueID + 1);
                 Destroy(gameObject);
             }

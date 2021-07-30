@@ -74,6 +74,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         StartVideoPlayer.Play();
+
         if (GameObject.Find("UIController"))
         {
             uiController = GameObject.Find("UIController").GetComponent<UIController>();
@@ -96,7 +97,7 @@ public class GameController : MonoBehaviour
            // StartVideoPlayer.targetMaterialRenderer  = GameObject.Find("UIController").GetComponent<UIController>().VideoPlane.GetComponent<Renderer>();
             StartVideoPlayer.url = Path.Combine(Application.streamingAssetsPath, videoName + ".mp4");
             StartVideoPlayer.isLooping = true;
-   
+             StartVideoPlayer.Play();
             if (uiController)
                 uiController.BG.transform.GetChild(0).gameObject.SetActive(true);
            // uiController.VideoPlane.SetActive(true);
@@ -108,6 +109,7 @@ public class GameController : MonoBehaviour
     {
         EffectVideoPlayer.url = Path.Combine(Application.streamingAssetsPath, videoName + ".mp4");
         EffectVideoPlayer.isLooping = false;
+        StartVideoPlayer.Pause();
         EffectVideoPlayer.Play();
 
     }
@@ -120,6 +122,7 @@ public class GameController : MonoBehaviour
 
     public void PlayVideo()
     {
+   
         ReArrangeBgResource();
         FrontImage.SetActive(false);
     }

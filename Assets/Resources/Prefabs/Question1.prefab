@@ -1812,6 +1812,7 @@ MonoBehaviour:
   scrollBar: {fileID: 7668036901293660302}
   IsLogIn: 0
   LoadNewScene: 0
+  FinishScreenShow: 0
   BlackScreen: 0
   BlackScreenID: 0
   IsSaveData: 0

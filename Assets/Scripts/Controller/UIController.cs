@@ -222,18 +222,31 @@ public class UIController : MonoBehaviour
         }
     }
 
-    public void LoadNewScene()
+    public void LoadNewScene(bool fadeout)
     {
-        StartCoroutine(StartLoadNewSceneBehavior());
+        StartCoroutine(StartLoadNewSceneBehavior(fadeout));
     }
 
 
-    public IEnumerator StartLoadNewSceneBehavior()
+    public IEnumerator StartLoadNewSceneBehavior(bool fadeout)
     {
-        BlackScreen.DOColor(Color.black, 2f);
-        yield return new WaitForSeconds(2f);
-        BG.sprite = BGImgaes[GameController.Instance.CurrentSceneID + 1];
-        GameController.Instance.VideoTextureUpdate(BGVideoNames[GameController.Instance.CurrentSceneID + 1]);
+        if (fadeout)
+        {
+            BlackScreen.DOColor(Color.black, 2f);
+            yield return new WaitForSeconds(2f);
+            BG.sprite = BGImgaes[GameController.Instance.CurrentSceneID + 1];
+            GameController.Instance.VideoTextureUpdate(BGVideoNames[GameController.Instance.CurrentSceneID + 1]);
+        }
+
+        else
+        {
+            BG.sprite = BGImgaes[GameController.Instance.CurrentSceneID + 1];
+            GameController.Instance.VideoTextureUpdate(BGVideoNames[GameController.Instance.CurrentSceneID + 1]);
+            BlackScreen.DOColor(Color.black, 0f);      
+        }
+     
+
+       
      //   Debug.Log(BGVideoNames[GameController.Instance.CurrentSceneID + 1]);
 
         GameController.Instance.CurrentSceneID++;
@@ -383,8 +396,8 @@ public class UIController : MonoBehaviour
     public IEnumerator ReplayGameBehavior()
     {
         BG.GetComponent<Image>().color = Color.black;
-        BlackScreens[2].transform.GetChild(1).gameObject.SetActive(false);
-        BlackScreens[0].DOColor(Color.black, 2f);
+        Finishscreen.transform.GetChild(0).gameObject.SetActive(false);
+        Finishscreen.DOColor(Color.black, 2f);
         yield return new WaitForSeconds(2f);
         GameController.Instance.VideoTextureUpdate("Start Screen");
         yield return new WaitForSeconds(0.5f);

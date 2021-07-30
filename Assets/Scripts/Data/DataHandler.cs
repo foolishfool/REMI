@@ -5,10 +5,27 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
+using GoogleSheetsForUnity;
 
 public class DataHandler : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+
+    public struct PlayerInfo
+    {
+        public string UserID;
+        public string Q1;
+        public string Q2;
+        public string Q3;
+        public string Q4;
+        public string Q5;
+        public string Q6;
+        public string Q7;
+        public int Score;
+    }
+
+
+
 
     [HideInInspector]
     public Dictionary<int, DialogueData> AllDialogueDatas = new Dictionary<int, DialogueData>();
@@ -209,7 +226,8 @@ public class DataHandler : MonoBehaviour
 
     public void SaveData()
     {
-        StartCoroutine(SaveDataBehavior());
+      //  StartCoroutine(SaveDataBehavior());
+        SendDataToGoogleSheet();
     }
 
     public IEnumerator SaveDataBehavior()
@@ -324,5 +342,45 @@ public class DataHandler : MonoBehaviour
 
 
         yield break;
+    }
+
+    public string GetMultipleChoiceAnswers(int questionID)
+    {
+        string answer = "";
+        Debug.Log(questionID);
+        Debug.Log(AllQuestionData[questionID].Answers.Count);
+        for (int i = 0; i < AllQuestionData[questionID].Answers.Count; i++)
+        {
+            Debug.Log(AllQuestionData[questionID].Answers[i].OptionNum);
+ 
+            if (AllQuestionData[questionID].Answers[i].HasInput)
+            {
+                Debug.Log(AllQuestionData[questionID].Answers[i].Input.text);
+                answer += (AllQuestionData[questionID].Answers[i].OptionNum + " : " + AllQuestionData[questionID].Answers[i].Input.text);
+            }
+            else
+            {
+                answer += AllQuestionData[questionID].Answers[i].OptionNum;
+            }
+     
+        }
+
+        return answer;
+    }
+
+
+    public void SendDataToGoogleSheet()
+    {
+      
+            PlayerInfo _playerData = new PlayerInfo { UserID =  CurrentUserID, Q1 = GetMultipleChoiceAnswers(1), Q2 = AllQuestionData[2].Answers[0].OptionNum, Q3 = AllQuestionData[3].Answers[0].OptionNum, Q4 = AllQuestionData[4].Answers[0].OptionNum, Q5 = AllQuestionData[5].Answers[0].OptionNum, Q6 = AllQuestionData[6].Answers[0].OptionNum, Q7 = GetMultipleChoiceAnswers(7), Score = Score};
+
+           // Get the json string of the object.
+            string jsonPlayer = JsonUtility.ToJson(_playerData);
+
+            Debug.Log("<color=yellow>Sending following player to the cloud: \n</color>" + jsonPlayer);
+
+            // Save the object on the cloud, in a table called like the object type.
+            Drive.CreateObject(jsonPlayer, "Sheet1", true);
+
     }
 }

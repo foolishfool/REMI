@@ -364,8 +364,10 @@ MonoBehaviour:
   scrollBar: {fileID: 0}
   IsLogIn: 0
   LoadNewScene: 0
+  FinishScreenShow: 0
   BlackScreen: 1
   BlackScreenID: 1
+  IsSaveData: 0
 --- !u!1 &6141284147289520854
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,9 +526,9 @@ PrefabInstance:
     - target: {fileID: 6371489906666494091, guid: 8e4e487b467b5244991c3901da2b9444,
         type: 3}
       propertyPath: m_text
-      value: "B. I would wait and ask them later. Doing the same as Atlas wouldn\u2019t
-        really help this situation. I would go talk to them when the bell rings to
-        sort things out."
+      value: "B. I would go talk to them when the bell rings. Doing the same as Atlas
+        wouldn\u2019t really help this situation. I would have a conversation with
+        them to sort things out."
       objectReference: {fileID: 0}
     - target: {fileID: 6371489906666494091, guid: 8e4e487b467b5244991c3901da2b9444,
         type: 3}
@@ -702,7 +704,8 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: 'C.  I would wait for the bell to ring then march straight up to Tyra
-        and Atlas. They need to know that spreading nasty rumours has nasty consequences! '
+        and Atlas. They need to know that spreading nasty rumours about me has nasty
+        consequences! '
       objectReference: {fileID: 0}
     - target: {fileID: 6371489906666494091, guid: 8e4e487b467b5244991c3901da2b9444,
         type: 3}
@@ -904,8 +907,9 @@ PrefabInstance:
     - target: {fileID: 6371489906666494091, guid: 8e4e487b467b5244991c3901da2b9444,
         type: 3}
       propertyPath: m_text
-      value: "A.  I would stay quiet and act as if I didn\u2019t overhear them. It\u2019s
-        better to avoid it. After the bell rings, I would tell Zac all about it."
+      value: "A. I would stay quiet and act as if I didn\u2019t overhear them talking
+        about me. It\u2019s better to avoid it. After the bell rings, I would tell
+        Zac all about it."
       objectReference: {fileID: 0}
     - target: {fileID: 6371489906666494091, guid: 8e4e487b467b5244991c3901da2b9444,
         type: 3}
