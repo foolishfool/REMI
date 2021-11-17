@@ -1,6 +1,5 @@
 ﻿
 using LitJson;
-using FirebaseWebGL.Examples.Database;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,7 +24,7 @@ public class DataHandler : MonoBehaviour
     }
 
 
-
+    public GameObject DriveConnection;
 
     [HideInInspector]
     public Dictionary<int, DialogueData> AllDialogueDatas = new Dictionary<int, DialogueData>();
@@ -40,7 +39,7 @@ public class DataHandler : MonoBehaviour
     public int Score;
 
     [HideInInspector]
-    public DatabaseExampleHandler DatabaseHandler;
+    //public DatabaseExampleHandler DatabaseHandler;
 
     static DataHandler instance;
 
@@ -94,7 +93,7 @@ public class DataHandler : MonoBehaviour
     void Start()
     {
         ReadAllDialogueData();
-    
+        InitializeDriveConnection();
     }
 
     // Update is called once per frame
@@ -102,6 +101,7 @@ public class DataHandler : MonoBehaviour
     {
         
     }
+
 
 
     public void ReadAllDialogueData()
@@ -136,6 +136,12 @@ public class DataHandler : MonoBehaviour
     }
 
 
+    public void InitializeDriveConnection()
+    {
+     GameObject go =   Instantiate(DriveConnection, transform.position, Quaternion.identity) ;
+        go.transform.parent = transform;
+    }
+
     public void SaveRecord()
     {
         foreach (var item in AllQuestionData)
@@ -146,21 +152,21 @@ public class DataHandler : MonoBehaviour
 
     }
 
-    public void ResetData()
-    {
-        DatabaseHandler.PostJSON("Statistics",null);
-        DatabaseHandler.PostJSON("UserData", null);
-    }
+  // public void ResetData()
+  // {
+  //     DatabaseHandler.PostJSON("Statistics",null);
+  //     DatabaseHandler.PostJSON("UserData", null);
+  // }
 
     public void ReadCurrentStatistics()
     {
-        StartCoroutine(ReadRecordBehavior());
+   //     StartCoroutine(ReadRecordBehavior());
     }
 
-
+    /*
     public IEnumerator ReadRecordBehavior()
     {
-        DatabaseHandler = GameObject.Find("DataBaseExample").GetComponent<DatabaseExampleHandler>();
+       // DatabaseHandler = GameObject.Find("DataBaseExample").GetComponent<DatabaseExampleHandler>();
         StartCoroutine(ReadDataBehavior(NUM1A, "1A"));
         yield return new WaitUntil(() =>!isReadingData);
         StartCoroutine(ReadDataBehavior(NUM1B, "1B"));
@@ -199,8 +205,8 @@ public class DataHandler : MonoBehaviour
 
   
     }
-
-
+    */
+    /*
     public  IEnumerator ReadDataBehavior(int target ,string key)
     {
         isReadingData = true;
@@ -223,17 +229,17 @@ public class DataHandler : MonoBehaviour
         isReadingData = false;
   
     }
-
+    */
     public void SaveData()
     {
       //  StartCoroutine(SaveDataBehavior());
-        SendDataToGoogleSheet();
+        SendDataToGoogleSheet(false);
     }
-
+    /*
     public IEnumerator SaveDataBehavior()
     {
 
-        DatabaseHandler = GameObject.Find("DataBaseExample").GetComponent<DatabaseExampleHandler>();
+     //   DatabaseHandler = GameObject.Find("DataBaseExample").GetComponent<DatabaseExampleHandler>();
 
         foreach (var item in AllQuestionData)
         {
@@ -270,8 +276,8 @@ public class DataHandler : MonoBehaviour
         yield return new WaitUntil(() => !isReadingData);
         DatabaseHandler.PostJSON("UserData/" + CurrentUserID + "/Score", Score.ToString());
     }
-
-
+    */
+    /*
     public IEnumerator UpdateStatisticValue(int Key, string value)
     {
         switch (value)
@@ -343,7 +349,7 @@ public class DataHandler : MonoBehaviour
 
         yield break;
     }
-
+    */
     public string GetMultipleChoiceAnswers(int questionID)
     {
         string answer = "";
@@ -369,10 +375,25 @@ public class DataHandler : MonoBehaviour
     }
 
 
-    public void SendDataToGoogleSheet()
+    public void SendDataToGoogleSheet(bool isTest)
     {
-      
-            PlayerInfo _playerData = new PlayerInfo { UserID =  CurrentUserID, Q1 = GetMultipleChoiceAnswers(1), Q2 = AllQuestionData[2].Answers[0].OptionNum, Q3 = AllQuestionData[3].Answers[0].OptionNum, Q4 = AllQuestionData[4].Answers[0].OptionNum, Q5 = AllQuestionData[5].Answers[0].OptionNum, Q6 = AllQuestionData[6].Answers[0].OptionNum, Q7 = GetMultipleChoiceAnswers(7), Score = Score};
+
+       
+
+        PlayerInfo _playerData;
+        if (isTest)
+        {
+            _playerData = new PlayerInfo { UserID = CurrentUserID, Q1 = GetMultipleChoiceAnswers(1),
+                Q2 = AllQuestionData[2].Answers[0].OptionNum,
+                Q3 = "test", 
+                Q4 = "test", 
+                Q5 = "test", 
+                Q6 = "test", 
+                Q7 = "test", 
+                Score = 14 };
+        }
+
+        else  _playerData = new PlayerInfo { UserID =  CurrentUserID, Q1 = GetMultipleChoiceAnswers(1), Q2 = AllQuestionData[2].Answers[0].OptionNum, Q3 = AllQuestionData[3].Answers[0].OptionNum, Q4 = AllQuestionData[4].Answers[0].OptionNum, Q5 = AllQuestionData[5].Answers[0].OptionNum, Q6 = AllQuestionData[6].Answers[0].OptionNum, Q7 = GetMultipleChoiceAnswers(7), Score = Score};
 
            // Get the json string of the object.
             string jsonPlayer = JsonUtility.ToJson(_playerData);

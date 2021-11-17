@@ -396,7 +396,7 @@ public class Dialogue : MonoBehaviour
 
             }
 
-            yield return new WaitForSeconds(10f);
+            yield return new WaitForSeconds(13f);
 
             if (whitescreenid == 4)
             {

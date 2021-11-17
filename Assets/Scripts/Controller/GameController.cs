@@ -73,6 +73,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ReArrangeBgResource();
         StartVideoPlayer.Play();
 
         if (GameObject.Find("UIController"))

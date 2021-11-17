@@ -454,7 +454,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 397.7, y: -110.5}
+  m_AnchoredPosition: {x: 355, y: -95}
   m_SizeDelta: {x: 233, y: 233}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2537888262024428726
@@ -626,14 +626,22 @@ MonoBehaviour:
   Option3: 
   Option3NextDialogue: 0
   IsBigUI: 0
+  IsBigOption: 0
   NextButton: {fileID: 2537888262024428723}
   DialogueDetails: {fileID: 2537888263231240251}
+  DialogueDetailsBig: {fileID: 0}
   OptionObj1: {fileID: 2537888263084586331}
   OptionObj2: {fileID: 2537888263359593273}
   OptionObj3: {fileID: 2537888263483306413}
   Option1Text: {fileID: 2537888262676297402}
   Option2Text: {fileID: 2537888263585844523}
   Option3Text: {fileID: 2537888261942419374}
+  OptionObj1Big: {fileID: 0}
+  OptionObj2Big: {fileID: 0}
+  OptionObj3Big: {fileID: 0}
+  Option1TextBig: {fileID: 0}
+  Option2TextBig: {fileID: 0}
+  Option3TextBig: {fileID: 0}
 --- !u!1 &2537888262676297400
 GameObject:
   m_ObjectHideFlags: 0
@@ -949,7 +957,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3, y: 175}
+  m_AnchoredPosition: {x: -3, y: 204}
   m_SizeDelta: {x: 622.3, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2537888263231240252

@@ -135,6 +135,7 @@ public class Question : MonoBehaviour
         if (!LoadNewScene)
         {
 
+            if (GameController.Instance.CurrentDialogue.gameObject)
             Destroy(GameController.Instance.CurrentDialogue.gameObject);
             if (!FinishScreenShow)
             {

@@ -1076,7 +1076,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 115.795, y: 67.5}
+  m_AnchoredPosition: {x: 39, y: 55}
   m_SizeDelta: {x: 233, y: 233}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3145186856905744202
@@ -4070,15 +4070,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e4e487b467b5244991c3901da2b9444, type: 3}
---- !u!224 &7259685614774995182 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6371489906666494090, guid: 8e4e487b467b5244991c3901da2b9444,
-    type: 3}
-  m_PrefabInstance: {fileID: 4382989568714641508}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &7259685614467050197 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6371489907695221425, guid: 8e4e487b467b5244991c3901da2b9444,
+    type: 3}
+  m_PrefabInstance: {fileID: 4382989568714641508}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &7259685614774995182 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6371489906666494090, guid: 8e4e487b467b5244991c3901da2b9444,
     type: 3}
   m_PrefabInstance: {fileID: 4382989568714641508}
   m_PrefabAsset: {fileID: 0}
@@ -4391,15 +4391,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e4e487b467b5244991c3901da2b9444, type: 3}
---- !u!224 &904278389017587250 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6371489906666494090, guid: 8e4e487b467b5244991c3901da2b9444,
-    type: 3}
-  m_PrefabInstance: {fileID: 6116082045776262840}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &904278389186857993 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6371489907695221425, guid: 8e4e487b467b5244991c3901da2b9444,
+    type: 3}
+  m_PrefabInstance: {fileID: 6116082045776262840}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &904278389017587250 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6371489906666494090, guid: 8e4e487b467b5244991c3901da2b9444,
     type: 3}
   m_PrefabInstance: {fileID: 6116082045776262840}
   m_PrefabAsset: {fileID: 0}

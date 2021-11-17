@@ -301,6 +301,8 @@ namespace GoogleSheetsForUnity
                         UpdateStatus("Cannot find CloudConnector script on scene, cannot execute the request.");
                     
                     _connectionData = driveConnectorRuntime.connectionData;
+
+      
                 }
 #if UNITY_EDITOR
                 else
@@ -364,6 +366,11 @@ namespace GoogleSheetsForUnity
 
             if (runtime)
             {
+                if (driveConnectorRuntime == null)
+                {
+                    driveConnectorRuntime = DataHandler.Instance.transform.GetChild(0).GetComponent<DriveConnection>();
+                }
+
                 driveConnectorRuntime.ExecuteRequest(www, form);
             }
 #if UNITY_EDITOR

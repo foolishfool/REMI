@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 using TMPro;
 using UnityEngine.SceneManagement;
-using FirebaseWebGL.Examples.Database;
+using GoogleSheetsForUnity;
 
 public class UIController : MonoBehaviour
 {
@@ -49,6 +49,7 @@ public class UIController : MonoBehaviour
 
         Invoke("ShowIntroductionText",10f);
       
+    
     }
 
     void ShowIntroductionText()
