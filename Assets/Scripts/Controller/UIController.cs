@@ -11,6 +11,7 @@ public class UIController : MonoBehaviour
 {
     public GameObject IntroductionText;
     public GameObject NocharacterInfo;
+    public GameObject ScrollableHallway;
     public Image PersonImageLeft;
     public TextMeshProUGUI PersonNameLeft;
     public Image PersonImageLeftBig;
@@ -42,6 +43,8 @@ public class UIController : MonoBehaviour
     public List<Sprite> BGImgaes = new List<Sprite>();
 
     public List<string> BGVideoNames= new List<string>();
+
+    private  bool isLeavingScrollableHallway;
     // Start is called before the first frame update
     void Start()
     {
@@ -228,6 +231,26 @@ public class UIController : MonoBehaviour
         StartCoroutine(StartLoadNewSceneBehavior(fadeout));
     }
 
+    public void GotoNewScene(int sceneID)
+    {
+        if (isLeavingScrollableHallway)
+        {
+            return;
+        }
+        GameController.Instance.CurrentSceneID = sceneID;
+        StartCoroutine(StartLoadNewSceneBehavior(true));
+        isLeavingScrollableHallway = true;
+    }
+
+
+    public IEnumerator ShowScrollableHallway()
+    {
+        BlackScreen.DOColor(Color.black, 2f);
+        yield return new WaitForSeconds(2f);
+        ScrollableHallway.SetActive(true);
+        BlackScreen.DOColor(new Color(Color.black.a, Color.black.g, Color.black.b, 0), 2f);
+    }
+ 
 
     public IEnumerator StartLoadNewSceneBehavior(bool fadeout)
     {
@@ -235,12 +258,15 @@ public class UIController : MonoBehaviour
         {
             BlackScreen.DOColor(Color.black, 2f);
             yield return new WaitForSeconds(2f);
+            ScrollableHallway.SetActive(false);
             BG.sprite = BGImgaes[GameController.Instance.CurrentSceneID + 1];
             GameController.Instance.VideoTextureUpdate(BGVideoNames[GameController.Instance.CurrentSceneID + 1]);
+            isLeavingScrollableHallway = false;
         }
 
         else
         {
+            ScrollableHallway.SetActive(false);
             BG.sprite = BGImgaes[GameController.Instance.CurrentSceneID + 1];
             GameController.Instance.VideoTextureUpdate(BGVideoNames[GameController.Instance.CurrentSceneID + 1]);
             BlackScreen.DOColor(Color.black, 0f);      

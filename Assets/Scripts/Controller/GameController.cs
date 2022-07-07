@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 using System.IO;
 using UnityEngine.Video;
 using UnityEngine.UI;
-using OldMoatGames;
 
 public class GameController : MonoBehaviour
 {
@@ -239,7 +238,7 @@ public class GameController : MonoBehaviour
 
     public void ReArrangeBgResource()
     {
-        GifImage.GetComponent<AnimatedGifPlayer>().enabled = false;
+       // GifImage.GetComponent<AnimatedGifPlayer>().enabled = false;
 
         GifImage.GetComponent<RawImage>().texture = videoRenderTexture;
         StartVideoPlayer.Play();

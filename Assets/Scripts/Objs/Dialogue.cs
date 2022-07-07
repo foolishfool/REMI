@@ -216,16 +216,25 @@ public class Dialogue : MonoBehaviour
                      uicontroller.HidePersonUI();
                      Destroy(gameObject);
                      break;
-          // case 6:
-          //
-          //     //finish game
-          //     uicontroller.HidePersonUI();
-          //     uicontroller.FinishGameUI.SetActive(true);
-          //     uicontroller.Score.text = "Your Score: " + DataHandler.Instance.Score.ToString();
-          //     DataHandler.Instance.SaveData();
-          //     //save data
-          //     Destroy(gameObject);
-          //     break;
+                 case 7:
+
+        
+                    StartCoroutine(uicontroller.ShowScrollableHallway());
+                    uicontroller.DialogueFrame.transform.DOMoveY(uicontroller.DialogueFrameInitialPos.position.y, 0f);
+                    uicontroller.HidePersonUI();
+                    gameObject.transform.localScale = Vector3.zero;
+                    Invoke("DestroySelf", 4f);
+                break;
+            // case 6:
+            //
+            //     //finish game
+            //     uicontroller.HidePersonUI();
+            //     uicontroller.FinishGameUI.SetActive(true);
+            //     uicontroller.Score.text = "Your Score: " + DataHandler.Instance.Score.ToString();
+            //     DataHandler.Instance.SaveData();
+            //     //save data
+            //     Destroy(gameObject);
+            //     break;
 
 
             default:
@@ -281,6 +290,10 @@ public class Dialogue : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public void DestroySelf()
+    {
+        Destroy(gameObject);
+    }
     public void InitializeUI()
     {
 

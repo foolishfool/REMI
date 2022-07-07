@@ -10,6 +10,7 @@ namespace Lean.Touch
 		/// <summary>The method used to find fingers to use with this component. See LeanFingerFilter documentation for more information.</summary>
 		public LeanFingerFilter Use = new LeanFingerFilter(true);
 
+		public bool OnlyXaxis;
 		/// <summary>The camera the translation will be calculated using.\n\nNone = MainCamera.</summary>
 		[Tooltip("The camera the translation will be calculated using.\n\nNone = MainCamera.")]
 		public Camera Camera;
@@ -36,7 +37,7 @@ namespace Lean.Touch
 		[HideInInspector]
 		[SerializeField]
 		private Vector3 remainingTranslation;
-
+		private float currentY;
 		/// <summary>If you've set Use to ManuallyAddedFingers, then you can call this method to manually add a finger.</summary>
 		public void AddFinger(LeanFinger finger)
 		{
@@ -67,7 +68,13 @@ namespace Lean.Touch
 			Use.UpdateRequiredSelectable(gameObject);
 		}
 
-		protected virtual void Update()
+        private void Start()
+        {
+			currentY = transform.localPosition.y;
+
+		}
+
+        protected virtual void Update()
 		{
 			// Store
 			var oldPosition = transform.localPosition;
@@ -77,6 +84,12 @@ namespace Lean.Touch
 
 			// Calculate the screenDelta value based on these fingers
 			var screenDelta = LeanGesture.GetScreenDelta(fingers);
+
+            if (OnlyXaxis)
+            {
+				screenDelta = new Vector2(screenDelta.x, currentY);
+			
+			}
 
 			if (screenDelta != Vector2.zero)
 			{
@@ -110,6 +123,19 @@ namespace Lean.Touch
 
 			// Update remainingDelta with the dampened value
 			remainingTranslation = newRemainingTranslation;
+
+            if (transform.localPosition.x >=-14)
+            {
+				transform.localPosition = new Vector3(-14, transform.localPosition.y, transform.localPosition.z);
+
+			}
+
+
+			if (transform.localPosition.x <= -3128)
+			{
+				transform.localPosition = new Vector3(-3128, transform.localPosition.y, transform.localPosition.z);
+
+			}
 		}
 
 		private void TranslateUI(Vector2 screenDelta)

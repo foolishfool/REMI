@@ -152,7 +152,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8950731211910929925
 RectTransform:
   m_ObjectHideFlags: 0
@@ -527,7 +527,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6278249842625167344
 RectTransform:
   m_ObjectHideFlags: 0
@@ -682,7 +682,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -36, y: -2}
+  m_AnchoredPosition: {x: -0.9, y: -2}
   m_SizeDelta: {x: 41.1, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5756772194478759623
@@ -779,7 +779,7 @@ MonoBehaviour:
   m_CharacterValidation: 2
   m_RegexValue: 
   m_GlobalPointSize: 14
-  m_CharacterLimit: 0
+  m_CharacterLimit: 2
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls: []
@@ -855,7 +855,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8076544169138415061
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1370,7 +1370,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &9028280921115536936
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2048,7 +2048,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Birthday
+  m_text: Day of Birth
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0ba54514b4e0d34488ff24025046e1cf, type: 2}
   m_sharedMaterial: {fileID: -2639824024745345029, guid: 0ba54514b4e0d34488ff24025046e1cf,
@@ -3332,8 +3332,6 @@ MonoBehaviour:
   Answers:
   - {fileID: 1224378872804076650}
   - {fileID: 1439253206907082219}
-  - {fileID: 8501353078290900220}
-  - {fileID: 8942461598060619156}
   - {fileID: 1935636658715246826}
   - {fileID: 887169599889349908}
   CharacterInput:
