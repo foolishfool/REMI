@@ -40,7 +40,6 @@ public class GameController : MonoBehaviour
     public GameObject FrontImage;
     public GameObject GifImage;
     public RenderTexture videoRenderTexture;
-
     public static GameController Instance
     {
         get
@@ -263,17 +262,18 @@ public class GameController : MonoBehaviour
     public IEnumerator BeginDialogueBehavior()
     {
         uiController = GameObject.Find("UIController").GetComponent<UIController>();
-        uiController.BlackScreen.DOColor(Color.black, 2f);
-
-        yield return new WaitForSeconds(2f);
-        uiController.IntroductionText.SetActive(false);
-        VideoTextureUpdate("Command Deck");
-        yield return new WaitForSeconds(1f);
-        uiController.BlackScreen.DOColor(new Color(Color.black.a, Color.black.g, Color.black.b, 0), 2f);
-        yield return new WaitForSeconds(2f);
+        // uiController.BlackScreen.DOColor(Color.black, 2f);
+       // uiController.NocharacterInfo.SetActive(false);
+        //  yield return new WaitForSeconds(2f);
+         uiController.IntroductionText.SetActive(false);
+        // VideoTextureUpdate("Command Deck");
+        // yield return new WaitForSeconds(1f);
+        //  uiController.BlackScreen.DOColor(new Color(Color.black.a, Color.black.g, Color.black.b, 0), 2f);
+        //  yield return new WaitForSeconds(2f);
         // ShowNoCharacterText();
-
-        ShowNextDialogue(1);
+        StartCoroutine(uiController.ShowScrollableHallway());
+        yield break;
+        //ShowNextDialogue(1);
     }
 
     public void ShowNoCharacterText()
@@ -286,6 +286,7 @@ public class GameController : MonoBehaviour
             uiController.NocharacterInfo.SetActive(false);
         } );
     }
+
 
     void OnLevelWasLoaded(int level)
     { 

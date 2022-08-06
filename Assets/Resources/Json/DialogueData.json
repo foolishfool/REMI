@@ -1,7 +1,7 @@
 [
   {
     "ID": 1,
-    "Scene": 1,
+    "SceneID": 0,
     "PersonID": 1,
     "DialogueText": "Ah, greetings new recruit! I’m Professor N. It’s nice to mee-",
     "Expression": "Books",
@@ -21,7 +21,7 @@
   },
   {
     "ID": 2,
-    "Scene": 1,
+    "SceneID": 0,
     "PersonID": 1,
     "DialogueText": "OH NO!! THE BOOKS!!! THEY’RE FALLING!!!",
     "Expression": "Books",
@@ -41,7 +41,7 @@
   },
   {
     "ID": 3,
-    "Scene": 1,
+    "SceneID": 0,
     "PersonID": 1,
     "DialogueText": "Thanks T.O.G.A!! You’re the best! ",
     "Expression": "Happy",
@@ -61,7 +61,7 @@
   },
   {
     "ID": 4,
-    "Scene": 1,
+    "SceneID": 0,
     "PersonID": 2,
     "DialogueText": "Blip blip!!!",
     "Expression": "Happy",
@@ -81,7 +81,7 @@
   },
   {
     "ID": 5,
-    "Scene": 1,
+    "SceneID": 0,
     "PersonID": 1,
     "DialogueText": "Where was I? Yes, that’s right! Welcome to the Command Deck! This is where you will receive missions. As a new recruit, you must forge a Biobot of your own before you begin your training.",
     "Expression": "Happy",
@@ -101,7 +101,7 @@
   },
   {
     "ID": 6,
-    "Scene": 1,
+    "SceneID": 0,
     "PersonID": 99,
     "DialogueText": " ",
     "Expression": " ",
@@ -121,7 +121,7 @@
   },
   {
     "ID": 7,
-    "Scene": 1,
+    "SceneID": 0,
     "PersonID": 1,
     "DialogueText": "Biobots are living robots that grow in different ways, based on the human they are paired with. When they spend time with us, they change to suit our personality and needs. For example, my Biobot, T.O.G.A, has grown an extra pair of strong arms to help carry huge stacks of research books with me.",
     "Expression": "Happy",
@@ -141,7 +141,7 @@
   },
   {
     "ID": 8,
-    "Scene": 1,
+    "SceneID": 0,
     "PersonID": 1,
     "DialogueText": "Biobot training of course! Your mission is to help us study Biobots by training one and observing its changes. You see, they evolve by seeing the way you act and interact with others. Train a Biobot here at the academy and show us what you’ve got. Who knows? Maybe you could even join the Bioknights...",
     "Expression": "Happy",
@@ -161,7 +161,7 @@
   },
   {
     "ID": 9,
-    "Scene": 1,
+    "SceneID": 0,
     "PersonID": 1,
     "DialogueText": "What do you think? Ready to create your Biobot and begin your training?",
     "Expression": "Happy",
@@ -181,7 +181,7 @@
   },
   {
     "ID": 10,
-    "Scene": 1,
+    "SceneID": 0,
     "PersonID": 99,
     "DialogueText": " ",
     "Expression": " ",
@@ -201,7 +201,7 @@
   },
   {
     "ID": 11,
-    "Scene": 1,
+    "SceneID": 0,
     "PersonID": 1,
     "DialogueText": "Great! Don’t forget you are going to spend today showing your Biobot how you interact with others. Depending on your choices, you will see some helpful changes by the end of the day. Okay! Now I just need to ask you a couple of questions that will decide which Biobot you create.",
     "Expression": "Happy",
@@ -221,7 +221,7 @@
   },
   {
     "ID": 12,
-    "Scene": 1,
+    "SceneID": 0,
     "PersonID": 1,
     "DialogueText": "Let’s start with your talents. What three things on this list do you think you are good at?",
     "Expression": "Thinking",
@@ -241,7 +241,7 @@
   },
   {
     "ID": 13,
-    "Scene": 1,
+    "SceneID": 0,
     "PersonID": 1,
     "DialogueText": "Wow! I’m impressed! You have some useful talents there. Your Biobot will learn a lot from you!",
     "Expression": "Surprise",
@@ -261,7 +261,7 @@
   },
   {
     "ID": 14,
-    "Scene": 1,
+    "SceneID": 0,
     "PersonID": 1,
     "DialogueText": "Now let’s create a code for you.",
     "Expression": "Happy",
@@ -281,7 +281,7 @@
   },
   {
     "ID": 15,
-    "Scene": 1,
+    "SceneID": 0,
     "PersonID": 1,
     "DialogueText": "Lastly, in front of you are three Biocrystals. They are what gives Biobots life. Choose whichever one you like to form the heart of your Biobot.",
     "Expression": "Happy",
@@ -301,7 +301,7 @@
   },
   {
     "ID": 16,
-    "Scene": 1,
+    "SceneID": 0,
     "PersonID": 99,
     "DialogueText": "",
     "Expression": "",
@@ -321,7 +321,7 @@
   },
   {
     "ID": 17,
-    "Scene": 1,
+    "SceneID": 0,
     "PersonID": 1,
     "DialogueText": "Great choice!! Now, place it here to create your very own Biobot!",
     "Expression": "Happy",
@@ -341,7 +341,7 @@
   },
   {
     "ID": 18,
-    "Scene": 1,
+    "SceneID": 0,
     "PersonID": 1,
     "DialogueText": "Allow me to introduce you to your Biobot. His name is R.E.M.I. Don’t forget, he will change depending on the choices you make during your missions today.",
     "Expression": "Happy",
@@ -361,7 +361,7 @@
   },
   {
     "ID": 19,
-    "Scene": 1,
+    "SceneID": 0,
     "PersonID": 9,
     "DialogueText": "Blip blip!!!",
     "Expression": "Happy",
@@ -381,7 +381,7 @@
   },
   {
     "ID": 20,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 3,
     "DialogueText": "Hey!! Don’t I know you? Yeah it IS you!!",
     "Expression": "Surprise",
@@ -401,7 +401,7 @@
   },
   {
     "ID": 21,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 99,
     "DialogueText": "",
     "Expression": "",
@@ -421,7 +421,7 @@
   },
   {
     "ID": 22,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 3,
     "DialogueText": "That’s right!! I’m Tyra. I can’t believe we BOTH got recruited! It’s nice to see a familiar face!",
     "Expression": "Happy",
@@ -441,7 +441,7 @@
   },
   {
     "ID": 23,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 100,
     "DialogueText": "SLIP! CRASH! SPLAT!",
     "Expression": "",
@@ -461,7 +461,7 @@
   },
   {
     "ID": 24,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 4,
     "DialogueText": "OH NO YOU DIDN’T!!!!",
     "Expression": "Angry",
@@ -481,7 +481,7 @@
   },
   {
     "ID": 25,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 5,
     "DialogueText": "OH NO, I DID!!! What have I done!!?",
     "Expression": "Surprise",
@@ -501,7 +501,7 @@
   },
   {
     "ID": 26,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 4,
     "DialogueText": "YOU’VE TOTALLY RUINED MY OUTFIT!!!",
     "Expression": "Angry",
@@ -521,7 +521,7 @@
   },
   {
     "ID": 27,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 5,
     "DialogueText": "S-sorry! I just-",
     "Expression": "Surprise",
@@ -541,7 +541,7 @@
   },
   {
     "ID": 28,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 4,
     "DialogueText": "SORRY!? You did that on purpose! ",
     "Expression": "Angry",
@@ -561,7 +561,7 @@
   },
   {
     "ID": 29,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 3,
     "DialogueText": "Hey! What’s going on? ",
     "Expression": "Surprise",
@@ -581,7 +581,7 @@
   },
   {
     "ID": 30,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 4,
     "DialogueText": "This kid just barged into me and my Biobot!",
     "Expression": "Angry",
@@ -601,7 +601,7 @@
   },
   {
     "ID": 31,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 3,
     "DialogueText": "....Is that all?",
     "Expression": "Puzzle",
@@ -621,7 +621,7 @@
   },
   {
     "ID": 32,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 4,
     "DialogueText": "ANNNND he dumped his sticky space juice all over my new outfit! It’s in my hair too!! GROSS!!!",
     "Expression": "Angry",
@@ -641,7 +641,7 @@
   },
   {
     "ID": 33,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 3,
     "DialogueText": "Ok yikes! Wait. What? Wait a minute..",
     "Expression": "Thinking",
@@ -661,7 +661,7 @@
   },
   {
     "ID": 34,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 4,
     "DialogueText": "What!?",
     "Expression": "Angry",
@@ -681,7 +681,7 @@
   },
   {
     "ID": 35,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 3,
     "DialogueText": " Is it really called “Space Juice” oh yeah it is. Wow... so... creative…",
     "Expression": "Unamused",
@@ -701,7 +701,7 @@
   },
   {
     "ID": 36,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 4,
     "DialogueText": "Forget about what it’s called! It’s ALL OVER ME!!!",
     "Expression": "Angry",
@@ -721,7 +721,7 @@
   },
   {
     "ID": 37,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 5,
     "DialogueText": "Oh no! I’m so sorry! I was just trying to find my class and I’m completely lost!",
     "Expression": "Grimace",
@@ -741,7 +741,7 @@
   },
   {
     "ID": 38,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 4,
     "DialogueText": "Easy to be lost if you’re not watching where you’re going! Besides, your map is upside down, genius!",
     "Expression": "Angry",
@@ -761,7 +761,7 @@
   },
   {
     "ID": 39,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 4,
     "DialogueText": "How are you even here?! They’re supposed to recruit Bioknights!",
     "Expression": "Angry",
@@ -781,7 +781,7 @@
   },
   {
     "ID": 40,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 3,
     "DialogueText": "Ok, ouch. I think... What Atlas is trying to say is it’s not safe to walk around this busy courtyard with your head in a map.",
     "Expression": "Happy",
@@ -801,7 +801,7 @@
   },
   {
     "ID": 41,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 3,
     "DialogueText": "Don’t worry, errr. What’s your name?",
     "Expression": "Thinking",
@@ -821,7 +821,7 @@
   },
   {
     "ID": 42,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 5,
     "DialogueText": "It’s Zac. ",
     "Expression": "Happy",
@@ -841,7 +841,7 @@
   },
   {
     "ID": 43,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 3,
     "DialogueText": "Right, don’t worry Zac. Atlas is just mad cos you melted his hair wax.",
     "Expression": "Laugh",
@@ -861,7 +861,7 @@
   },
   {
     "ID": 44,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 4,
     "DialogueText": "Wow. Okay. I thought we were friends Ty! Why are you on this guy’s side??! Plus.. it’s not wax….",
     "Expression": "Unamused",
@@ -881,7 +881,7 @@
   },
   {
     "ID": 45,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 4,
     "DialogueText": "It's Styling Gel. ",
     "Expression": "Unamused",
@@ -901,7 +901,7 @@
   },
   {
     "ID": 46,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 3,
     "DialogueText": "Uhuh… sure. Well you’ve got ‘styling gel’ running down your face, tough guy.",
     "Expression": "Unamused",
@@ -921,7 +921,7 @@
   },
   {
     "ID": 47,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 99,
     "DialogueText": "Don’t worry! I got your back Atlas! Zac better watch where he’s going next time!!!",
     "Expression": "",
@@ -941,7 +941,7 @@
   },
   {
     "ID": 48,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 9,
     "DialogueText": "Zap!! Zap!! [Saving to memory]",
     "Expression": "Angry",
@@ -961,7 +961,7 @@
   },
   {
     "ID": 49,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 5,
     "DialogueText": "It was just an accident! ",
     "Expression": "Puzzle",
@@ -981,7 +981,7 @@
   },
   {
     "ID": 50,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 4,
     "DialogueText": "See!? Now there’s the support I needed from you, Ty!",
     "Expression": "Happy",
@@ -1001,7 +1001,7 @@
   },
   {
     "ID": 51,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 3,
     "DialogueText": "Jeez. Always so dramatic..",
     "Expression": "Eyeroll",
@@ -1021,7 +1021,7 @@
   },
   {
     "ID": 52,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 3,
     "DialogueText": "We better get to class now! We’re all super late! ",
     "Expression": "Surprise",
@@ -1041,7 +1041,7 @@
   },
   {
     "ID": 53,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 4,
     "DialogueText": "Hey! What about the space juice!?? I’m still completely soaked!",
     "Expression": "Angry",
@@ -1061,7 +1061,7 @@
   },
   {
     "ID": 54,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 3,
     "DialogueText": "You’re right… We better run fast so you can dry out on the way. Hahaha! ",
     "Expression": "Laugh",
@@ -1081,7 +1081,7 @@
   },
   {
     "ID": 55,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 4,
     "DialogueText": "NOT FUNNYYYY!!!",
     "Expression": "Angry",
@@ -1101,7 +1101,7 @@
   },
   {
     "ID": 56,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 99,
     "DialogueText": "I think he just needs some help, guys. We’re all new here!",
     "Expression": "",
@@ -1121,7 +1121,7 @@
   },
   {
     "ID": 57,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 99,
     "DialogueText": "Hey Zac, it’s alright, Atlas can see that you’re very sorry…",
     "Expression": "",
@@ -1141,7 +1141,7 @@
   },
   {
     "ID": 58,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 4,
     "DialogueText": "What?!!",
     "Expression": "Angry",
@@ -1161,7 +1161,7 @@
   },
   {
     "ID": 59,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 99,
     "DialogueText": "It was just an accident, Atlas, you can calm down now. I’ll help you fix your outfit.... I packed an extra shirt. You can wear it if you want.",
     "Expression": "",
@@ -1181,7 +1181,7 @@
   },
   {
     "ID": 60,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 9,
     "DialogueText": "Blip blip!!! [Saving to memory]",
     "Expression": "Happy",
@@ -1201,7 +1201,7 @@
   },
   {
     "ID": 61,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 4,
     "DialogueText": "Ugh… I guess that'll work for now…",
     "Expression": "Eyeroll",
@@ -1221,7 +1221,7 @@
   },
   {
     "ID": 62,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 5,
     "DialogueText": "Thanks……... again, sorry about that! ",
     "Expression": "Grimace",
@@ -1241,7 +1241,7 @@
   },
   {
     "ID": 63,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 3,
     "DialogueText": "Are you sorry though? ",
     "Expression": "Eyeroll",
@@ -1261,7 +1261,7 @@
   },
   {
     "ID": 64,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 5,
     "DialogueText": "YES!!! Of course I am!",
     "Expression": "Surprise",
@@ -1281,7 +1281,7 @@
   },
   {
     "ID": 65,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 3,
     "DialogueText": "I’m just messin with you! ",
     "Expression": "Laugh",
@@ -1301,7 +1301,7 @@
   },
   {
     "ID": 66,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 99,
     "DialogueText": "I think Tyra’s right. You need to calm down, Atlas.",
     "Expression": "",
@@ -1321,7 +1321,7 @@
   },
   {
     "ID": 67,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 9,
     "DialogueText": "Zeep... [Saving to memory]",
     "Expression": "Eyeroll",
@@ -1341,7 +1341,7 @@
   },
   {
     "ID": 68,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 3,
     "DialogueText": "Right!? Great minds think alike! ",
     "Expression": "Happy",
@@ -1361,7 +1361,7 @@
   },
   {
     "ID": 69,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 99,
     "DialogueText": "Zac said sorry like a million times already.",
     "Expression": "",
@@ -1381,7 +1381,7 @@
   },
   {
     "ID": 70,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 5,
     "DialogueText": "Sor...",
     "Expression": "Sad",
@@ -1401,7 +1401,7 @@
   },
   {
     "ID": 71,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 4,
     "DialogueText": "WE KNOW!!",
     "Expression": "Eyeroll",
@@ -1421,7 +1421,7 @@
   },
   {
     "ID": 72,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 4,
     "DialogueText": "So... Can your great minds figure out how to remove space juice stains from my clothes before we’re all late to class?",
     "Expression": "Eyeroll",
@@ -1441,7 +1441,7 @@
   },
   {
     "ID": 73,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 3,
     "DialogueText": "You’re right… We better run fast so you can dry out on the way. Hahaha!",
     "Expression": "Laugh",
@@ -1461,7 +1461,7 @@
   },
   {
     "ID": 74,
-    "Scene": 2,
+    "SceneID": 1,
     "PersonID": 4,
     "DialogueText": "NOT FUNNYYYY!!!",
     "Expression": "Angry",
@@ -1481,7 +1481,7 @@
   },
   {
     "ID": 75,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 6,
     "DialogueText": "Welcome to Mechology - the study of Biobots. To be a Bioknight we must understand Biobots as well as they understand us. Now, we all should know that Biobots can change by watching humans interact with others, but what are the parts of a Biobot? Let’s start with the most important part.",
     "Expression": "Happy",
@@ -1501,7 +1501,7 @@
   },
   {
     "ID": 76,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 6,
     "DialogueText": "Who can tell me what gives a Biobot life?",
     "Expression": "Thinking",
@@ -1521,7 +1521,7 @@
   },
   {
     "ID": 77,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 99,
     "DialogueText": "Oh, is it... the Biocrystal?",
     "Expression": "",
@@ -1541,7 +1541,7 @@
   },
   {
     "ID": 78,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 6,
     "DialogueText": "That’s right!",
     "Expression": "Happy",
@@ -1561,7 +1561,7 @@
   },
   {
     "ID": 79,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 6,
     "DialogueText": "But for extra points, how many colours of Biocrystal are there?",
     "Expression": "Thinking",
@@ -1581,7 +1581,7 @@
   },
   {
     "ID": 80,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 99,
     "DialogueText": "Three... I think.  ",
     "Expression": "",
@@ -1601,7 +1601,7 @@
   },
   {
     "ID": 81,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 6,
     "DialogueText": "Three! And they are..?",
     "Expression": "Thinking",
@@ -1621,7 +1621,7 @@
   },
   {
     "ID": 82,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 99,
     "DialogueText": "Blue, Red and Purple.",
     "Expression": "",
@@ -1641,7 +1641,7 @@
   },
   {
     "ID": 83,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 9,
     "DialogueText": "Blip blip!!!",
     "Expression": "Happy",
@@ -1661,7 +1661,7 @@
   },
   {
     "ID": 84,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 6,
     "DialogueText": "Well done! ",
     "Expression": "Happy",
@@ -1681,7 +1681,7 @@
   },
   {
     "ID": 85,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 4,
     "DialogueText": "Pshhh! Put your hand down, you cheater.",
     "Expression": "Angry",
@@ -1701,7 +1701,7 @@
   },
   {
     "ID": 86,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 3,
     "DialogueText": "Atlas! What are you talking about!?",
     "Expression": "Surprise",
@@ -1721,7 +1721,7 @@
   },
   {
     "ID": 87,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 4,
     "DialogueText": "Don’t you know?",
     "Expression": "Surprise",
@@ -1741,7 +1741,7 @@
   },
   {
     "ID": 88,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 3,
     "DialogueText": "Know what?",
     "Expression": "Surprise",
@@ -1761,7 +1761,7 @@
   },
   {
     "ID": 89,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 4,
     "DialogueText": "There was a glitch in the Academy system this year... Apparently one student isn’t meant to be here, and I reckon it’s them!",
     "Expression": "Angry",
@@ -1781,7 +1781,7 @@
   },
   {
     "ID": 90,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 9,
     "DialogueText": "...Bloop bleep?",
     "Expression": "Puzzle",
@@ -1801,7 +1801,7 @@
   },
   {
     "ID": 91,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 3,
     "DialogueText": "What!? No way!",
     "Expression": "Surprise",
@@ -1821,7 +1821,7 @@
   },
   {
     "ID": 92,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 3,
     "DialogueText": "What!? No way!",
     "Expression": "Surprise",
@@ -1841,7 +1841,7 @@
   },
   {
     "ID": 93,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 3,
     "DialogueText": "What!? No way!",
     "Expression": "Surprise",
@@ -1861,7 +1861,7 @@
   },
   {
     "ID": 94,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 4,
     "DialogueText": "Come on! It’s obvious!! Look at them trying to cover it up! Why would they be trying to answer every question? They’re trying to prove they're meant to be here so we don’t suspect them. ",
     "Expression": "Angry",
@@ -1881,7 +1881,7 @@
   },
   {
     "ID": 95,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 99,
     "DialogueText": "Did you hear what they were whispering about me before? It’s not true!",
     "Expression": "",
@@ -1901,7 +1901,7 @@
   },
   {
     "ID": 96,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 5,
     "DialogueText": "Yeah, total lies! You alright?",
     "Expression": "Angry",
@@ -1921,7 +1921,7 @@
   },
   {
     "ID": 97,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 99,
     "DialogueText": "Not really...",
     "Expression": "",
@@ -1941,7 +1941,7 @@
   },
   {
     "ID": 98,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 9,
     "DialogueText": "...Bloop... [Saving to memory]",
     "Expression": "Sad",
@@ -1961,7 +1961,7 @@
   },
   {
     "ID": 99,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 5,
     "DialogueText": "This always happens! I remember a few years ago, I spilled juice on my pants, like one time, and everyone called me WIZZ KID!! IT WAS JUST JUICE!!!",
     "Expression": "Eyeroll",
@@ -1981,7 +1981,7 @@
   },
   {
     "ID": 100,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 99,
     "DialogueText": "Hahaha! Wow, what is it with you and juice?! Sorry to laugh!",
     "Expression": "",
@@ -2001,7 +2001,7 @@
   },
   {
     "ID": 101,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 5,
     "DialogueText": "Hahaha! It’s okay! It’s funny now. No one calls me that anymore.",
     "Expression": "Laugh",
@@ -2021,7 +2021,7 @@
   },
   {
     "ID": 102,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 99,
     "DialogueText": "Why? ",
     "Expression": "",
@@ -2041,7 +2041,7 @@
   },
   {
     "ID": 103,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 5,
     "DialogueText": "I don’t know… I guess when you don’t pay attention to rumours, people just forget about them…",
     "Expression": "Thinking",
@@ -2061,7 +2061,7 @@
   },
   {
     "ID": 104,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 5,
     "DialogueText": "Just... don’t go reminding anyone, okay!?",
     "Expression": "Angry",
@@ -2081,7 +2081,7 @@
   },
   {
     "ID": 105,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 99,
     "DialogueText": "Your secret is safe with me, Wizz Kid! ",
     "Expression": "",
@@ -2101,7 +2101,7 @@
   },
   {
     "ID": 106,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 5,
     "DialogueText": "HEY!!! Hahaha!",
     "Expression": "Laugh",
@@ -2121,7 +2121,7 @@
   },
   {
     "ID": 107,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 9,
     "DialogueText": "Zing, Zing, Zing!! [Saving to memory]",
     "Expression": "Laugh",
@@ -2141,7 +2141,7 @@
   },
   {
     "ID": 108,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 99,
     "DialogueText": "Hey Tyra, Atlas, wait up! ",
     "Expression": "",
@@ -2161,7 +2161,7 @@
   },
   {
     "ID": 109,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 4,
     "DialogueText": "Yeah?",
     "Expression": "Happy",
@@ -2181,7 +2181,7 @@
   },
   {
     "ID": 110,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 99,
     "DialogueText": "I heard what you said about me. It’s not true! I got an invite if you want to see it…",
     "Expression": "",
@@ -2201,7 +2201,7 @@
   },
   {
     "ID": 111,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 9,
     "DialogueText": "...Beep...Beep... [Saving to memory]",
     "Expression": "Thinking",
@@ -2221,7 +2221,7 @@
   },
   {
     "ID": 112,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 4,
     "DialogueText": "What? But Kyle told me that Tom told him that you cheated your way in. ",
     "Expression": "Surprise",
@@ -2241,7 +2241,7 @@
   },
   {
     "ID": 113,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 99,
     "DialogueText": "But, how did I cheat? ",
     "Expression": "",
@@ -2261,7 +2261,7 @@
   },
   {
     "ID": 114,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 4,
     "DialogueText": "Well...he didn’t say how exactly…",
     "Expression": "Thinking",
@@ -2281,7 +2281,7 @@
   },
   {
     "ID": 115,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 3,
     "DialogueText": "I didn’t even think about that...",
     "Expression": "Grimace",
@@ -2301,7 +2301,7 @@
   },
   {
     "ID": 116,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 99,
     "DialogueText": "You could’ve just asked. I would’ve shown you proof, no drama. Here is the invite!",
     "Expression": "",
@@ -2321,7 +2321,7 @@
   },
   {
     "ID": 117,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 3,
     "DialogueText": "Oh...Hmm.. Sorry… Guess we shouldn’t listen to rumours...",
     "Expression": "Thinking",
@@ -2341,7 +2341,7 @@
   },
   {
     "ID": 118,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 99,
     "DialogueText": "Yeah...You never know if you’re hurting someone by just “talking”.",
     "Expression": "",
@@ -2361,7 +2361,7 @@
   },
   {
     "ID": 119,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 4,
     "DialogueText": "I guess I was wrong, my bad!",
     "Expression": "Grimace",
@@ -2381,7 +2381,7 @@
   },
   {
     "ID": 120,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 99,
     "DialogueText": "Hey Tyra, Atlas! You’re not going anywhere!",
     "Expression": "",
@@ -2401,7 +2401,7 @@
   },
   {
     "ID": 121,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 4,
     "DialogueText": "Huh?",
     "Expression": "Puzzle",
@@ -2421,7 +2421,7 @@
   },
   {
     "ID": 122,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 99,
     "DialogueText": "Why are you spreading those ridiculous lies?!",
     "Expression": "",
@@ -2441,7 +2441,7 @@
   },
   {
     "ID": 123,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 4,
     "DialogueText": "What are you talking-",
     "Expression": "Puzzle",
@@ -2461,7 +2461,7 @@
   },
   {
     "ID": 124,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 99,
     "DialogueText": "You’re saying I’m not supposed to be in this academy!",
     "Expression": "",
@@ -2481,7 +2481,7 @@
   },
   {
     "ID": 125,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 4,
     "DialogueText": "Yeah well... Kyle told me that Tom told him that you cheated your way in.",
     "Expression": "Angry",
@@ -2501,7 +2501,7 @@
   },
   {
     "ID": 126,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 99,
     "DialogueText": "I didn’t cheat!! Tell me how I cheated then!!",
     "Expression": "",
@@ -2521,7 +2521,7 @@
   },
   {
     "ID": 127,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 4,
     "DialogueText": "Well, he didn’t say how exactly...",
     "Expression": "Thinking",
@@ -2541,7 +2541,7 @@
   },
   {
     "ID": 128,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 3,
     "DialogueText": "But of course you’d say you didn’t cheat. That’s what a cheater WOULD say!",
     "Expression": "Eyeroll",
@@ -2561,7 +2561,7 @@
   },
   {
     "ID": 129,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 99,
     "DialogueText": "Well if you actually asked ME, I could have shown you proof! Here is the invite!",
     "Expression": "",
@@ -2581,7 +2581,7 @@
   },
   {
     "ID": 130,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 4,
     "DialogueText": "Well it’s not my fault! We couldn’t have known it was a lie!!!",
     "Expression": "Angry",
@@ -2601,7 +2601,7 @@
   },
   {
     "ID": 131,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 99,
     "DialogueText": "Well then don’t go spreading lies! Otherwise you’ll get what you give…",
     "Expression": "",
@@ -2621,7 +2621,7 @@
   },
   {
     "ID": 132,
-    "Scene": 3,
+    "SceneID": 2,
     "PersonID": 9,
     "DialogueText": "Zap!!! Zap!!! [Saving to memory]",
     "Expression": "Angry",
@@ -2641,7 +2641,7 @@
   },
   {
     "ID": 133,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 4,
     "DialogueText": "To pass today’s Zero Gravity mission, you must successfully float through the three floating rings, with your Biobot. Work as one and support each other. Most importantly, stay calm and confident, even when it feels uncomfortable. That’s how you become a good flyer, and a great Bioknight.",
     "Expression": "Happy",
@@ -2661,7 +2661,7 @@
   },
   {
     "ID": 134,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 3,
     "DialogueText": "Woah! Hahaha! Now THIS is what I call FUN! What do you think, L.U.N.A!!?",
     "Expression": "Happy",
@@ -2681,7 +2681,7 @@
   },
   {
     "ID": 135,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 7,
     "DialogueText": "Blip blip!!!",
     "Expression": "Happy",
@@ -2701,7 +2701,7 @@
   },
   {
     "ID": 136,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 4,
     "DialogueText": "Hahaha! Check out this trick! Am I the best or what!?",
     "Expression": "Laugh",
@@ -2721,7 +2721,7 @@
   },
   {
     "ID": 137,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 3,
     "DialogueText": "...Wow nice moves, Zac! You’re a natural at this!",
     "Expression": "Surprise",
@@ -2741,7 +2741,7 @@
   },
   {
     "ID": 138,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 4,
     "DialogueText": "Pffft what about me?!",
     "Expression": "Angry",
@@ -2761,7 +2761,7 @@
   },
   {
     "ID": 139,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 3,
     "DialogueText": "What about you!?",
     "Expression": "Eyeroll",
@@ -2781,7 +2781,7 @@
   },
   {
     "ID": 140,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 4,
     "DialogueText": "...Seriously!?",
     "Expression": "Unamused",
@@ -2801,7 +2801,7 @@
   },
   {
     "ID": 141,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 3,
     "DialogueText": "Hey check out that boy down there.",
     "Expression": "Surprise",
@@ -2821,7 +2821,7 @@
   },
   {
     "ID": 142,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 8,
     "DialogueText": "...",
     "Expression": "Sad",
@@ -2841,7 +2841,7 @@
   },
   {
     "ID": 143,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 4,
     "DialogueText": "...Yeah I see him. He looks sad or something. So what?",
     "Expression": "Eyeroll",
@@ -2861,7 +2861,7 @@
   },
   {
     "ID": 144,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 3,
     "DialogueText": "Does anyone know him? ",
     "Expression": "Thinking",
@@ -2881,7 +2881,7 @@
   },
   {
     "ID": 145,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 5,
     "DialogueText": "I don’t think so...",
     "Expression": "Thinking",
@@ -2901,7 +2901,7 @@
   },
   {
     "ID": 146,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 3,
     "DialogueText": "Yeah me neither. Should we like, do something?",
     "Expression": "Grimace",
@@ -2921,7 +2921,7 @@
   },
   {
     "ID": 147,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 4,
     "DialogueText": "Errrr… awkward?",
     "Expression": "Grimace",
@@ -2941,7 +2941,7 @@
   },
   {
     "ID": 148,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 3,
     "DialogueText": "But if it was you…. Wouldn’t you want someone to come up and help?",
     "Expression": "Thinking",
@@ -2961,7 +2961,7 @@
   },
   {
     "ID": 149,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 4,
     "DialogueText": "Nope! Haha!",
     "Expression": "Laugh",
@@ -2981,7 +2981,7 @@
   },
   {
     "ID": 150,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 3,
     "DialogueText": "...",
     "Expression": "Eyeroll",
@@ -3001,7 +3001,7 @@
   },
   {
     "ID": 151,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 99,
     "DialogueText": "Hey Zac, why don’t you go and ask if there’s anything wrong?",
     "Expression": "",
@@ -3021,7 +3021,7 @@
   },
   {
     "ID": 152,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 5,
     "DialogueText": "Why don’t you do it? None of us know him!",
     "Expression": "Thinking",
@@ -3041,7 +3041,7 @@
   },
   {
     "ID": 153,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 99,
     "DialogueText": "Me neither, I just don’t want it to be awkward!",
     "Expression": "",
@@ -3061,7 +3061,7 @@
   },
   {
     "ID": 154,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 9,
     "DialogueText": "Werrrrr!! [Saving to memory]",
     "Expression": "Grimace",
@@ -3081,7 +3081,7 @@
   },
   {
     "ID": 155,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 3,
     "DialogueText": "Wow. No one is going to go help?…I hope he’s okay on his own...",
     "Expression": "Thinking",
@@ -3101,7 +3101,7 @@
   },
   {
     "ID": 156,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 4,
     "DialogueText": "Well why don’t you go then?!",
     "Expression": "Angry",
@@ -3121,7 +3121,7 @@
   },
   {
     "ID": 157,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 3,
     "DialogueText": "Ugh… I’m terrible at talking to people I don’t know... ",
     "Expression": "Puzzle",
@@ -3141,7 +3141,7 @@
   },
   {
     "ID": 158,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 4,
     "DialogueText": " Well I guess that’s that! NOW can we get back to it!?",
     "Expression": "Happy",
@@ -3161,7 +3161,7 @@
   },
   {
     "ID": 159,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 99,
     "DialogueText": "Uhh.. I’m just gonna go down and check on them.",
     "Expression": "",
@@ -3181,7 +3181,7 @@
   },
   {
     "ID": 160,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 4,
     "DialogueText": "You do that. We’ll be up here having fun!",
     "Expression": "Laugh",
@@ -3201,7 +3201,7 @@
   },
   {
     "ID": 161,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 3,
     "DialogueText": "...Really Atlas?",
     "Expression": "Unamused",
@@ -3221,7 +3221,7 @@
   },
   {
     "ID": 162,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 5,
     "DialogueText": "What?",
     "Expression": "Puzzle",
@@ -3241,7 +3241,7 @@
   },
   {
     "ID": 163,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 99,
     "DialogueText": "Hey...I noticed you’re alone down here. Are you okay?",
     "Expression": "",
@@ -3261,7 +3261,7 @@
   },
   {
     "ID": 164,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 8,
     "DialogueText": "It’s nothing...",
     "Expression": "Sad",
@@ -3281,7 +3281,7 @@
   },
   {
     "ID": 165,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 99,
     "DialogueText": "Are you sure? I might be able to help. ",
     "Expression": "",
@@ -3301,7 +3301,7 @@
   },
   {
     "ID": 166,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 8,
     "DialogueText": "I just can’t get the hang of this! Everyone else can do it! Why can’t I?",
     "Expression": "Sad",
@@ -3321,7 +3321,7 @@
   },
   {
     "ID": 167,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 99,
     "DialogueText": "I think it helps to try and clear your mind of thoughts. Especially the negative ones. ",
     "Expression": "",
@@ -3341,7 +3341,7 @@
   },
   {
     "ID": 168,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 8,
     "DialogueText": "Are you seriously telling me to ‘think happy thoughts’ right now?",
     "Expression": "Unamused",
@@ -3361,7 +3361,7 @@
   },
   {
     "ID": 169,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 99,
     "DialogueText": "Kind of, yeah? Haha!",
     "Expression": "",
@@ -3381,7 +3381,7 @@
   },
   {
     "ID": 170,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 8,
     "DialogueText": "It just feels so strange and awkward!!",
     "Expression": "Grimace",
@@ -3401,7 +3401,7 @@
   },
   {
     "ID": 171,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 99,
     "DialogueText": "I know! But if you just keep trying… it does get easier. I promise!",
     "Expression": "",
@@ -3421,7 +3421,7 @@
   },
   {
     "ID": 172,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 8,
     "DialogueText": "Okay, I guess.. I could give it another try…",
     "Expression": "Thinking",
@@ -3441,7 +3441,7 @@
   },
   {
     "ID": 173,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 99,
     "DialogueText": "Think happy thoughts. Think happy thoughts.",
     "Expression": "",
@@ -3461,7 +3461,7 @@
   },
   {
     "ID": 174,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 8,
     "DialogueText": "Haha! That’s actually working!!!!",
     "Expression": "Laugh",
@@ -3481,7 +3481,7 @@
   },
   {
     "ID": 175,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 9,
     "DialogueText": "Blip blip!!! [Saving to memory]",
     "Expression": "Happy",
@@ -3501,7 +3501,7 @@
   },
   {
     "ID": 176,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 99,
     "DialogueText": "Well, I don’t know him either… Maybe he’ll figure it out by himself.",
     "Expression": "",
@@ -3521,7 +3521,7 @@
   },
   {
     "ID": 177,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 9,
     "DialogueText": "Werrrrr!! [Saving to memory]",
     "Expression": "Grimace",
@@ -3541,7 +3541,7 @@
   },
   {
     "ID": 178,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 3,
     "DialogueText": "Wow… so no one is going to go help?",
     "Expression": "Eyeroll",
@@ -3561,7 +3561,7 @@
   },
   {
     "ID": 179,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 4,
     "DialogueText": "Why don’t you go yourself if you’re so worried!?",
     "Expression": "Angry",
@@ -3581,7 +3581,7 @@
   },
   {
     "ID": 180,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 3,
     "DialogueText": "Oh! I would! But… I don’t know… I just don’t want it to be awkward!",
     "Expression": "Thinking",
@@ -3601,7 +3601,7 @@
   },
   {
     "ID": 181,
-    "Scene": 4,
+    "SceneID": 3,
     "PersonID": 4,
     "DialogueText": "Exactly!!! Now can we get back to having fun?",
     "Expression": "Eyeroll",
@@ -3621,7 +3621,7 @@
   },
   {
     "ID": 182,
-    "Scene": 5,
+    "SceneID": 4,
     "PersonID": 3,
     "DialogueText": "This mission is designed to test your creativity - an essential quality highly valued in a Bioknight. Your task is to take these robot parts and arrange them to build some gear for your Biobot.",
     "Expression": "Thinking",
@@ -3641,7 +3641,7 @@
   },
   {
     "ID": 183,
-    "Scene": 5,
+    "SceneID": 4,
     "PersonID": 4,
     "DialogueText": "What!? That’s easy!",
     "Expression": "Surprise",
@@ -3661,7 +3661,7 @@
   },
   {
     "ID": 184,
-    "Scene": 5,
+    "SceneID": 4,
     "PersonID": 3,
     "DialogueText": "Wait there’s more…",
     "Expression": "Grimace",
@@ -3681,7 +3681,7 @@
   },
   {
     "ID": 185,
-    "Scene": 5,
+    "SceneID": 4,
     "PersonID": 3,
     "DialogueText": "...However you won’t be shown the instructions. This is a lesson in problem solving and keeping your cool when faced with a difficult task.",
     "Expression": "Grimace",
@@ -3701,7 +3701,7 @@
   },
   {
     "ID": 186,
-    "Scene": 5,
+    "SceneID": 4,
     "PersonID": 4,
     "DialogueText": "Woah! I’ve never seen these Biobot parts before. Let’s see…",
     "Expression": "Puzzle",
@@ -3721,7 +3721,7 @@
   },
   {
     "ID": 187,
-    "Scene": 5,
+    "SceneID": 4,
     "PersonID": 4,
     "DialogueText": "... Hmmm. If I stick this battery case here, and connect these wires to it…",
     "Expression": "Thinking",
@@ -3741,7 +3741,7 @@
   },
   {
     "ID": 188,
-    "Scene": 5,
+    "SceneID": 4,
     "PersonID": 4,
     "DialogueText": "Oh that’s good! Hey Zac, can you pass me the….. Zac? Hey buddy, are you-",
     "Expression": "Happy",
@@ -3761,7 +3761,7 @@
   },
   {
     "ID": 189,
-    "Scene": 5,
+    "SceneID": 4,
     "PersonID": 5,
     "DialogueText": "Oh man! I can’t get this to work!!! This is so annoying! Mine looks the worst! I might as well give up.",
     "Expression": "Unamused",
@@ -3781,7 +3781,7 @@
   },
   {
     "ID": 190,
-    "Scene": 5,
+    "SceneID": 4,
     "PersonID": 4,
     "DialogueText": "Wow, man! Chill.",
     "Expression": "Surprise",
@@ -3801,7 +3801,7 @@
   },
   {
     "ID": 191,
-    "Scene": 5,
+    "SceneID": 4,
     "PersonID": 4,
     "DialogueText": "...Oh wait. Yeah that IS pretty bad! Hahaha!",
     "Expression": "Laugh",
@@ -3821,7 +3821,7 @@
   },
   {
     "ID": 192,
-    "Scene": 5,
+    "SceneID": 4,
     "PersonID": 5,
     "DialogueText": "See!!? ",
     "Expression": "Sad",
@@ -3841,7 +3841,7 @@
   },
   {
     "ID": 193,
-    "Scene": 5,
+    "SceneID": 4,
     "PersonID": 3,
     "DialogueText": "Wow! Someone has already finished!?",
     "Expression": "Surprise",
@@ -3861,7 +3861,7 @@
   },
   {
     "ID": 194,
-    "Scene": 5,
+    "SceneID": 4,
     "PersonID": 4,
     "DialogueText": " What!? No Way! How!???",
     "Expression": "Eyeroll",
@@ -3881,7 +3881,7 @@
   },
   {
     "ID": 195,
-    "Scene": 5,
+    "SceneID": 4,
     "PersonID": 5,
     "DialogueText": "Argh! THAT’S IT!! I’m no good at this!!!",
     "Expression": "Angry",
@@ -3901,7 +3901,7 @@
   },
   {
     "ID": 196,
-    "Scene": 5,
+    "SceneID": 4,
     "PersonID": 99,
     "DialogueText": "Zac, I’m sure you can figure it out! Don’t beat yourself up!",
     "Expression": "",
@@ -3921,7 +3921,7 @@
   },
   {
     "ID": 197,
-    "Scene": 5,
+    "SceneID": 4,
     "PersonID": 5,
     "DialogueText": "…",
     "Expression": "Sad",
@@ -3941,7 +3941,7 @@
   },
   {
     "ID": 198,
-    "Scene": 5,
+    "SceneID": 4,
     "PersonID": 99,
     "DialogueText": "Do you need a hand?",
     "Expression": "",
@@ -3961,7 +3961,7 @@
   },
   {
     "ID": 199,
-    "Scene": 5,
+    "SceneID": 4,
     "PersonID": 5,
     "DialogueText": "I need 50 hands!",
     "Expression": "Unamused",
@@ -3981,7 +3981,7 @@
   },
   {
     "ID": 200,
-    "Scene": 5,
+    "SceneID": 4,
     "PersonID": 99,
     "DialogueText": "Haha! Cool! Well I don’t have 50 hands... but I do have a couple of tricks that could help! Take a deep breath and lay all the pieces out in front of you.",
     "Expression": "",
@@ -4001,7 +4001,7 @@
   },
   {
     "ID": 201,
-    "Scene": 5,
+    "SceneID": 4,
     "PersonID": 5,
     "DialogueText": "Okay... If you say so..",
     "Expression": "Happy",
@@ -4021,7 +4021,7 @@
   },
   {
     "ID": 202,
-    "Scene": 5,
+    "SceneID": 4,
     "PersonID": 99,
     "DialogueText": "So it’s kind of like starting a Jigsaw puzzle. Find all the pieces that are similar and sort them into groups. It gives you a better idea of how the pieces might fit together.",
     "Expression": "",
@@ -4041,7 +4041,7 @@
   },
   {
     "ID": 203,
-    "Scene": 5,
+    "SceneID": 4,
     "PersonID": 5,
     "DialogueText": "That worked! Thanks for giving me a hand!",
     "Expression": "Happy",
@@ -4061,7 +4061,7 @@
   },
   {
     "ID": 204,
-    "Scene": 5,
+    "SceneID": 4,
     "PersonID": 4,
     "DialogueText": "Wow! Who would’ve thought you could come back from that!!!?",
     "Expression": "Laugh",
@@ -4081,7 +4081,7 @@
   },
   {
     "ID": 205,
-    "Scene": 5,
+    "SceneID": 4,
     "PersonID": 3,
     "DialogueText": "Hey! It ended up amazing! Good teamwork you two!",
     "Expression": "Happy",
@@ -4101,7 +4101,7 @@
   },
   {
     "ID": 206,
-    "Scene": 5,
+    "SceneID": 4,
     "PersonID": 9,
     "DialogueText": "Blip blip!!! [Saving to memory]",
     "Expression": "Happy",
@@ -4121,7 +4121,7 @@
   },
   {
     "ID": 207,
-    "Scene": 5,
+    "SceneID": 4,
     "PersonID": 5,
     "DialogueText": "Okay, I give up! I guess I’m not good enough to be a Bio-",
     "Expression": "Angry",
@@ -4141,7 +4141,7 @@
   },
   {
     "ID": 208,
-    "Scene": 5,
+    "SceneID": 4,
     "PersonID": 5,
     "DialogueText": "...Noooo...",
     "Expression": "Sad",
@@ -4161,7 +4161,7 @@
   },
   {
     "ID": 209,
-    "Scene": 5,
+    "SceneID": 4,
     "PersonID": 9,
     "DialogueText": "Werrrrr!! [Saving to memory]",
     "Expression": "Grimace",
@@ -4181,7 +4181,7 @@
   },
   {
     "ID": 210,
-    "Scene": 5,
+    "SceneID": 4,
     "PersonID": 99,
     "DialogueText": "Maybe take a deep breath and lay all the pieces out in front of you.",
     "Expression": "",
@@ -4201,7 +4201,7 @@
   },
   {
     "ID": 211,
-    "Scene": 5,
+    "SceneID": 4,
     "PersonID": 5,
     "DialogueText": "What good will that do!? It’s hopeless…",
     "Expression": "Unamused",
@@ -4221,7 +4221,7 @@
   },
   {
     "ID": 212,
-    "Scene": 5,
+    "SceneID": 4,
     "PersonID": 99,
     "DialogueText": "Well it’s kind of like starting a Jigsaw puzzle. Find all the pieces that are similar and sort them into groups. It gives you a better idea of how the pieces might fit together. ",
     "Expression": "",
@@ -4241,7 +4241,7 @@
   },
   {
     "ID": 213,
-    "Scene": 5,
+    "SceneID": 4,
     "PersonID": 5,
     "DialogueText": "Riiiiight! I seeeee! That’s a pretty good idea! I think I might have actually solved the-",
     "Expression": "Happy",
@@ -4261,7 +4261,7 @@
   },
   {
     "ID": 214,
-    "Scene": 5,
+    "SceneID": 4,
     "PersonID": 5,
     "DialogueText": "...Noooo...",
     "Expression": "Sad",
@@ -4281,7 +4281,7 @@
   },
   {
     "ID": 215,
-    "Scene": 5,
+    "SceneID": 4,
     "PersonID": 9,
     "DialogueText": "Werrrrr!! [Saving to memory]",
     "Expression": "Grimace",
@@ -4301,7 +4301,7 @@
   },
   {
     "ID": 216,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 3,
     "DialogueText": "Amazing!! This virtual reality mission looks so real! Okay! What do we need to do?",
     "Expression": "Thinking",
@@ -4321,7 +4321,7 @@
   },
   {
     "ID": 217,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 4,
     "DialogueText": "It says: “Bioknights must display focus and leadership in tough situations. To succeed in this mission, all four Biobots must make it to the other side of a river…”",
     "Expression": "Thinking",
@@ -4341,7 +4341,7 @@
   },
   {
     "ID": 218,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 5,
     "DialogueText": "Sounds easy enough... What’s the catch?",
     "Expression": "Thinking",
@@ -4361,7 +4361,7 @@
   },
   {
     "ID": 219,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 4,
     "DialogueText": "“...by instruction only…”",
     "Expression": "Surprise",
@@ -4381,7 +4381,7 @@
   },
   {
     "ID": 220,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 5,
     "DialogueText": "Riiiight… instruction only... ",
     "Expression": "Eyeroll",
@@ -4401,7 +4401,7 @@
   },
   {
     "ID": 221,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 5,
     "DialogueText": " …",
     "Expression": "Unamused",
@@ -4421,7 +4421,7 @@
   },
   {
     "ID": 222,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 5,
     "DialogueText": "What does that mean? ",
     "Expression": "Puzzle",
@@ -4441,7 +4441,7 @@
   },
   {
     "ID": 223,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 3,
     "DialogueText": "It means we can’t get in there and help them. We have to tell them what to do!",
     "Expression": "Grimace",
@@ -4461,7 +4461,7 @@
   },
   {
     "ID": 224,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 5,
     "DialogueText": "Riiiiight…",
     "Expression": "Laugh",
@@ -4481,7 +4481,7 @@
   },
   {
     "ID": 225,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 3,
     "DialogueText": "…",
     "Expression": "Unamused",
@@ -4501,7 +4501,7 @@
   },
   {
     "ID": 226,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 4,
     "DialogueText": "…Ummm guys?",
     "Expression": "Grimace",
@@ -4521,7 +4521,7 @@
   },
   {
     "ID": 227,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 5,
     "DialogueText": "THERE’S MORE!?",
     "Expression": "Surprise",
@@ -4541,7 +4541,7 @@
   },
   {
     "ID": 228,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 4,
     "DialogueText": "The river is also lava.",
     "Expression": "Laugh",
@@ -4561,7 +4561,7 @@
   },
   {
     "ID": 229,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 5,
     "DialogueText": "Okay cool…",
     "Expression": "Happy",
@@ -4581,7 +4581,7 @@
   },
   {
     "ID": 230,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 5,
     "DialogueText": "WHAT!????!?",
     "Expression": "Angry",
@@ -4601,7 +4601,7 @@
   },
   {
     "ID": 231,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 3,
     "DialogueText": "Relax! This is a simple exercise in teamwork! We just have to get our Biobots to work together to lift that giant tree trunk.",
     "Expression": "Eyeroll",
@@ -4621,7 +4621,7 @@
   },
   {
     "ID": 232,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 5,
     "DialogueText": "Wait a minute... that might not work because- ",
     "Expression": "Thinking",
@@ -4641,7 +4641,7 @@
   },
   {
     "ID": 233,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 3,
     "DialogueText": "Why?! It’s the perfect length! It’s long enough to go over the whole thing!",
     "Expression": "Angry",
@@ -4661,7 +4661,7 @@
   },
   {
     "ID": 234,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 5,
     "DialogueText": "...But what if…",
     "Expression": "Thinking",
@@ -4681,7 +4681,7 @@
   },
   {
     "ID": 235,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 3,
     "DialogueText": "No wait! If we can just get the Biobots to work together, they can throw the trunk over and run across.",
     "Expression": "Angry",
@@ -4701,7 +4701,7 @@
   },
   {
     "ID": 236,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 4,
     "DialogueText": "Sounds good to me!",
     "Expression": "Happy",
@@ -4721,7 +4721,7 @@
   },
   {
     "ID": 237,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 5,
     "DialogueText": "Tyra, hold on, listen to me! I think the-",
     "Expression": "Angry",
@@ -4741,7 +4741,7 @@
   },
   {
     "ID": 238,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 3,
     "DialogueText": "No, listen to me, Zac! Quit wasting time! You didn’t even know what “by instruction” meant! Leave the thinking to me and I will give the instructions! We’ve got Biobots to save! Atlas agrees! We all agree! Let’s do this!",
     "Expression": "Angry",
@@ -4761,7 +4761,7 @@
   },
   {
     "ID": 239,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 3,
     "DialogueText": "Come let’s do-",
     "Expression": "Angry",
@@ -4781,7 +4781,7 @@
   },
   {
     "ID": 240,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 99,
     "DialogueText": "Wait a second! Let’s hear what Zac thinks! ",
     "Expression": "",
@@ -4801,7 +4801,7 @@
   },
   {
     "ID": 241,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 9,
     "DialogueText": "...Beep...Beep... [Saving to memory]",
     "Expression": "Thinking",
@@ -4821,7 +4821,7 @@
   },
   {
     "ID": 242,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 3,
     "DialogueText": "Grrr. If we have to! But we’re wasting precious time!",
     "Expression": "Angry",
@@ -4841,7 +4841,7 @@
   },
   {
     "ID": 243,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 5,
     "DialogueText": "Alright. So the tree trunk idea is great... but I think it’s too risky! I mean, wood plus lava?",
     "Expression": "Grimace",
@@ -4861,7 +4861,7 @@
   },
   {
     "ID": 244,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 4,
     "DialogueText": "Firewood… ",
     "Expression": "Grimace",
@@ -4881,7 +4881,7 @@
   },
   {
     "ID": 245,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 5,
     "DialogueText": " Exactly! See those big boulders over there? Our Biobots could use them to make giant stepping stones. Then they could just hop across to the other side. It might be safer than the tree trunk.",
     "Expression": "Thinking",
@@ -4901,7 +4901,7 @@
   },
   {
     "ID": 246,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 4,
     "DialogueText": "Okay let’s do it! ",
     "Expression": "Happy",
@@ -4921,7 +4921,7 @@
   },
   {
     "ID": 247,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 3,
     "DialogueText": "Fine! Whatever! ",
     "Expression": "Angry",
@@ -4941,7 +4941,7 @@
   },
   {
     "ID": 248,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 5,
     "DialogueText": " Woohoo!! They made it!!! ",
     "Expression": "Happy",
@@ -4961,7 +4961,7 @@
   },
   {
     "ID": 249,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 3,
     "DialogueText": "My way would’ve worked too…",
     "Expression": "Unamused",
@@ -4981,7 +4981,7 @@
   },
   {
     "ID": 250,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 5,
     "DialogueText": "Guess we’ll never know, haha!",
     "Expression": "Happy",
@@ -5001,7 +5001,7 @@
   },
   {
     "ID": 251,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 99,
     "DialogueText": "Zac, just let Tyra call the shots. If we have to keep stopping to hear people’s ideas we’ll never get through this!",
     "Expression": "",
@@ -5021,7 +5021,7 @@
   },
   {
     "ID": 252,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 9,
     "DialogueText": "...Bzzz. [Saving to memory]",
     "Expression": "Unamused",
@@ -5041,7 +5041,7 @@
   },
   {
     "ID": 253,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 4,
     "DialogueText": "Fine, whatever!",
     "Expression": "Unamused",
@@ -5061,7 +5061,7 @@
   },
   {
     "ID": 254,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 3,
     "DialogueText": "Thanks!",
     "Expression": "Happy",
@@ -5081,7 +5081,7 @@
   },
   {
     "ID": 255,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 5,
     "DialogueText": "Oh no! The tree trunk caught fire! The biobots are turning back!",
     "Expression": "Grimace",
@@ -5101,7 +5101,7 @@
   },
   {
     "ID": 256,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 4,
     "DialogueText": "I knew it! We should have listened to more ideas before just going with the first one that came up!",
     "Expression": "Unamused",
@@ -5121,7 +5121,7 @@
   },
   {
     "ID": 257,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 3,
     "DialogueText": "Ughhh!! I was sure it would work!!",
     "Expression": "Angry",
@@ -5141,7 +5141,7 @@
   },
   {
     "ID": 258,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 4,
     "DialogueText": "Well now we’ve failed this mission, thanks Tyra!",
     "Expression": "Angry",
@@ -5161,7 +5161,7 @@
   },
   {
     "ID": 259,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 99,
     "DialogueText": "How about we share all our ideas then take a vote afterwards. Four heads are better than one, right? ",
     "Expression": "",
@@ -5181,7 +5181,7 @@
   },
   {
     "ID": 260,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 9,
     "DialogueText": "...Beep...Beep... [Saving to memory]",
     "Expression": "Thinking",
@@ -5201,7 +5201,7 @@
   },
   {
     "ID": 261,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 3,
     "DialogueText": "Ugh! If we have to! But we’re wasting precious time!",
     "Expression": "Angry",
@@ -5221,7 +5221,7 @@
   },
   {
     "ID": 262,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 5,
     "DialogueText": "Alright. So the tree trunk idea is great but I think it’s too risky. It’ll burn up over the lava. What do you think, Atlas?",
     "Expression": "Thinking",
@@ -5241,7 +5241,7 @@
   },
   {
     "ID": 263,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 4,
     "DialogueText": "Yeah I think you could be right. It might roll around too.",
     "Expression": "Thinking",
@@ -5261,7 +5261,7 @@
   },
   {
     "ID": 264,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 5,
     "DialogueText": "Exactly! See those huge rocks over there? We could use them to set up massive stepping stones. The Biobots can jump across and it might be safer than a wooden bridge.",
     "Expression": "Happy",
@@ -5281,7 +5281,7 @@
   },
   {
     "ID": 265,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 3,
     "DialogueText": "Seriously? Jumping from rock to rock sounds dangerous! What if the Biobots fall?",
     "Expression": "Angry",
@@ -5301,7 +5301,7 @@
   },
   {
     "ID": 266,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 4,
     "DialogueText": "How about we test both theories? If the tree burns up, we go with the rocks?",
     "Expression": "Happy",
@@ -5321,7 +5321,7 @@
   },
   {
     "ID": 267,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 5,
     "DialogueText": "Perfect! ",
     "Expression": "Happy",
@@ -5341,7 +5341,7 @@
   },
   {
     "ID": 268,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 5,
     "DialogueText": "We did it! The rocks worked!",
     "Expression": "Surprise",
@@ -5361,7 +5361,7 @@
   },
   {
     "ID": 269,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 3,
     "DialogueText": "Technically, the Biobots did it…",
     "Expression": "Eyeroll",
@@ -5381,7 +5381,7 @@
   },
   {
     "ID": 270,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 4,
     "DialogueText": "Haha, you’re just salty your idea didn’t work!",
     "Expression": "Laugh",
@@ -5401,7 +5401,7 @@
   },
   {
     "ID": 271,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 5,
     "DialogueText": "We ALL did it!",
     "Expression": "Happy",
@@ -5421,7 +5421,7 @@
   },
   {
     "ID": 272,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 4,
     "DialogueText": "Okay moving on to the next mission!",
     "Expression": "Happy",
@@ -5441,7 +5441,7 @@
   },
   {
     "ID": 273,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 5,
     "DialogueText": "Next mission!? Isn’t four enough!??",
     "Expression": "Puzzle",
@@ -5461,7 +5461,7 @@
   },
   {
     "ID": 274,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 3,
     "DialogueText": "Guys... we’re meant to report back to the command deck! ",
     "Expression": "Eyeroll",
@@ -5481,7 +5481,7 @@
   },
   {
     "ID": 275,
-    "Scene": 6,
+    "SceneID": 5,
     "PersonID": 5,
     "DialogueText": "Woah! Somethings going on with R.E.M.I!",
     "Expression": "Surprise",
@@ -5501,7 +5501,7 @@
   },
   {
     "ID": 276,
-    "Scene": 7,
+    "SceneID": 6,
     "PersonID": 1,
     "DialogueText": "Wow! It looks like R.E.M.I has received advanced upgrades! No doubt they will come in handy for future missions! You must have solved a bunch of obstacles, using a great deal of skills and it shows on your Biobot! Don’t forget that you’ll need to keep solving problems, be supportive, and work with your team to complete missions as a Bioknight!",
     "Expression": "Happy",
@@ -5521,7 +5521,7 @@
   },
   {
     "ID": 277,
-    "Scene": 7,
+    "SceneID": 6,
     "PersonID": 1,
     "DialogueText": "Don’t forget that you’ll need to keep solving problems, be supportive, and work with your team to complete missions as a Bioknight! \n",
     "Expression": "Happy",
@@ -5541,7 +5541,7 @@
   },
   {
     "ID": 278,
-    "Scene": 7,
+    "SceneID": 6,
     "PersonID": 1,
     "DialogueText": "Okay! I see R.E.M.I has picked up some good upgrades! It looks like you’ve done a few good deeds today! You may have solved some difficult situations, but it appears you might have avoided some others! Right now, your Biobot got intermediate upgrades. There is still more you can do to improve!",
     "Expression": "Happy",
@@ -5561,7 +5561,7 @@
   },
   {
     "ID": 279,
-    "Scene": 7,
+    "SceneID": 6,
     "PersonID": 1,
     "DialogueText": "There is still more to discover. Remember: You’ll need to solve problems, be supportive and work with your team to complete missions as a Bioknight! \n",
     "Expression": "Happy",
@@ -5581,7 +5581,7 @@
   },
   {
     "ID": 280,
-    "Scene": 7,
+    "SceneID": 6,
     "PersonID": 1,
     "DialogueText": "Interesting… It looks like R.E.M.I has picked up a few things that may not be helpful when working with others. Your biobot got beginner upgrades! You could try and spend a little more time thinking about your actions before making decisions. This will help R.E.M.I gain even better upgrades next time!",
     "Expression": "Thinking",
@@ -5601,7 +5601,7 @@
   },
   {
     "ID": 281,
-    "Scene": 7,
+    "SceneID": 6,
     "PersonID": 100,
     "DialogueText": "Some of these situations could have happened in your own life, don’t you think? Now, let’s finish by setting some goals of things that you can do to improve in your own life. ",
     "Expression": "",

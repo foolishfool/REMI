@@ -6,7 +6,7 @@ public class DialogueData
 {
     public int ID { get; set; }
 
-    public int Scene { get; set; }
+    public int SceneID { get; set; }
     public int PersonID { get; set; }
     public string DialogueText { get; set; }
     public string Expression { get; set; }

@@ -1,11 +1,10 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-using DG.Tweening;
-using System;
-using System.Linq;
 
 public class Dialogue : MonoBehaviour
 {
@@ -218,7 +217,7 @@ public class Dialogue : MonoBehaviour
                      break;
                  case 7:
 
-        
+                    
                     StartCoroutine(uicontroller.ShowScrollableHallway());
                     uicontroller.DialogueFrame.transform.DOMoveY(uicontroller.DialogueFrameInitialPos.position.y, 0f);
                     uicontroller.HidePersonUI();

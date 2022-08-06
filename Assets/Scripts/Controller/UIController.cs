@@ -6,12 +6,15 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine.SceneManagement;
 using GoogleSheetsForUnity;
+using Lean;
+using Lean.Touch;
 
 public class UIController : MonoBehaviour
 {
     public GameObject IntroductionText;
     public GameObject NocharacterInfo;
     public GameObject ScrollableHallway;
+    public GameObject UpgradePanel;
     public Image PersonImageLeft;
     public TextMeshProUGUI PersonNameLeft;
     public Image PersonImageLeftBig;
@@ -31,6 +34,7 @@ public class UIController : MonoBehaviour
     public Image BlackScreen;
     public GameObject FinishGameUI;
     public TextMeshProUGUI Score;
+    public TextMeshProUGUI Energy;
     public Image BG;
     public TextMeshProUGUI UserCode;
 
@@ -231,15 +235,39 @@ public class UIController : MonoBehaviour
         StartCoroutine(StartLoadNewSceneBehavior(fadeout));
     }
 
-    public void GotoNewScene(int sceneID)
+    public void GotoNewScene(int dialogueID)
     {
+
         if (isLeavingScrollableHallway)
         {
             return;
         }
-        GameController.Instance.CurrentSceneID = sceneID;
+
+        if (dialogueID == 999)
+        {
+            Energy.text = DataHandler.Instance.Score.ToString();
+            isLeavingScrollableHallway = true;
+            StartCoroutine(ShowUpgradePanel());
+            return;
+        }
+        GameController.Instance.CurrentDialogueID = dialogueID-1;
+        GameController.Instance.CurrentSceneID = DataHandler.Instance.AllDialogueDatas[dialogueID].SceneID;
         StartCoroutine(StartLoadNewSceneBehavior(true));
         isLeavingScrollableHallway = true;
+    }
+
+    public IEnumerator ShowUpgradePanel()
+    {
+        BlackScreen.DOColor(Color.black, 2f);
+        yield return new WaitForSeconds(2f);
+        ScrollableHallway.SetActive(false);
+        UpgradePanel.SetActive(true);
+        Energy.text = DataHandler.Instance.Score.ToString();
+        BlackScreen.DOColor(new Color(Color.black.a, Color.black.g, Color.black.b, 0), 2f);
+        BG.sprite = BGImgaes[7];
+        GameController.Instance.VideoTextureUpdate(BGVideoNames[7]);
+        isLeavingScrollableHallway = false;
+        yield break;
     }
 
 
@@ -249,6 +277,7 @@ public class UIController : MonoBehaviour
         yield return new WaitForSeconds(2f);
         ScrollableHallway.SetActive(true);
         BlackScreen.DOColor(new Color(Color.black.a, Color.black.g, Color.black.b, 0), 2f);
+        ScrollableHallway.GetComponent<LeanDragTranslate>().enabled = true;
     }
  
 
@@ -259,24 +288,23 @@ public class UIController : MonoBehaviour
             BlackScreen.DOColor(Color.black, 2f);
             yield return new WaitForSeconds(2f);
             ScrollableHallway.SetActive(false);
-            BG.sprite = BGImgaes[GameController.Instance.CurrentSceneID + 1];
-            GameController.Instance.VideoTextureUpdate(BGVideoNames[GameController.Instance.CurrentSceneID + 1]);
+   
+            BG.sprite = BGImgaes[GameController.Instance.CurrentSceneID];
+            GameController.Instance.VideoTextureUpdate(BGVideoNames[GameController.Instance.CurrentSceneID]);
             isLeavingScrollableHallway = false;
+
         }
 
         else
         {
             ScrollableHallway.SetActive(false);
-            BG.sprite = BGImgaes[GameController.Instance.CurrentSceneID + 1];
-            GameController.Instance.VideoTextureUpdate(BGVideoNames[GameController.Instance.CurrentSceneID + 1]);
+            BG.sprite = BGImgaes[GameController.Instance.CurrentSceneID];
+            GameController.Instance.VideoTextureUpdate(BGVideoNames[GameController.Instance.CurrentSceneID]);
             BlackScreen.DOColor(Color.black, 0f);      
         }
-     
 
-       
-     //   Debug.Log(BGVideoNames[GameController.Instance.CurrentSceneID + 1]);
+        ScrollableHallway.GetComponent<LeanDragTranslate>().enabled = false;
 
-        GameController.Instance.CurrentSceneID++;
         yield return new WaitForSeconds(1f);
         BlackScreen.DOColor(new Color(Color.black.a, Color.black.g, Color.black.b, 0), 2f);
         yield return new WaitForSeconds(2f);
@@ -432,5 +460,12 @@ public class UIController : MonoBehaviour
         Destroy(DataHandler.Instance.gameObject);
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(0);
+    }
+
+    public void Upgrade()
+    {
+        DataHandler.Instance.Score = int.Parse(Energy.text);
+        UpgradePanel.SetActive(false);
+        StartCoroutine(ShowScrollableHallway());       
     }
 }

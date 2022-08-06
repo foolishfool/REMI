@@ -35,7 +35,6 @@ public class DataHandler : MonoBehaviour
     [HideInInspector]
     public int CurrentPersonID;
 
-    [HideInInspector]
     public int Score;
 
     [HideInInspector]
