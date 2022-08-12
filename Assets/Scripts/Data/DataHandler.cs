@@ -30,7 +30,8 @@ public class DataHandler : MonoBehaviour
     public Dictionary<int, DialogueData> AllDialogueDatas = new Dictionary<int, DialogueData>();
     [HideInInspector]
     public Dictionary<int, Question> AllQuestionData = new Dictionary<int, Question>();
- 
+
+    public List<int> AllUnskipDialogueIDs = new List<int>();
     public string CurrentUserID;
     [HideInInspector]
     public int CurrentPersonID;
@@ -127,6 +128,10 @@ public class DataHandler : MonoBehaviour
             {
                 AllDialogueDatas.Add(item.ID, item);
 
+                if (item.NextOperation  == 2 )
+                {
+                    AllUnskipDialogueIDs.Add(item.ID);
+                }
             }
 
         }

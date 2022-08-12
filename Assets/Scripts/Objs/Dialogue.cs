@@ -65,6 +65,7 @@ public class Dialogue : MonoBehaviour
     void Start()
     {
         uicontroller = GameObject.Find("UIController").GetComponent<UIController>();
+        GameController.Instance.UiController.SkipButton.transform.localScale = Vector3.one;
     }
 
     // Update is called once per frame
@@ -177,10 +178,11 @@ public class Dialogue : MonoBehaviour
 
                         GameController.Instance.ShowNextQuestion();
                 //do not destroy as question will use its data
-                uicontroller.DialogueFrame.transform.DOMoveY(uicontroller.DialogueFrameInitialPos.position.y, 0f);
-                uicontroller.DialogueFrameBig.SetActive(false);
-                uicontroller.DialogueFrame.SetActive(false);
-                gameObject.transform.localScale = Vector3.zero;
+                        uicontroller.DialogueFrame.transform.DOMoveY(uicontroller.DialogueFrameInitialPos.position.y, 0f);
+                        uicontroller.DialogueFrameBig.SetActive(false);
+                        uicontroller.DialogueFrame.SetActive(false);
+                        gameObject.transform.localScale = Vector3.zero;
+                       
 
                 break;
                     case 3:
@@ -203,6 +205,7 @@ public class Dialogue : MonoBehaviour
                         break;
 
                     case 4:
+                        GameController.Instance.CurrentSceneID++;
                         uicontroller.LoadNewScene(true);
                         uicontroller.DialogueFrame.transform.DOMoveY(uicontroller.DialogueFrameInitialPos.position.y, 0f);
                         uicontroller.HidePersonUI();
@@ -217,12 +220,27 @@ public class Dialogue : MonoBehaviour
                      break;
                  case 7:
 
-                    
-                    StartCoroutine(uicontroller.ShowScrollableHallway());
+                if (uicontroller.CurrentHallWayButton)
+                {
+                    uicontroller.CurrentHallWayButton.GetComponent<Image>().sprite = uicontroller.HallwaybuttonDoneSprite;
+                    uicontroller.CurrentHallWayButton.enabled = false;
+                    if (uicontroller.CurrentHallWayButton.gameObject.name == "Zero G")
+                    {
+                        uicontroller.WavyTripBegin();
+                    }
+                    else
+                    {
+                        StartCoroutine(uicontroller.ShowScrollableHallway());
+                    }
+                }
+                else StartCoroutine(uicontroller.ShowScrollableHallway());
+
+
                     uicontroller.DialogueFrame.transform.DOMoveY(uicontroller.DialogueFrameInitialPos.position.y, 0f);
                     uicontroller.HidePersonUI();
                     gameObject.transform.localScale = Vector3.zero;
                     Invoke("DestroySelf", 4f);
+                    
                 break;
             // case 6:
             //
@@ -264,6 +282,7 @@ public class Dialogue : MonoBehaviour
         {
             if (DataHandler.Instance.AllQuestionData.Values.Last().Answers[0].OptionNum == priviousChosenStr[i])
             {
+                Debug.Log(nextMultipleDialogueID[i]);
                 GameController.Instance.ShowNextDialogue(nextMultipleDialogueID[i]);
                 Destroy(gameObject);
                 return;
@@ -323,7 +342,7 @@ public class Dialogue : MonoBehaviour
     {
 
         yield return new WaitUntil(() => GameController.Instance.ShowDialogueText);
-      
+        GameController.Instance.IsSkipClicked = false;
         if (GameController.Instance.IsBigUI)
         {
             DialogueDetails.gameObject.SetActive(false);

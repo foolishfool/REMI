@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Gold
+  - Score
+  - Point
+  - ScoreCenter
+  - Obstacle
+  - CharacterSelectController
   layers:
   - Default
   - TransparentFX
@@ -13,8 +19,8 @@ TagManager:
   - UI
   - 
   - 
-  - ScrollUI
-  - 
+  - Boom
+  - Path
   - 
   - 
   - 

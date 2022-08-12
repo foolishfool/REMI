@@ -31,11 +31,17 @@ public class UpgradeButton : MonoBehaviour
     void Update()
     {
 
-        if (DataHandler.Instance.Score < Energy)
+        if (int.Parse(uicontroller.Energy.text) - Energy <0 && !isChosen)
         {
             GetComponent<Button>().enabled = false;
             GetComponent<Image>().color = Color.gray;
             return;
+        }
+
+        else
+        {
+            GetComponent<Button>().enabled = true;
+            GetComponent<Image>().color = Color.white;
         }
 
 
@@ -78,13 +84,16 @@ public class UpgradeButton : MonoBehaviour
         if (isChosen)
         {
             ShowPart.SetActive(true);
+            if (ConflictPart)
             ConflictPart.SetActive(false);
             if (OriginalPart)
                 OriginalPart.SetActive(false);
             GetComponent<Image>().sprite = SelectedImage;
-            ConflictButton.enabled = false;
-            ConflictButton.GetComponent<Image>().color = Color.gray;
-            Debug.Log(Energy);
+            if (ConflictButton)
+            {
+                ConflictButton.enabled = false;
+                ConflictButton.GetComponent<Image>().color = Color.gray;
+            }
             uicontroller.Energy.text = (int.Parse(uicontroller.Energy.text) - Energy).ToString();
         }
 
@@ -94,8 +103,12 @@ public class UpgradeButton : MonoBehaviour
             if (OriginalPart)
             OriginalPart.SetActive(true);
             GetComponent<Image>().sprite = UnSelectedIMage;
-            ConflictButton.enabled = true;
-            ConflictButton.GetComponent<Image>().color = Color.white;
+            if (  ConflictButton)
+            {
+                ConflictButton.enabled = true;
+                ConflictButton.GetComponent<Image>().color = Color.white;
+            }
+ 
             uicontroller.Energy.text = (int.Parse(uicontroller.Energy.text) + Energy).ToString();
         }
     }

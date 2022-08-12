@@ -121,6 +121,10 @@ public class Question : MonoBehaviour
 
     public void SubmitQuestion()
     {
+        GameController.Instance.UiController.Score.gameObject.SetActive(true);
+        GameController.Instance.UiController.Score.text = "Your Score: " + DataHandler.Instance.Score; 
+        GameController.Instance.UiController.SkipButton.transform.localScale = Vector3.one;
+
         if (Answers.Count < MaxChoiceNum)
         {
             NoticePanelController.Instance.ShowNotice("You need to choose " + MaxChoiceNum + "items !",Color.red);
@@ -159,7 +163,9 @@ public class Question : MonoBehaviour
 
             else
             {
-                GameObject.Find("UIController").GetComponent<UIController>().FinishGameScreenShow();
+                Debug.Log(FinishScreenShow);
+                StartCoroutine(GameController.Instance.UiController.ShowScrollableHallway());
+                //  GameObject.Find("UIController").GetComponent<UIController>().FinishGameScreenShow();
             }
           
       
@@ -176,7 +182,22 @@ public class Question : MonoBehaviour
         }
        
         GameController.Instance.CurrentQuestionID++;
-        Destroy(gameObject);
+
+        if (GameController.Instance.CurrentQuestionID == 7)
+        {
+            GameController.Instance.UpgradeButtonOpen();
+        }
+        if (!FinishScreenShow)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            transform.localScale = Vector3.zero;
+        }
+
+        DataHandler.Instance.AllUnskipDialogueIDs.Remove(GameController.Instance.CurrentDialogueID);
+
     }
 
 

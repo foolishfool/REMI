@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     public int CurrentDialogueID;
-    [HideInInspector]
+  
     public Dialogue CurrentDialogue;
     public GameObject DialoguePrefab;
     public GameObject DialoguePrefabBig;
@@ -24,7 +24,7 @@ public class GameController : MonoBehaviour
     public GameObject CurrentEffect;
     public int NewDialogueID;
     static GameController instance;
-    private UIController uiController;
+    public UIController UiController;
     public List<GameObject> Questions;
     public List<GameObject> Effects;
     [HideInInspector]
@@ -40,6 +40,7 @@ public class GameController : MonoBehaviour
     public GameObject FrontImage;
     public GameObject GifImage;
     public RenderTexture videoRenderTexture;
+    public bool IsSkipClicked;
     public static GameController Instance
     {
         get
@@ -76,7 +77,7 @@ public class GameController : MonoBehaviour
 
         if (GameObject.Find("UIController"))
         {
-            uiController = GameObject.Find("UIController").GetComponent<UIController>();
+            UiController = GameObject.Find("UIController").GetComponent<UIController>();
         }
         
     }
@@ -87,7 +88,7 @@ public class GameController : MonoBehaviour
         if (videoName == "")
         {
             //uiController.VideoPlane.SetActive(false);
-            uiController.BG.transform.GetChild(0).gameObject.SetActive(false);
+            UiController.BG.transform.GetChild(0).gameObject.SetActive(false);
             return;
         }
         else
@@ -97,8 +98,8 @@ public class GameController : MonoBehaviour
             StartVideoPlayer.url = Path.Combine(Application.streamingAssetsPath, videoName + ".mp4");
             StartVideoPlayer.isLooping = true;
              StartVideoPlayer.Play();
-            if (uiController)
-                uiController.BG.transform.GetChild(0).gameObject.SetActive(true);
+            if (UiController)
+                UiController.BG.transform.GetChild(0).gameObject.SetActive(true);
            // uiController.VideoPlane.SetActive(true);
         }
     }
@@ -115,6 +116,14 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       // if (uiController)
+       // {
+       //     if (CurrentDialogue)
+       //     {
+       //         uiController.SkipButton.gameObject.SetActive(true);
+       //     }
+       //     else uiController.SkipButton.gameObject.SetActive(false);
+       // }
 
     }
 
@@ -132,7 +141,7 @@ public class GameController : MonoBehaviour
             return;
         }
 
-        uiController = GameObject.Find("UIController").GetComponent<UIController>();
+        UiController = GameObject.Find("UIController").GetComponent<UIController>();
         //reset
         ShowOptions = false;
         OptionClicked = false;
@@ -152,8 +161,8 @@ public class GameController : MonoBehaviour
              IsBigUI = true;
              
 
-         newDialogue = Instantiate(DialoguePrefab, uiController.DialoguePos.position, Quaternion.identity);
-        newDialogue.transform.parent = uiController.transform;
+        newDialogue = Instantiate(DialoguePrefab, UiController.DialoguePos.position, Quaternion.identity);
+        newDialogue.transform.parent = UiController.transform;
         newDialogue.transform.localScale = Vector3.one;
         if (CurrentDialogue)
         {
@@ -164,19 +173,19 @@ public class GameController : MonoBehaviour
         CurrentDialogue = newDialogue.GetComponent<Dialogue>();
         if (DataHandler.Instance.CurrentPersonID != DataHandler.Instance.AllDialogueDatas[ID].PersonID && DataHandler.Instance.CurrentPersonID != 0)
         {
-            uiController.HidePersonUI();
+            UiController.HidePersonUI();
             if (IsBigUI)
             {
-                uiController.DialogueFrameBig.transform.position = uiController.DialogueFrameInitialPos.position;
-                uiController.DialogueFrame.transform.position = uiController.DialogueFrameInitialPos.position;
-                uiController.DialogueFrame.SetActive(false);
-                uiController.DialogueFrameBig.SetActive(true);
+                UiController.DialogueFrameBig.transform.position = UiController.DialogueFrameInitialPos.position;
+                UiController.DialogueFrame.transform.position = UiController.DialogueFrameInitialPos.position;
+                UiController.DialogueFrame.SetActive(false);
+                UiController.DialogueFrameBig.SetActive(true);
               
             }
             else {
-                uiController.DialogueFrame.transform.DOMoveY(uiController.DialogueFrameInitialPos.position.y, 0f);
-                uiController.DialogueFrame.SetActive(false);
-                uiController.DialogueFrame.SetActive(true);
+                UiController.DialogueFrame.transform.DOMoveY(UiController.DialogueFrameInitialPos.position.y, 0f);
+                UiController.DialogueFrame.SetActive(false);
+                UiController.DialogueFrame.SetActive(true);
 
             }
           
@@ -186,10 +195,10 @@ public class GameController : MonoBehaviour
 
             if (IsBigUI)
             {
-                uiController.DialogueFrameBig.transform.DOMoveY(uiController.DialogueFramePosBig.position.y, 0.5f).OnComplete(() => uiController.NewDialoguePersonUIUpdateBasedOnBigUI(ID));
+                UiController.DialogueFrameBig.transform.DOMoveY(UiController.DialogueFramePosBig.position.y, 0.5f).OnComplete(() => UiController.NewDialoguePersonUIUpdateBasedOnBigUI(ID));
             }
             else
-            uiController.DialogueFrame.transform.DOMoveY(uiController.DialogueFramePos.position.y, 0.5f).OnComplete(() => uiController.NewDialoguePersonUIUpdateBasedOnBigUI(ID));
+            UiController.DialogueFrame.transform.DOMoveY(UiController.DialogueFramePos.position.y, 0.5f).OnComplete(() => UiController.NewDialoguePersonUIUpdateBasedOnBigUI(ID));
         }
         else if (DataHandler.Instance.CurrentPersonID == 0)
         {
@@ -197,28 +206,28 @@ public class GameController : MonoBehaviour
 
             if (IsBigUI)
             {
-                uiController.DialogueFrameBig.transform.DOMoveY(uiController.DialogueFramePosBig.position.y, 0.5f).OnComplete(() => uiController.NewDialoguePersonUIUpdateBasedOnBigUI(ID));
+                UiController.DialogueFrameBig.transform.DOMoveY(UiController.DialogueFramePosBig.position.y, 0.5f).OnComplete(() => UiController.NewDialoguePersonUIUpdateBasedOnBigUI(ID));
             }
             else
-            uiController.DialogueFrame.transform.DOMoveY(uiController.DialogueFramePos.position.y, 0.5f).OnComplete(() => uiController.NewDialoguePersonUIUpdateBasedOnBigUI(ID));
+            UiController.DialogueFrame.transform.DOMoveY(UiController.DialogueFramePos.position.y, 0.5f).OnComplete(() => UiController.NewDialoguePersonUIUpdateBasedOnBigUI(ID));
         }
         else if (DataHandler.Instance.CurrentPersonID == DataHandler.Instance.AllDialogueDatas[ID].PersonID)
         {
             //only update expression
             if (IsBigUI)
             {
-                uiController.DialogueFrameBig.transform.DOMoveY(uiController.DialogueFramePosBig.position.y, 0f);
-                uiController.DialogueFrameBig.SetActive(true);
-                uiController.DialogueFrame.SetActive(false);
+                UiController.DialogueFrameBig.transform.DOMoveY(UiController.DialogueFramePosBig.position.y, 0f);
+                UiController.DialogueFrameBig.SetActive(true);
+                UiController.DialogueFrame.SetActive(false);
             }
             else
             {
-                uiController.DialogueFrame.transform.DOMoveY(uiController.DialogueFramePos.position.y, 0f);
-                uiController.DialogueFrame.SetActive(true);
-                uiController.DialogueFrameBig.SetActive(false);
+                UiController.DialogueFrame.transform.DOMoveY(UiController.DialogueFramePos.position.y, 0f);
+                UiController.DialogueFrame.SetActive(true);
+                UiController.DialogueFrameBig.SetActive(false);
             }
         
-            uiController.NewDialoguePersonUIUpdateBasedOnBigUI(ID);
+            UiController.NewDialoguePersonUIUpdateBasedOnBigUI(ID);
         }
 
         newDialogue.GetComponent<Dialogue>().ReadDialogueData(ID);
@@ -229,9 +238,9 @@ public class GameController : MonoBehaviour
     public void ShowNextQuestion()
     {
         GameObject newQuestion = Instantiate(Questions[CurrentQuestionID], GameObject.Find(Questions[CurrentQuestionID].name + "Pos").transform.position,Quaternion.identity);
-        newQuestion.transform.SetParent(uiController.transform);
+        newQuestion.transform.SetParent(UiController.transform);
         newQuestion.transform.localScale = Vector3.one;
-        uiController.HidePersonUI();
+        UiController.HidePersonUI();
 
     }
 
@@ -261,29 +270,29 @@ public class GameController : MonoBehaviour
 
     public IEnumerator BeginDialogueBehavior()
     {
-        uiController = GameObject.Find("UIController").GetComponent<UIController>();
-        // uiController.BlackScreen.DOColor(Color.black, 2f);
-       // uiController.NocharacterInfo.SetActive(false);
-        //  yield return new WaitForSeconds(2f);
-         uiController.IntroductionText.SetActive(false);
-        // VideoTextureUpdate("Command Deck");
-        // yield return new WaitForSeconds(1f);
-        //  uiController.BlackScreen.DOColor(new Color(Color.black.a, Color.black.g, Color.black.b, 0), 2f);
-        //  yield return new WaitForSeconds(2f);
-        // ShowNoCharacterText();
-        StartCoroutine(uiController.ShowScrollableHallway());
-        yield break;
-        //ShowNextDialogue(1);
+        UiController = GameObject.Find("UIController").GetComponent<UIController>();
+         UiController.BlackScreen.DOColor(Color.black, 2f);
+        //uiController.NocharacterInfo.SetActive(false);
+          yield return new WaitForSeconds(2f);
+         UiController.IntroductionText.SetActive(false);
+         VideoTextureUpdate("Command Deck");
+         yield return new WaitForSeconds(1f);
+          UiController.BlackScreen.DOColor(new Color(Color.black.a, Color.black.g, Color.black.b, 0), 2f);
+          yield return new WaitForSeconds(2f);
+         //ShowNoCharacterText();
+       // StartCoroutine(uiController.ShowScrollableHallway());
+        //yield break;
+        ShowNextDialogue(1);
     }
 
     public void ShowNoCharacterText()
     {
-        uiController.NocharacterInfo.SetActive(true);
-        uiController.NocharacterInfo.GetComponentInChildren<Button>().onClick.AddListener(() =>
+        UiController.NocharacterInfo.SetActive(true);
+        UiController.NocharacterInfo.GetComponentInChildren<Button>().onClick.AddListener(() =>
 
         {
             ShowNextDialogue(1);
-            uiController.NocharacterInfo.SetActive(false);
+            UiController.NocharacterInfo.SetActive(false);
         } );
     }
 
@@ -292,5 +301,34 @@ public class GameController : MonoBehaviour
     { 
         if (level == 1)
           VideoTextureUpdate("Courtyard");
+    }
+
+    public void SkipDialogue()
+    {
+        if (IsSkipClicked)
+        {
+         
+            return;
+        }
+        IsSkipClicked = true;
+        int nextSkiptoId = DataHandler.Instance.AllUnskipDialogueIDs[0];
+        CurrentDialogue.ReadDialogueData(nextSkiptoId);
+        CurrentDialogueID = nextSkiptoId;
+        CurrentDialogue.NextButtonClick();
+        VideoTextureUpdate(UiController.BGVideoNames[DataHandler.Instance.AllDialogueDatas[nextSkiptoId].SceneID]);
+        //Debug.Log(uiController.BGVideoNames[DataHandler.Instance.AllDialogueDatas[nextSkiptoId].SceneID]);
+        DataHandler.Instance.AllUnskipDialogueIDs.Remove(nextSkiptoId);
+        UiController.SkipButton.transform.localScale = Vector3.zero;
+    }
+
+    public void UpgradeButtonOpen()
+    {
+        UiController.UpgradeButton.enabled = true;
+        UiController.UpgradeButton.GetComponent<Image>().sprite = UiController.UpgradeButtonSprite;  
+    }
+
+    public void GetBackHallway()
+    {
+        StartCoroutine(UiController.ShowScrollableHallway());
     }
 }

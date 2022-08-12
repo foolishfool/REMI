@@ -20,7 +20,9 @@ public class UIController : MonoBehaviour
     public Image PersonImageLeftBig;
     public TextMeshProUGUI PersonNameLeftBig;
     public GameObject VideoPlane;
-
+    public Button SkipButton;
+    public Button UpgradeButton;
+    public Sprite UpgradeButtonSprite;
     public Image PersonImageRight;
     public TextMeshProUGUI PersonNameRight;
     public Image PersonImageRightBig;
@@ -36,6 +38,7 @@ public class UIController : MonoBehaviour
     public TextMeshProUGUI Score;
     public TextMeshProUGUI Energy;
     public Image BG;
+    public Sprite HallwaybuttonDoneSprite;
     public TextMeshProUGUI UserCode;
 
     public List<GameObject> Crystals;
@@ -45,7 +48,8 @@ public class UIController : MonoBehaviour
     public List<Image> BlackScreens = new List<Image>();
     public RawImage Finishscreen;
     public List<Sprite> BGImgaes = new List<Sprite>();
-
+    
+    public Button CurrentHallWayButton;
     public List<string> BGVideoNames= new List<string>();
 
     private  bool isLeavingScrollableHallway;
@@ -55,8 +59,9 @@ public class UIController : MonoBehaviour
       // GameController.Instance.VideoTextureUpdate("Courtyard");
 
         Invoke("ShowIntroductionText",10f);
-      
-    
+        SkipButton.onClick.AddListener(() => GameController.Instance.SkipDialogue());
+
+
     }
 
     void ShowIntroductionText()
@@ -68,7 +73,11 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (GameController.Instance.CurrentDialogue)
+        {
+            SkipButton.gameObject.SetActive(true);
+        }
+        else SkipButton.gameObject.SetActive(false);
     }
 
     public void NewDialoguePersonUIUpdateBasedOnBigUI(int DialogueID )
@@ -84,7 +93,8 @@ public class UIController : MonoBehaviour
 
     public void UpdatePersonUI(int DialogueID, bool BIGUIORBIGOPTION)
     {
-
+        //Debug.Log(GetPersonnFileName(DialogueID) + "_" + DataHandler.Instance.AllDialogueDatas[DialogueID].Expression);
+        Sprite newsprite = Resources.Load("Sprites/Person/" + GetPersonnFileName(DialogueID) + "_" + DataHandler.Instance.AllDialogueDatas[DialogueID].Expression, typeof(Sprite)) as Sprite;
         if (GameController.Instance.LeftSizeShow)
         {
             if (GetPersonnFileName(DialogueID) != "YOU")
@@ -94,13 +104,41 @@ public class UIController : MonoBehaviour
                     PersonImageLeftBig.sprite = Resources.Load("Sprites/Person/" + GetPersonnFileName(DialogueID) + "_" + DataHandler.Instance.AllDialogueDatas[DialogueID].Expression, typeof(Sprite)) as Sprite;
                     PersonImageLeftBig.gameObject.SetActive(true);
                     PersonImageLeft.gameObject.SetActive(false);
+                   //if (!PersonImageLeftBig.sprite.name.Contains(GetPersonnFileName(DialogueID)))
+                   //{
+                   //   
+                   //    PersonImageLeftBig.sprite = newsprite;
+                   //    PersonImageLeftBig.gameObject.SetActive(true);
+                   //    PersonImageLeftBig.gameObject.transform.DOLocalMoveY(142, 0.3f);
+                   //}
+                   //else
+                   //    PersonImageLeftBig.gameObject.SetActive(true);
 
+
+                    //PersonImageLeft.gameObject.SetActive(false);
+                   // PersonImageLeft.sprite = null;
+                   // PersonImageLeft.gameObject.transform.DOLocalMoveY(-110, 0);
                 }
                 else
                 {
+
                     PersonImageLeft.sprite = Resources.Load("Sprites/Person/" + GetPersonnFileName(DialogueID) + "_" + DataHandler.Instance.AllDialogueDatas[DialogueID].Expression, typeof(Sprite)) as Sprite;
                     PersonImageLeft.gameObject.SetActive(true);
-                    PersonImageLeftBig.gameObject.SetActive(false);
+
+                    //if (!PersonImageLeft.sprite.name.Contains(GetPersonnFileName(DialogueID)))
+                    //{
+                    //   
+                    //    PersonImageLeft.sprite = newsprite;
+                    //    PersonImageLeft.gameObject.SetActive(true);
+                    //    PersonImageLeft.gameObject.transform.DOLocalMoveY(2, 0.3f);
+                    //}
+                    //else
+                    //    PersonImageLeft.gameObject.SetActive(true);
+
+
+                   // PersonImageLeftBig.gameObject.SetActive(false);
+                   // PersonImageLeftBig.sprite = null;
+                    //PersonImageLeftBig.gameObject.transform.DOLocalMoveY(-64, 0);
                 }
 
             }
@@ -113,13 +151,15 @@ public class UIController : MonoBehaviour
                     PersonNameLeftBig.gameObject.transform.parent.gameObject.SetActive(true);
                     PersonNameRightBig.gameObject.transform.parent.gameObject.SetActive(false);
                     PersonImageRightBig.gameObject.SetActive(false);
-
+                    //PersonImageRightBig.gameObject.transform.DOLocalMoveY(-64, 0);
 
                     PersonNameLeft.gameObject.transform.parent.gameObject.SetActive(false);
                     PersonNameRight.gameObject.transform.parent.gameObject.SetActive(false);
                     PersonImageRight.gameObject.SetActive(false);
+   
+                    //PersonImageRight.gameObject.transform.DOLocalMoveY(-110, 0);
 
-                }
+            }
 
                 else
                 {
@@ -129,10 +169,13 @@ public class UIController : MonoBehaviour
                     PersonNameRight.gameObject.transform.parent.gameObject.SetActive(false);
                     PersonImageRight.gameObject.SetActive(false);
 
+                   // PersonImageRight.gameObject.transform.DOLocalMoveY(-110, 0);
+
                     PersonNameLeftBig.gameObject.transform.parent.gameObject.SetActive(false);
                     PersonNameRightBig.gameObject.transform.parent.gameObject.SetActive(false);
                     PersonImageRightBig.gameObject.SetActive(false);
-                }
+                   // PersonImageRightBig.gameObject.transform.DOLocalMoveY(-64, 0);
+            }
 
 
         }
@@ -146,12 +189,39 @@ public class UIController : MonoBehaviour
                     PersonImageRightBig.sprite = Resources.Load("Sprites/Person/" + GetPersonnFileName(DialogueID) + "_" + DataHandler.Instance.AllDialogueDatas[DialogueID].Expression, typeof(Sprite)) as Sprite;
                     PersonImageRightBig.gameObject.SetActive(true);
                     PersonImageRight.gameObject.SetActive(false);
+                    // if (!PersonImageRightBig.sprite.name.Contains(GetPersonnFileName(DialogueID)))
+                    // {
+                    //   
+                    //     PersonImageRightBig.sprite = newsprite;
+                    //     PersonImageRightBig.gameObject.SetActive(true);
+                    //     PersonImageRightBig.gameObject.transform.DOLocalMoveY(142, 0.3f);
+                    // }
+                    // else
+                    //     PersonImageRight.gameObject.SetActive(true);
+                    //
+                    // PersonImageRight.gameObject.SetActive(false);
+                    // PersonImageRight.sprite = null;
+                    // PersonImageRight.gameObject.transform.DOLocalMoveY(-110, 0);
                 }
                 else
                 {
                     PersonImageRight.sprite = Resources.Load("Sprites/Person/" + GetPersonnFileName(DialogueID) + "_" + DataHandler.Instance.AllDialogueDatas[DialogueID].Expression, typeof(Sprite)) as Sprite;
                     PersonImageRight.gameObject.SetActive(true);
                     PersonImageRightBig.gameObject.SetActive(false);
+  
+                    //if (!PersonImageRight.sprite.name.Contains(GetPersonnFileName(DialogueID)))
+                    //{                     
+                    //    PersonImageRight.sprite = newsprite;
+                    //    PersonImageRight.gameObject.SetActive(true);
+                    //    PersonImageRight.gameObject.transform.DOLocalMoveY(2, 0.3f);
+                    //}
+                    //else
+                    //    PersonImageRight.gameObject.SetActive(true);
+                    //
+                    //
+                    //PersonImageRightBig.gameObject.SetActive(false);
+                    //PersonImageRightBig.sprite = null;
+                    //PersonImageRightBig.gameObject.transform.DOLocalMoveY(-64, 0);
                 }
 
 
@@ -167,10 +237,12 @@ public class UIController : MonoBehaviour
                     PersonImageLeftBig.gameObject.SetActive(false);
 
 
+
                     PersonNameRight.gameObject.transform.parent.gameObject.SetActive(false);
                     PersonNameLeft.gameObject.transform.parent.gameObject.SetActive(false);
                     PersonImageLeft.gameObject.SetActive(false);
-                }
+
+            }
                 else
                 {
                     PersonNameRight.text = GetPersonnFileName(DialogueID);
@@ -179,11 +251,11 @@ public class UIController : MonoBehaviour
                     PersonImageLeft.gameObject.SetActive(false);
 
 
-                    PersonNameRightBig.gameObject.transform.parent.gameObject.SetActive(false);
+                PersonNameRightBig.gameObject.transform.parent.gameObject.SetActive(false);
                     PersonNameLeftBig.gameObject.transform.parent.gameObject.SetActive(false);
                     PersonImageLeftBig.gameObject.SetActive(false);
 
-                }
+            }
 
 
         }
@@ -194,6 +266,7 @@ public class UIController : MonoBehaviour
             PersonImageRight.gameObject.SetActive(false);
             PersonImageLeftBig.gameObject.SetActive(false);
             PersonImageRightBig.gameObject.SetActive(false);
+
 
             PersonNameLeft.gameObject.transform.parent.gameObject.SetActive(false);
             PersonNameRight.gameObject.transform.parent.gameObject.SetActive(false);
@@ -278,6 +351,7 @@ public class UIController : MonoBehaviour
         ScrollableHallway.SetActive(true);
         BlackScreen.DOColor(new Color(Color.black.a, Color.black.g, Color.black.b, 0), 2f);
         ScrollableHallway.GetComponent<LeanDragTranslate>().enabled = true;
+
     }
  
 
@@ -439,7 +513,7 @@ public class UIController : MonoBehaviour
             }
            
         });
-            BlackScreens[id].transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOColor(new Color(Color.white.a, Color.white.g, Color.white.b, 0), 1f);
+        BlackScreens[id].transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOColor(new Color(Color.white.a, Color.white.g, Color.white.b, 0), 1f);
     }
 
 
@@ -466,6 +540,13 @@ public class UIController : MonoBehaviour
     {
         DataHandler.Instance.Score = int.Parse(Energy.text);
         UpgradePanel.SetActive(false);
-        StartCoroutine(ShowScrollableHallway());       
+       // StartCoroutine(ShowScrollableHallway());
+        FinishGameScreenShow();
+    }
+
+    public void WavyTripBegin()
+    {
+        SceneManager.LoadScene("WavyTrip", LoadSceneMode.Additive);
+        GameController.Instance.StartVideoPlayer.Stop();
     }
 }
